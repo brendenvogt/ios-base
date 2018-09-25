@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E4DCE37B215A20C200882D84 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DCE37A215A20C200882D84 /* UIColorExtensions.swift */; };
+		E4DCE37D215A211500882D84 /* CGFloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DCE37C215A211500882D84 /* CGFloatExtensions.swift */; };
+		E4DCE37F215A221600882D84 /* CALayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DCE37E215A221600882D84 /* CALayerExtensions.swift */; };
+		E4DCE381215A229C00882D84 /* HeaderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DCE380215A229C00882D84 /* HeaderFactory.swift */; };
+		E4DCE384215A230900882D84 /* CredentialStoreUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DCE383215A230900882D84 /* CredentialStoreUtility.swift */; };
+		E4DCE386215A246000882D84 /* KeychainUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DCE385215A246000882D84 /* KeychainUtility.swift */; };
 		E4F616762159E45400FF52FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F616752159E45400FF52FF /* AppDelegate.swift */; };
 		E4F616782159E45400FF52FF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F616772159E45400FF52FF /* HomeViewController.swift */; };
 		E4F6167E2159E45400FF52FF /* PROJNAME.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4F6167C2159E45400FF52FF /* PROJNAME.xcdatamodeld */; };
@@ -28,6 +34,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E4DCE37A215A20C200882D84 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		E4DCE37C215A211500882D84 /* CGFloatExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGFloatExtensions.swift; sourceTree = "<group>"; };
+		E4DCE37E215A221600882D84 /* CALayerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtensions.swift; sourceTree = "<group>"; };
+		E4DCE380215A229C00882D84 /* HeaderFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderFactory.swift; sourceTree = "<group>"; };
+		E4DCE383215A230900882D84 /* CredentialStoreUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialStoreUtility.swift; sourceTree = "<group>"; };
+		E4DCE385215A246000882D84 /* KeychainUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainUtility.swift; sourceTree = "<group>"; };
 		E4F616722159E45400FF52FF /* PROJNAME.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PROJNAME.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4F616752159E45400FF52FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4F616772159E45400FF52FF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +72,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E4DCE379215A208B00882D84 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E4DCE37C215A211500882D84 /* CGFloatExtensions.swift */,
+				E4DCE37A215A20C200882D84 /* UIColorExtensions.swift */,
+				E4DCE37E215A221600882D84 /* CALayerExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E4DCE382215A22EA00882D84 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				E4DCE383215A230900882D84 /* CredentialStoreUtility.swift */,
+				E4DCE385215A246000882D84 /* KeychainUtility.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		E4F616692159E45400FF52FF = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +135,8 @@
 		E4F616982159EA2D00FF52FF /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E4DCE382215A22EA00882D84 /* Utilities */,
+				E4DCE379215A208B00882D84 /* Extensions */,
 				E4F616A12159F0D600FF52FF /* Constants */,
 				E4F6169C2159ED2700FF52FF /* Factories */,
 			);
@@ -131,6 +164,7 @@
 			children = (
 				E4F6169D2159ED4A00FF52FF /* ViewControllerFactory.swift */,
 				E4F6169F2159EE3700FF52FF /* UrlFactory.swift */,
+				E4DCE380215A229C00882D84 /* HeaderFactory.swift */,
 			);
 			path = Factories;
 			sourceTree = "<group>";
@@ -242,11 +276,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4DCE381215A229C00882D84 /* HeaderFactory.swift in Sources */,
 				E4F616782159E45400FF52FF /* HomeViewController.swift in Sources */,
 				E4F616A02159EE3700FF52FF /* UrlFactory.swift in Sources */,
 				E4F6169E2159ED4A00FF52FF /* ViewControllerFactory.swift in Sources */,
+				E4DCE37F215A221600882D84 /* CALayerExtensions.swift in Sources */,
+				E4DCE37B215A20C200882D84 /* UIColorExtensions.swift in Sources */,
+				E4DCE384215A230900882D84 /* CredentialStoreUtility.swift in Sources */,
 				E4F616762159E45400FF52FF /* AppDelegate.swift in Sources */,
 				E4F6167E2159E45400FF52FF /* PROJNAME.xcdatamodeld in Sources */,
+				E4DCE386215A246000882D84 /* KeychainUtility.swift in Sources */,
+				E4DCE37D215A211500882D84 /* CGFloatExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
