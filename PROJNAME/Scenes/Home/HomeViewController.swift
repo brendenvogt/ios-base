@@ -9,7 +9,9 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
+    var viewModel : HomeViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("hello from home view controller")
