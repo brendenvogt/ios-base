@@ -18,7 +18,7 @@ public struct KeychainKeys {
 class KeychainUtility {
     
     //todo: fix identifier access group with AppIdentifierPrefix
-    //"xxxxxxxxxx.Noxford.Ios" $(AppIdentifierPrefix).Noxford.Ios
+    //"xxxxxxxxxx.PROJNAME.Ios" $(AppIdentifierPrefix).PROJNAME.Ios
     fileprivate static let kKeychainAccessGroupName = ""
     
     class func set(key: String, value: String) -> Bool{

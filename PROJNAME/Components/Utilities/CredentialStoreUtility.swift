@@ -23,8 +23,8 @@ class CredentialStoreUtility: NSObject {
     }
     
     public class func secLogin(_ authToken:String?) -> Bool {
-        CredentialStoreUtility.sharedInstance.authToken = token
-        if let authToken = token {
+        CredentialStoreUtility.sharedInstance.authToken = authToken
+        if let authToken = authToken {
             _ = KeychainUtility.set(key: KeychainKeys().kAuthToken, value: authToken)
         }
         return CredentialStoreUtility.isLoggedIn()
