@@ -24,6 +24,9 @@
 		E4F6168E2159E45500FF52FF /* PROJNAMETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6168D2159E45500FF52FF /* PROJNAMETests.swift */; };
 		E4F6169E2159ED4A00FF52FF /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6169D2159ED4A00FF52FF /* ViewControllerFactory.swift */; };
 		E4F616A02159EE3700FF52FF /* UrlFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6169F2159EE3700FF52FF /* UrlFactory.swift */; };
+		E4FE8763215D7C8D004CD7E9 /* AuthTokenContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FE8762215D7C8D004CD7E9 /* AuthTokenContract.swift */; };
+		E4FE8765215D7D46004CD7E9 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FE8764215D7D46004CD7E9 /* AuthController.swift */; };
+		E4FE8767215D7EDA004CD7E9 /* AuthRequestContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FE8766215D7EDA004CD7E9 /* AuthRequestContract.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +61,9 @@
 		E4F6168F2159E45500FF52FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4F6169D2159ED4A00FF52FF /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 		E4F6169F2159EE3700FF52FF /* UrlFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlFactory.swift; sourceTree = "<group>"; };
+		E4FE8762215D7C8D004CD7E9 /* AuthTokenContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTokenContract.swift; sourceTree = "<group>"; };
+		E4FE8764215D7D46004CD7E9 /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
+		E4FE8766215D7EDA004CD7E9 /* AuthRequestContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRequestContract.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +132,7 @@
 				E4F6167F2159E45400FF52FF /* Assets.xcassets */,
 				E4F616812159E45400FF52FF /* LaunchScreen.storyboard */,
 				E4F6167C2159E45400FF52FF /* PROJNAME.xcdatamodeld */,
+				E4FE875F215D7C4E004CD7E9 /* Api */,
 				E4F616992159EA4E00FF52FF /* Scenes */,
 				E4F616982159EA2D00FF52FF /* Components */,
 			);
@@ -183,6 +190,32 @@
 			children = (
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		E4FE875F215D7C4E004CD7E9 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				E4FE8761215D7C6F004CD7E9 /* Controllers */,
+				E4FE8760215D7C60004CD7E9 /* Contracts */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		E4FE8760215D7C60004CD7E9 /* Contracts */ = {
+			isa = PBXGroup;
+			children = (
+				E4FE8762215D7C8D004CD7E9 /* AuthTokenContract.swift */,
+				E4FE8766215D7EDA004CD7E9 /* AuthRequestContract.swift */,
+			);
+			path = Contracts;
+			sourceTree = "<group>";
+		};
+		E4FE8761215D7C6F004CD7E9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E4FE8764215D7D46004CD7E9 /* AuthController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,10 +318,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4FE8763215D7C8D004CD7E9 /* AuthTokenContract.swift in Sources */,
 				E4DCE381215A229C00882D84 /* HeaderFactory.swift in Sources */,
 				E4F616782159E45400FF52FF /* HomeViewController.swift in Sources */,
 				E4F616A02159EE3700FF52FF /* UrlFactory.swift in Sources */,
 				E4F6169E2159ED4A00FF52FF /* ViewControllerFactory.swift in Sources */,
+				E4FE8767215D7EDA004CD7E9 /* AuthRequestContract.swift in Sources */,
+				E4FE8765215D7D46004CD7E9 /* AuthController.swift in Sources */,
 				E4DCE37F215A221600882D84 /* CALayerExtensions.swift in Sources */,
 				E4DCE37B215A20C200882D84 /* UIColorExtensions.swift in Sources */,
 				E4DCE388215A307900882D84 /* UIViewExtension.swift in Sources */,
