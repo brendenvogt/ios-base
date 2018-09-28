@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E45C5B16215DE05C001F1CD4 /* ErrorContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45C5B15215DE05C001F1CD4 /* ErrorContract.swift */; };
+		E45C5B18215DE078001F1CD4 /* BoolContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45C5B17215DE078001F1CD4 /* BoolContract.swift */; };
 		E4DCE37B215A20C200882D84 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DCE37A215A20C200882D84 /* UIColorExtensions.swift */; };
 		E4DCE37D215A211500882D84 /* CGFloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DCE37C215A211500882D84 /* CGFloatExtensions.swift */; };
 		E4DCE37F215A221600882D84 /* CALayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DCE37E215A221600882D84 /* CALayerExtensions.swift */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E45C5B15215DE05C001F1CD4 /* ErrorContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorContract.swift; sourceTree = "<group>"; };
+		E45C5B17215DE078001F1CD4 /* BoolContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolContract.swift; sourceTree = "<group>"; };
 		E4DCE37A215A20C200882D84 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		E4DCE37C215A211500882D84 /* CGFloatExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGFloatExtensions.swift; sourceTree = "<group>"; };
 		E4DCE37E215A221600882D84 /* CALayerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtensions.swift; sourceTree = "<group>"; };
@@ -206,6 +210,8 @@
 			children = (
 				E4FE8762215D7C8D004CD7E9 /* AuthTokenContract.swift */,
 				E4FE8766215D7EDA004CD7E9 /* AuthRequestContract.swift */,
+				E45C5B15215DE05C001F1CD4 /* ErrorContract.swift */,
+				E45C5B17215DE078001F1CD4 /* BoolContract.swift */,
 			);
 			path = Contracts;
 			sourceTree = "<group>";
@@ -321,11 +327,13 @@
 				E4FE8763215D7C8D004CD7E9 /* AuthTokenContract.swift in Sources */,
 				E4DCE381215A229C00882D84 /* HeaderFactory.swift in Sources */,
 				E4F616782159E45400FF52FF /* HomeViewController.swift in Sources */,
+				E45C5B18215DE078001F1CD4 /* BoolContract.swift in Sources */,
 				E4F616A02159EE3700FF52FF /* UrlFactory.swift in Sources */,
 				E4F6169E2159ED4A00FF52FF /* ViewControllerFactory.swift in Sources */,
 				E4FE8767215D7EDA004CD7E9 /* AuthRequestContract.swift in Sources */,
 				E4FE8765215D7D46004CD7E9 /* AuthController.swift in Sources */,
 				E4DCE37F215A221600882D84 /* CALayerExtensions.swift in Sources */,
+				E45C5B16215DE05C001F1CD4 /* ErrorContract.swift in Sources */,
 				E4DCE37B215A20C200882D84 /* UIColorExtensions.swift in Sources */,
 				E4DCE388215A307900882D84 /* UIViewExtension.swift in Sources */,
 				E4DCE384215A230900882D84 /* CredentialStoreUtility.swift in Sources */,

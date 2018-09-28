@@ -17,7 +17,6 @@ public struct AuthRequestContract: Codable {
         }
         """
     
-    
     var username: String
     var password: String
     

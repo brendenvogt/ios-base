@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         let sample = AuthRequestContract.SampleString
         if let fromJson = AuthController.getAuthFromJson(json: sample) {
             print("success json")
@@ -22,7 +23,7 @@ class HomeViewController: UIViewController {
         }else {
             print("result json failed")
         }
-        
+    
         
         let authRequest = AuthRequestContract(username: "brendenvogt", password: "testpass")
         if let result = AuthController.getAuth(credentials: authRequest) {
