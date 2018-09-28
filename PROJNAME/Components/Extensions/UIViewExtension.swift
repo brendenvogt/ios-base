@@ -10,6 +10,16 @@ import UIKit
 
 extension UIView {
     
+    func snapToSuper(withInsets insets: UIEdgeInsets = .zero){
+        if let superView = self.superview {
+            self.translatesAutoresizingMaskIntoConstraints = false
+            self.topAnchor.constraint(equalTo: superView.topAnchor, constant: insets.top).isActive = true
+            self.bottomAnchor.constraint(equalTo: superView.bottomAnchor, constant: -insets.bottom).isActive = true
+            self.leftAnchor.constraint(equalTo: superView.leftAnchor, constant: insets.left).isActive = true
+            self.rightAnchor.constraint(equalTo: superView.rightAnchor, constant: -insets.right).isActive = true
+        }
+    }
+    
     var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
