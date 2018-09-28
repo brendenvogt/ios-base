@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import Alamofire
 
 class AuthController: NSObject {
     
     public class func getApi(completion: @escaping (BoolContract?, ErrorContract?) -> Void) {
         Alamofire.request(UrlFactory.api()).responseJSON { response in
-            if let error: ErrorContract? = try? JSONDecoder().decode(ErrorContract.self, from: json.data(using: .utf8)!)
-            if let result: BoolContract? = try? JSONDecoder().decode(BoolContract.self, from: json.data(using: .utf8)!)
-            completion(result, error)
+            if let data = response.data {
+                let error: ErrorContract? = try? JSONDecoder().decode(ErrorContract.self, from: data)
+                let result: BoolContract? = try? JSONDecoder().decode(BoolContract.self, from: data)
+                completion(result, error)
+            }
         }
     }
     
