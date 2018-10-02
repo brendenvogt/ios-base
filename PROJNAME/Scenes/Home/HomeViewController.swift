@@ -27,22 +27,32 @@ class HomeViewController: UIViewController {
         view.addSubview(label)
         label.snapToSuper()
         
-        let sample = AuthRequestContract.SampleString
-        if let fromJson = AuthController.getAuthFromJson(json: sample) {
-            print("success json")
-            print(fromJson)
-        }else {
-            print("result json failed")
-        }
-    
-    
-        let authRequest = AuthRequestContract(username: "brendenvogt", password: "testpass")
-        if let result = AuthController.getAuth(credentials: authRequest) {
-            print("success")
-            print(result)
-        }else {
-            print("result failed")
-        }
+        ApiController.getApi(completion: { (result, err) in
+            if let err = err {
+                print(err)
+            }
+            if let result = result {
+                print(result)
+                self.label.text = String(result.response ?? false)
+            }
+        })
+        
+//        let sample = AuthRequestContract.SampleString
+//        if let fromJson = AuthController.getAuthFromJson(json: sample) {
+//            print("success json")
+//            print(fromJson)
+//        }else {
+//            print("result json failed")
+//        }
+//
+//
+//        let authRequest = AuthRequestContract(username: "brendenvogt", password: "testpass")
+//        if let result = AuthController.getAuth(credentials: authRequest) {
+//            print("success")
+//            print(result)
+//        }else {
+//            print("result failed")
+//        }
     }
 
 }

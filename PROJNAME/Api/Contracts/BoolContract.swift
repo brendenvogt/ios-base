@@ -16,13 +16,13 @@ public struct BoolContract : Codable {
         }
         """
     
-    public init(result:Bool) {
-        self.result = result
+    public init(response:Bool) {
+        self.response = response
     }
     
-    var result : Bool?
+    var response : Bool?
     
     enum CodingKeys: String, CodingKey {
-        case result
+        case response
     }
 }

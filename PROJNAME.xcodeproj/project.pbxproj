@@ -11,6 +11,8 @@
 		BB5788C0ED806E50126D963C /* Pods_PROJNAMETests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC903075F131892632A3E1E /* Pods_PROJNAMETests.framework */; };
 		E45C5B16215DE05C001F1CD4 /* ErrorContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45C5B15215DE05C001F1CD4 /* ErrorContract.swift */; };
 		E45C5B18215DE078001F1CD4 /* BoolContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45C5B17215DE078001F1CD4 /* BoolContract.swift */; };
+		E48E1E0F2162255A00A4FF03 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48E1E0E2162255A00A4FF03 /* UserController.swift */; };
+		E48E1E112162256300A4FF03 /* ApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48E1E102162256300A4FF03 /* ApiController.swift */; };
 		E4DCE37B215A20C200882D84 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DCE37A215A20C200882D84 /* UIColorExtensions.swift */; };
 		E4DCE37D215A211500882D84 /* CGFloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DCE37C215A211500882D84 /* CGFloatExtensions.swift */; };
 		E4DCE37F215A221600882D84 /* CALayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DCE37E215A221600882D84 /* CALayerExtensions.swift */; };
@@ -52,6 +54,8 @@
 		B4DE7D3465583C68717D9D5B /* Pods_PROJNAME.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PROJNAME.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E45C5B15215DE05C001F1CD4 /* ErrorContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorContract.swift; sourceTree = "<group>"; };
 		E45C5B17215DE078001F1CD4 /* BoolContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolContract.swift; sourceTree = "<group>"; };
+		E48E1E0E2162255A00A4FF03 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		E48E1E102162256300A4FF03 /* ApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiController.swift; sourceTree = "<group>"; };
 		E4DCE37A215A20C200882D84 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		E4DCE37C215A211500882D84 /* CGFloatExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGFloatExtensions.swift; sourceTree = "<group>"; };
 		E4DCE37E215A221600882D84 /* CALayerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtensions.swift; sourceTree = "<group>"; };
@@ -243,6 +247,8 @@
 			isa = PBXGroup;
 			children = (
 				E4FE8764215D7D46004CD7E9 /* AuthController.swift */,
+				E48E1E0E2162255A00A4FF03 /* UserController.swift */,
+				E48E1E102162256300A4FF03 /* ApiController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -418,6 +424,8 @@
 			files = (
 				E4FE8763215D7C8D004CD7E9 /* AuthTokenContract.swift in Sources */,
 				E4DCE381215A229C00882D84 /* HeaderFactory.swift in Sources */,
+				E48E1E112162256300A4FF03 /* ApiController.swift in Sources */,
+				E48E1E0F2162255A00A4FF03 /* UserController.swift in Sources */,
 				E4F616782159E45400FF52FF /* HomeViewController.swift in Sources */,
 				E45C5B18215DE078001F1CD4 /* BoolContract.swift in Sources */,
 				E4F616A02159EE3700FF52FF /* UrlFactory.swift in Sources */,
