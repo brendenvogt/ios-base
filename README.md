@@ -1,7 +1,7 @@
 # Starter iOS Application written in Swift
 
 ## Current Features
-* No Storyboards
+* No Storyboards! 
 * POC for connecting to my [**Base NodeJS Api**](https://github.com/brendenvogt/node-api-base)
 * Keychain and CredentialStore Utility
 
