@@ -25,9 +25,22 @@ class UrlFactory: NSObject {
         }
     }
     
-    /// Base url api endpoints
+    /// Base api
     public class func api() -> String {
         return baseUrl() + "api/"
     }
     
+    /// Base user
+    public class func user() -> String {
+        return api() + "user/"
+    }
+    
+    public class func userSignup() -> String {
+        return user() + "signup/"
+    }
+
+    public class func userLogin() -> String {
+        return user() + "login/"
+    }
+
 }

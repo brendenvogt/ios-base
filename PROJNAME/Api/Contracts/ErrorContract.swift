@@ -17,13 +17,13 @@ public struct ErrorContract : Codable {
         }
         """
     
+    var message: String?
+    var code: Int?
+    
     public init(message: String, code: Int) {
         self.message = message
         self.code = code
     }
-    
-    var message: String?
-    var code: Int?
     
     enum CodingKeys: String, CodingKey {
         case message, code

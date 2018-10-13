@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		4C599B7C48E32FCCCD8B00D1 /* Pods_PROJNAME.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DE7D3465583C68717D9D5B /* Pods_PROJNAME.framework */; };
 		BB5788C0ED806E50126D963C /* Pods_PROJNAMETests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC903075F131892632A3E1E /* Pods_PROJNAMETests.framework */; };
+		E4513A7A2171E832001CBD04 /* SignupRequestContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4513A792171E832001CBD04 /* SignupRequestContract.swift */; };
+		E4513A7C2171E95B001CBD04 /* EncodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4513A7B2171E95B001CBD04 /* EncodableExtension.swift */; };
+		E4513A7E2171FC67001CBD04 /* JSONDecoderAdv.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4513A7D2171FC67001CBD04 /* JSONDecoderAdv.swift */; };
 		E45C5B16215DE05C001F1CD4 /* ErrorContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45C5B15215DE05C001F1CD4 /* ErrorContract.swift */; };
 		E45C5B18215DE078001F1CD4 /* BoolContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45C5B17215DE078001F1CD4 /* BoolContract.swift */; };
 		E48E1E0F2162255A00A4FF03 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48E1E0E2162255A00A4FF03 /* UserController.swift */; };
@@ -30,9 +33,8 @@
 		E4F6168E2159E45500FF52FF /* PROJNAMETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6168D2159E45500FF52FF /* PROJNAMETests.swift */; };
 		E4F6169E2159ED4A00FF52FF /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6169D2159ED4A00FF52FF /* ViewControllerFactory.swift */; };
 		E4F616A02159EE3700FF52FF /* UrlFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6169F2159EE3700FF52FF /* UrlFactory.swift */; };
-		E4FE8763215D7C8D004CD7E9 /* AuthTokenContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FE8762215D7C8D004CD7E9 /* AuthTokenContract.swift */; };
-		E4FE8765215D7D46004CD7E9 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FE8764215D7D46004CD7E9 /* AuthController.swift */; };
-		E4FE8767215D7EDA004CD7E9 /* AuthRequestContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FE8766215D7EDA004CD7E9 /* AuthRequestContract.swift */; };
+		E4FE8763215D7C8D004CD7E9 /* AuthInfoContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FE8762215D7C8D004CD7E9 /* AuthInfoContract.swift */; };
+		E4FE8767215D7EDA004CD7E9 /* LoginRequestContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FE8766215D7EDA004CD7E9 /* LoginRequestContract.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,9 @@
 		66A52503A96E6587873D6A78 /* Pods-PROJNAME.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PROJNAME.release.xcconfig"; path = "Pods/Target Support Files/Pods-PROJNAME/Pods-PROJNAME.release.xcconfig"; sourceTree = "<group>"; };
 		80EFD6EA1EE4DC7995B4066A /* Pods-PROJNAME.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PROJNAME.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PROJNAME/Pods-PROJNAME.debug.xcconfig"; sourceTree = "<group>"; };
 		B4DE7D3465583C68717D9D5B /* Pods_PROJNAME.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PROJNAME.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4513A792171E832001CBD04 /* SignupRequestContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRequestContract.swift; sourceTree = "<group>"; };
+		E4513A7B2171E95B001CBD04 /* EncodableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableExtension.swift; sourceTree = "<group>"; };
+		E4513A7D2171FC67001CBD04 /* JSONDecoderAdv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderAdv.swift; sourceTree = "<group>"; };
 		E45C5B15215DE05C001F1CD4 /* ErrorContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorContract.swift; sourceTree = "<group>"; };
 		E45C5B17215DE078001F1CD4 /* BoolContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolContract.swift; sourceTree = "<group>"; };
 		E48E1E0E2162255A00A4FF03 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
@@ -77,9 +82,8 @@
 		E4F6168F2159E45500FF52FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4F6169D2159ED4A00FF52FF /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 		E4F6169F2159EE3700FF52FF /* UrlFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlFactory.swift; sourceTree = "<group>"; };
-		E4FE8762215D7C8D004CD7E9 /* AuthTokenContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTokenContract.swift; sourceTree = "<group>"; };
-		E4FE8764215D7D46004CD7E9 /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
-		E4FE8766215D7EDA004CD7E9 /* AuthRequestContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRequestContract.swift; sourceTree = "<group>"; };
+		E4FE8762215D7C8D004CD7E9 /* AuthInfoContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInfoContract.swift; sourceTree = "<group>"; };
+		E4FE8766215D7EDA004CD7E9 /* LoginRequestContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestContract.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +126,7 @@
 				E4DCE387215A307900882D84 /* UIViewExtension.swift */,
 				E4DCE389215A337B00882D84 /* UIImageExtension.swift */,
 				E4DCE38B215A341D00882D84 /* DateFormatterExtension.swift */,
+				E4513A7B2171E95B001CBD04 /* EncodableExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -131,6 +136,7 @@
 			children = (
 				E4DCE383215A230900882D84 /* CredentialStoreUtility.swift */,
 				E4DCE385215A246000882D84 /* KeychainUtility.swift */,
+				E4513A7D2171FC67001CBD04 /* JSONDecoderAdv.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -235,10 +241,11 @@
 		E4FE8760215D7C60004CD7E9 /* Contracts */ = {
 			isa = PBXGroup;
 			children = (
-				E4FE8762215D7C8D004CD7E9 /* AuthTokenContract.swift */,
-				E4FE8766215D7EDA004CD7E9 /* AuthRequestContract.swift */,
+				E4FE8762215D7C8D004CD7E9 /* AuthInfoContract.swift */,
+				E4FE8766215D7EDA004CD7E9 /* LoginRequestContract.swift */,
 				E45C5B15215DE05C001F1CD4 /* ErrorContract.swift */,
 				E45C5B17215DE078001F1CD4 /* BoolContract.swift */,
+				E4513A792171E832001CBD04 /* SignupRequestContract.swift */,
 			);
 			path = Contracts;
 			sourceTree = "<group>";
@@ -246,7 +253,6 @@
 		E4FE8761215D7C6F004CD7E9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E4FE8764215D7D46004CD7E9 /* AuthController.swift */,
 				E48E1E0E2162255A00A4FF03 /* UserController.swift */,
 				E48E1E102162256300A4FF03 /* ApiController.swift */,
 			);
@@ -422,7 +428,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4FE8763215D7C8D004CD7E9 /* AuthTokenContract.swift in Sources */,
+				E4FE8763215D7C8D004CD7E9 /* AuthInfoContract.swift in Sources */,
 				E4DCE381215A229C00882D84 /* HeaderFactory.swift in Sources */,
 				E48E1E112162256300A4FF03 /* ApiController.swift in Sources */,
 				E48E1E0F2162255A00A4FF03 /* UserController.swift in Sources */,
@@ -430,8 +436,9 @@
 				E45C5B18215DE078001F1CD4 /* BoolContract.swift in Sources */,
 				E4F616A02159EE3700FF52FF /* UrlFactory.swift in Sources */,
 				E4F6169E2159ED4A00FF52FF /* ViewControllerFactory.swift in Sources */,
-				E4FE8767215D7EDA004CD7E9 /* AuthRequestContract.swift in Sources */,
-				E4FE8765215D7D46004CD7E9 /* AuthController.swift in Sources */,
+				E4513A7A2171E832001CBD04 /* SignupRequestContract.swift in Sources */,
+				E4FE8767215D7EDA004CD7E9 /* LoginRequestContract.swift in Sources */,
+				E4513A7E2171FC67001CBD04 /* JSONDecoderAdv.swift in Sources */,
 				E4DCE37F215A221600882D84 /* CALayerExtensions.swift in Sources */,
 				E45C5B16215DE05C001F1CD4 /* ErrorContract.swift in Sources */,
 				E4DCE37B215A20C200882D84 /* UIColorExtensions.swift in Sources */,
@@ -443,6 +450,7 @@
 				E4F6167E2159E45400FF52FF /* PROJNAME.xcdatamodeld in Sources */,
 				E4DCE386215A246000882D84 /* KeychainUtility.swift in Sources */,
 				E4DCE37D215A211500882D84 /* CGFloatExtensions.swift in Sources */,
+				E4513A7C2171E95B001CBD04 /* EncodableExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,6 +17,7 @@ class HomeViewController: UIViewController {
         l.text = "hello"
         l.font = .boldSystemFont(ofSize: 14)
         l.textAlignment = .center
+        l.numberOfLines = -1
         return l
     }()
     
@@ -26,34 +27,31 @@ class HomeViewController: UIViewController {
         
         view.addSubview(label)
         label.snapToSuper()
-        
-        ApiController.getApi(completion: { (result, err) in
-            if let err = err {
-                print(err)
+
+        /// signup example
+        let email = "test\(Date())@gmail.com"
+        let password = "testpass"
+        let signup = SignupRequestContract(email: email, password: password, passwordConfirm: password)
+        UserController.userSignup(signup: signup) { (result, error) in
+            if let error = error {
+                print(error)
             }
             if let result = result {
                 print(result)
-                self.label.text = String(result.response ?? false)
+                self.label.text = String(result.token ?? "")
             }
-        })
+        }
         
-//        let sample = AuthRequestContract.SampleString
-//        if let fromJson = AuthController.getAuthFromJson(json: sample) {
-//            print("success json")
-//            print(fromJson)
-//        }else {
-//            print("result json failed")
-//        }
-//
-//
-//        let authRequest = AuthRequestContract(username: "brendenvogt", password: "testpass")
-//        if let result = AuthController.getAuth(credentials: authRequest) {
-//            print("success")
-//            print(result)
-//        }else {
-//            print("result failed")
-//        }
+        /// api example
+        //        ApiController.getApi(completion: { (result, err) in
+        //            if let err = err {
+        //                print(err)
+        //            }
+        //            if let result = result {
+        //                print(result)
+        //                self.label.text = String(result.response ?? false)
+        //            }
+        //        })
     }
-
 }
 

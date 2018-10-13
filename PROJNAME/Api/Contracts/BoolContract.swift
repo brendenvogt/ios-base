@@ -16,11 +16,11 @@ public struct BoolContract : Codable {
         }
         """
     
+    var response : Bool?
+
     public init(response:Bool) {
         self.response = response
     }
-    
-    var response : Bool?
     
     enum CodingKeys: String, CodingKey {
         case response
