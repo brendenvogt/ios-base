@@ -2,7 +2,7 @@
 
 ## Current Features
 * No Storyboards! 
-* POC for connecting to my [**Dot Net Core Api**](https://github.com/brendenvogt/dotnet-core-base)
+* POC for connecting to my [**Dot Net Core Api**](https://github.com/brendenvogt/ios-base)
 * Keychain and CredentialStore Utility
 * JWT Authentication
 * Login and Signup Sample

@@ -16,6 +16,7 @@ class UserController: NSObject {
             if let data = response.data {
                 let error: ErrorContract? = try? JSONDecoderAdv().decode(ErrorContract.self, from: data)
                 let result: AuthInfoContract? = try? JSONDecoderAdv().decode(AuthInfoContract.self, from: data)
+                CredentialStoreUtility.secLogin(result?.token)
                 completion(result, error)
             }
         }
@@ -27,6 +28,10 @@ class UserController: NSObject {
             if let data = response.data {
                 let error: ErrorContract? = try? JSONDecoderAdv().decode(ErrorContract.self, from: data)
                 let result: AuthInfoContract? = try? JSONDecoderAdv().decode(AuthInfoContract.self, from: data)
+                if result != nil {
+                    CredentialStoreUtility.secLogin(result?.token)
+                }
+                CredentialStoreUtility.secLogin(result?.token)
                 completion(result, error)
             }
         }

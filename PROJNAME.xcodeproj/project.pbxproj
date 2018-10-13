@@ -117,6 +117,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E40B30D22172A4A7003185E9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		E4DCE379215A208B00882D84 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +195,7 @@
 		E4F616982159EA2D00FF52FF /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E40B30D22172A4A7003185E9 /* Views */,
 				E4DCE382215A22EA00882D84 /* Utilities */,
 				E4DCE379215A208B00882D84 /* Extensions */,
 				E4F616A12159F0D600FF52FF /* Constants */,

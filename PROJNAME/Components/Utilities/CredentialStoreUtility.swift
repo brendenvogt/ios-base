@@ -22,23 +22,21 @@ class CredentialStoreUtility: NSObject {
         return CredentialStoreUtility.sharedInstance.authToken ?? "";
     }
     
-    public class func secLogin(_ authToken:String?) -> Bool {
+    public class func secLogin(_ authToken:String?) {
         CredentialStoreUtility.sharedInstance.authToken = authToken
         if let authToken = authToken {
             _ = KeychainUtility.set(key: KeychainKeys().kAuthToken, value: authToken)
         }
-        return CredentialStoreUtility.isLoggedIn()
     }
     
-    public class func secLoginFromKeychain() -> Bool {
+    public class func secLoginFromKeychain() {
         CredentialStoreUtility.sharedInstance.authToken = KeychainUtility.get(key: KeychainKeys().kAuthToken)
-        return CredentialStoreUtility.isLoggedIn()
     }
     
     public class func secLogout() -> Bool {
         CredentialStoreUtility.sharedInstance.authToken = nil
-        _ = KeychainUtility.delete(key: KeychainKeys().kAuthToken)
-        return CredentialStoreUtility.isLoggedIn()
+        let success = KeychainUtility.delete(key: KeychainKeys().kAuthToken)
+        return success
     }
     
 }

@@ -12,12 +12,13 @@ import Alamofire
 class ApiController: NSObject {
 
     public class func getApi(completion: @escaping (BoolContract?, ErrorContract?) -> Void) {
-        Alamofire.request(UrlFactory.api()).responseJSON { response in
+        Alamofire.request(UrlFactory.api(), method: .get, parameters: nil, encoding: JSONEncoding.default, headers: HeaderFactory.GetAuthHeader()).responseJSON { response in
+            print(response)
             if let data = response.data {
-                print(data)
                 let error: ErrorContract? = try? JSONDecoder().decode(ErrorContract.self, from: data)
                 let result: BoolContract? = try? JSONDecoder().decode(BoolContract.self, from: data)
                 completion(result, error)
+
             }
         }
     }
