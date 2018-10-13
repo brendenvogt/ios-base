@@ -2,13 +2,14 @@
 
 ## Current Features
 * No Storyboards! 
-* POC for connecting to my [**Base NodeJS Api**](https://github.com/brendenvogt/node-api-base)
+* POC for connecting to my [**Dot Net Core Api**](https://github.com/brendenvogt/dotnet-core-base)
 * Keychain and CredentialStore Utility
-
-## Upcoming Features
 * JWT Authentication
 * Login and Signup Sample
+
+## Upcoming Features
 * Global navigation
+* Credential Handling
 
 ## Project Structure
 
