@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CircularImageCell: UICollectionViewCell {
 
@@ -23,5 +24,6 @@ class CircularImageCell: UICollectionViewCell {
     func common(imageUrl:String){
         self.mainImage.layer.cornerRadius = self.bounds.width/2
         self.mainImage.layer.masksToBounds = true
+        self.mainImage.kf.setImage(with: URL(string: imageUrl))
     }
 }

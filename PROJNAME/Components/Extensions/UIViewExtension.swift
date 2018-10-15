@@ -21,16 +21,24 @@ extension UIView {
             self.bottomAnchor.constraint(equalTo: superView.bottomAnchor, constant: -insets.bottom).isActive = true
             self.leftAnchor.constraint(equalTo: superView.leftAnchor, constant: insets.left).isActive = true
             self.rightAnchor.constraint(equalTo: superView.rightAnchor, constant: -insets.right).isActive = true
+            if #available(iOS 11, *) {
+                let guide = superView.safeAreaLayoutGuide
+                self.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: -insets.bottom).isActive = true
+            }
         }
     }
     
-    func snapToSuperBottom(){
+    func snapToSuperBottom(withInsets insets: UIEdgeInsets = .zero){
         if let superView = self.superview {
             self.translatesAutoresizingMaskIntoConstraints = false
-            self.topAnchor.constraint(greaterThanOrEqualTo: superView.topAnchor, constant: 0).isActive = true
-            self.bottomAnchor.constraint(equalTo: superView.bottomAnchor, constant: 0).isActive = true
-            self.leftAnchor.constraint(equalTo: superView.leftAnchor, constant: 0).isActive = true
-            self.rightAnchor.constraint(equalTo: superView.rightAnchor, constant: 0).isActive = true
+            self.topAnchor.constraint(greaterThanOrEqualTo: superView.topAnchor, constant: insets.top).isActive = true
+            self.bottomAnchor.constraint(equalTo: superView.bottomAnchor, constant: -insets.bottom).isActive = true
+            self.leftAnchor.constraint(equalTo: superView.leftAnchor, constant: insets.left).isActive = true
+            self.rightAnchor.constraint(equalTo: superView.rightAnchor, constant: -insets.right).isActive = true
+            if #available(iOS 11, *) {
+                let guide = superView.safeAreaLayoutGuide
+                self.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: -insets.bottom).isActive = true
+            }
         }
     }
     
@@ -63,7 +71,7 @@ extension UIView {
     
     var borderColor: UIColor {
         get {
-            return self.borderColor
+            return UIColor(cgColor:layer.borderColor ?? UIColor.clear.cgColor) 
         }
         set {
             layer.borderColor = newValue.cgColor

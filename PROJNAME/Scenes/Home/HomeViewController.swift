@@ -21,17 +21,16 @@ class HomeViewController: UIViewController {
         return l
     }()
     
-    
     func collectionExample(){
         let listView: ListView = ListView.instantiateFromNib()
         view.addSubview(listView)
         listView.snapToSuperBottom()
-        listView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        listView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
         // sample button
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = .init(width: 50, height: 50)
+        layout.itemSize = .init(width: 100, height: 100)
         
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.register(UINib(nibName: String(describing:CircularImageCell.self), bundle: .main), forCellWithReuseIdentifier: "cell")
@@ -42,7 +41,6 @@ class HomeViewController: UIViewController {
         collection.delegate = self
 
         listView.stackView.addArrangedSubview(collection)
-        
     }
     
     @objc func buttonClicked(button:UIButton){
@@ -125,13 +123,13 @@ extension HomeViewController : UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CircularImageCell
         
-//        let imageUrl = SampleImageUtility.normal(size: .init(width: 300, height: 300))
+        let imageUrl = SampleImageUtility.normal(size: .init(width: 100, height: 100))
 //        let imageUrl = SampleImageUtility.grayscale(size: .init(width: 300, height: 300))
 //        let imageUrl = SampleImageUtility.blurred(size: .init(width: 300, height: 300))
 //        let imageUrl = SampleImageUtility.cropped(size: .init(width: 300, height: 300), gravity: .north)
 //        let imageUrl = SampleImageUtility.specific(size: .init(width: 300, height: 300), index: 1)
         
-//        cell.common()
+        cell.common(imageUrl: imageUrl)
         return cell
     }
     
