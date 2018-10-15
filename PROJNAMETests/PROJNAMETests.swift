@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import PROJNAME
+//@testable import PROJNAME
 
 class PROJNAMETests: XCTestCase {
     
