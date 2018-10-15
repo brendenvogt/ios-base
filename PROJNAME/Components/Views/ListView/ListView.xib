@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ListView" customModule="PROJNAME" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MUO-Dh-7hc">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="MUO-Dh-7hc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="KNF-c9-3Us"/>
+                <constraint firstItem="MUO-Dh-7hc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="dbo-iz-25S"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="MUO-Dh-7hc" secondAttribute="trailing" id="jtv-FB-XnN"/>
+                <constraint firstAttribute="bottom" secondItem="MUO-Dh-7hc" secondAttribute="bottom" id="yOl-cr-Msg"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="stackView" destination="MUO-Dh-7hc" id="vX7-G4-rl1"/>
+            </connections>
+            <point key="canvasLocation" x="24.5" y="395"/>
+        </view>
+    </objects>
+</document>

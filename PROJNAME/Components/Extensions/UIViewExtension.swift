@@ -10,6 +10,10 @@ import UIKit
 
 extension UIView {
     
+    class func instantiateFromNib<T: UIView>() -> T {
+        return UINib(nibName: "\(self)", bundle: nil).instantiate(withOwner: nil, options: nil).first as! T
+    }
+    
     func snapToSuper(withInsets insets: UIEdgeInsets = .zero){
         if let superView = self.superview {
             self.translatesAutoresizingMaskIntoConstraints = false
@@ -17,6 +21,16 @@ extension UIView {
             self.bottomAnchor.constraint(equalTo: superView.bottomAnchor, constant: -insets.bottom).isActive = true
             self.leftAnchor.constraint(equalTo: superView.leftAnchor, constant: insets.left).isActive = true
             self.rightAnchor.constraint(equalTo: superView.rightAnchor, constant: -insets.right).isActive = true
+        }
+    }
+    
+    func snapToSuperBottom(){
+        if let superView = self.superview {
+            self.translatesAutoresizingMaskIntoConstraints = false
+            self.topAnchor.constraint(greaterThanOrEqualTo: superView.topAnchor, constant: 0).isActive = true
+            self.bottomAnchor.constraint(equalTo: superView.bottomAnchor, constant: 0).isActive = true
+            self.leftAnchor.constraint(equalTo: superView.leftAnchor, constant: 0).isActive = true
+            self.rightAnchor.constraint(equalTo: superView.rightAnchor, constant: 0).isActive = true
         }
     }
     
