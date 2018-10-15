@@ -31,6 +31,7 @@
 		E4DCE388215A307900882D84 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DCE387215A307900882D84 /* UIViewExtension.swift */; };
 		E4DCE38A215A337B00882D84 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DCE389215A337B00882D84 /* UIImageExtension.swift */; };
 		E4DCE38C215A341D00882D84 /* DateFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DCE38B215A341D00882D84 /* DateFormatterExtension.swift */; };
+		E4DDC66E217545DA00B5B0A2 /* NSObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DDC66D217545DA00B5B0A2 /* NSObjectExtensions.swift */; };
 		E4F616762159E45400FF52FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F616752159E45400FF52FF /* AppDelegate.swift */; };
 		E4F616782159E45400FF52FF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F616772159E45400FF52FF /* HomeViewController.swift */; };
 		E4F6167E2159E45400FF52FF /* PROJNAME.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4F6167C2159E45400FF52FF /* PROJNAME.xcdatamodeld */; };
@@ -82,6 +83,7 @@
 		E4DCE387215A307900882D84 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		E4DCE389215A337B00882D84 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		E4DCE38B215A341D00882D84 /* DateFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtension.swift; sourceTree = "<group>"; };
+		E4DDC66D217545DA00B5B0A2 /* NSObjectExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectExtensions.swift; sourceTree = "<group>"; };
 		E4F616722159E45400FF52FF /* PROJNAME.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PROJNAME.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4F616752159E45400FF52FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4F616772159E45400FF52FF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				E4DCE389215A337B00882D84 /* UIImageExtension.swift */,
 				E4DCE38B215A341D00882D84 /* DateFormatterExtension.swift */,
 				E4513A7B2171E95B001CBD04 /* EncodableExtension.swift */,
+				E4DDC66D217545DA00B5B0A2 /* NSObjectExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				E4F616A02159EE3700FF52FF /* UrlFactory.swift in Sources */,
 				E4F6169E2159ED4A00FF52FF /* ViewControllerFactory.swift in Sources */,
 				E40B30DB2172AB2E003185E9 /* ListView.swift in Sources */,
+				E4DDC66E217545DA00B5B0A2 /* NSObjectExtensions.swift in Sources */,
 				E492A72D21746DA100F9023F /* CircularImageCell.swift in Sources */,
 				E4513A7A2171E832001CBD04 /* SignupRequestContract.swift in Sources */,
 				E4FE8767215D7EDA004CD7E9 /* LoginRequestContract.swift in Sources */,

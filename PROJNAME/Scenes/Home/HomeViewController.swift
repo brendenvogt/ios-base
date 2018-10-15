@@ -24,16 +24,17 @@ class HomeViewController: UIViewController {
     func collectionExample(){
         let listView: ListView = ListView.instantiateFromNib()
         view.addSubview(listView)
+        let height = 100
         listView.snapToSuperBottom()
-        listView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        listView.heightAnchor.constraint(equalToConstant: CGFloat(height)).isActive = true
         
         // sample button
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = .init(width: 100, height: 100)
+        layout.itemSize = .init(width: height, height: height)
         
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collection.register(UINib(nibName: String(describing:CircularImageCell.self), bundle: .main), forCellWithReuseIdentifier: "cell")
+        collection.register(UINib(nibName: CircularImageCell.className, bundle: .main), forCellWithReuseIdentifier: "cell")
         collection.showsVerticalScrollIndicator = false
         collection.showsHorizontalScrollIndicator = false
         collection.backgroundColor = .clear
