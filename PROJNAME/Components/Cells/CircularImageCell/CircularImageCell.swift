@@ -20,9 +20,8 @@ class CircularImageCell: UICollectionViewCell {
         super.init(coder: aDecoder)
     }
     
-    func common(){
+    func common(imageUrl:String){
         self.mainImage.layer.cornerRadius = self.bounds.width/2
         self.mainImage.layer.masksToBounds = true
-        self.mainImage.image = UIImage(named:"plus")
     }
 }

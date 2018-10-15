@@ -13,47 +13,48 @@ enum CropGravity {
 }
 
 class SampleImageUtility: NSObject {
+
     static var size: CGSize = .zero
     static var gravity: CropGravity = .center
     static var index: Int = 0
     
-    class func normal(size: CGSize){
+    class func normal(size: CGSize) -> String {
         self.size = size
         let width = Int(size.width)
         let height = Int(size.height)
         let url = "https://picsum.photos/\(width)/\(height)"
-        print(url)
+        return url
     }
     
-    class func grayscale(size: CGSize){
+    class func grayscale(size: CGSize) -> String {
         self.size = size
         let width = Int(size.width)
         let height = Int(size.height)
         let url = "https://picsum.photos/g/\(width)/\(height)"
-        print(url)
+        return url
     }
     
-    class func specific(size: CGSize, index: Int){
+    class func specific(size: CGSize, index: Int) -> String {
         self.size = size
         let width = Int(size.width)
         let height = Int(size.height)
         let url = "https://picsum.photos/\(width)/\(height)?image=\(index)"
-        print(url)
+        return url
     }
     
-    class func blurred(size: CGSize){
+    class func blurred(size: CGSize) -> String {
         self.size = size
         let width = Int(size.width)
         let height = Int(size.height)
         let url = "https://picsum.photos/\(width)/\(height)/?blur"
-        print(url)
+        return url
     }
     
-    class func cropped(size: CGSize, gravity:CropGravity){
+    class func cropped(size: CGSize, gravity:CropGravity) -> String {
         self.size = size
         let width = Int(size.width)
         let height = Int(size.height)
         let url = "https://picsum.photos/\(width)/\(height)/?gravity=\(gravity)"
-        print(url)
+        return url
     }
 }
