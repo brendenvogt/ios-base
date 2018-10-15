@@ -22,6 +22,28 @@ class HomeViewController: UIViewController {
     }()
     
     
+    func collectionExample(){
+        let listView: ListView = ListView.instantiateFromNib()
+        view.addSubview(listView)
+        listView.snapToSuperBottom()
+        listView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        // sample button
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = .init(width: 50, height: 50)
+        
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collection.register(UINib(nibName: String(describing:CircularImageCell.self), bundle: .main), forCellWithReuseIdentifier: "cell")
+        collection.showsVerticalScrollIndicator = false
+        collection.showsHorizontalScrollIndicator = false
+        collection.backgroundColor = .clear
+        collection.dataSource = self
+        collection.delegate = self
+
+        listView.stackView.addArrangedSubview(collection)
+        
+    }
     
     @objc func buttonClicked(button:UIButton){
         print("\(button.tag) button clicked")
@@ -84,11 +106,33 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        nibExample()
         
-        apiSignupExample()
+        SampleImageUtility.normal(size: .init(width: 300, height: 300))
+        SampleImageUtility.grayscale(size: .init(width: 300, height: 300))
+        SampleImageUtility.blurred(size: .init(width: 300, height: 300))
+        SampleImageUtility.cropped(size: .init(width: 300, height: 300), gravity: .north)
+        SampleImageUtility.specific(size: .init(width: 300, height: 300), index: 1)
         
-        apiSimpleExample()
+        collectionExample()
+//        nibExample()
+//
+//        apiSignupExample()
+//
+//        apiSimpleExample()
     }
 }
 
+extension HomeViewController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CircularImageCell
+        cell.common()
+        return cell
+    }
+    
+    
+}
