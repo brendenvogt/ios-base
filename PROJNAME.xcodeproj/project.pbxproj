@@ -25,6 +25,13 @@
 		E492A72B21746D9300F9023F /* CircularImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E492A72A21746D9300F9023F /* CircularImageCell.xib */; };
 		E492A72D21746DA100F9023F /* CircularImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E492A72C21746DA100F9023F /* CircularImageCell.swift */; };
 		E492A7312174D26200F9023F /* SampleImageUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E492A7302174D26200F9023F /* SampleImageUtility.swift */; };
+		E4CBD36A2176960E00233A8C /* BaseUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CBD3692176960E00233A8C /* BaseUIButton.swift */; };
+		E4CBD36C2176963C00233A8C /* BaseUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CBD36B2176963C00233A8C /* BaseUILabel.swift */; };
+		E4CBD36E2176968E00233A8C /* BaseUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CBD36D2176968E00233A8C /* BaseUITextField.swift */; };
+		E4CBD370217696BF00233A8C /* BaseUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CBD36F217696BF00233A8C /* BaseUINavigationController.swift */; };
+		E4CBD3722176975400233A8C /* BaseUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CBD3712176975400233A8C /* BaseUIViewController.swift */; };
+		E4CBD374217697D300233A8C /* BaseCircularRevealAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CBD373217697D300233A8C /* BaseCircularRevealAnimator.swift */; };
+		E4CBD3762176980900233A8C /* BaseAnimatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CBD3752176980900233A8C /* BaseAnimatorDelegate.swift */; };
 		E4DCE37B215A20C200882D84 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DCE37A215A20C200882D84 /* UIColorExtensions.swift */; };
 		E4DCE37D215A211500882D84 /* CGFloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DCE37C215A211500882D84 /* CGFloatExtensions.swift */; };
 		E4DCE37F215A221600882D84 /* CALayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DCE37E215A221600882D84 /* CALayerExtensions.swift */; };
@@ -80,6 +87,13 @@
 		E492A72A21746D9300F9023F /* CircularImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CircularImageCell.xib; sourceTree = "<group>"; };
 		E492A72C21746DA100F9023F /* CircularImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularImageCell.swift; sourceTree = "<group>"; };
 		E492A7302174D26200F9023F /* SampleImageUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleImageUtility.swift; sourceTree = "<group>"; };
+		E4CBD3692176960E00233A8C /* BaseUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIButton.swift; sourceTree = "<group>"; };
+		E4CBD36B2176963C00233A8C /* BaseUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUILabel.swift; sourceTree = "<group>"; };
+		E4CBD36D2176968E00233A8C /* BaseUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUITextField.swift; sourceTree = "<group>"; };
+		E4CBD36F217696BF00233A8C /* BaseUINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUINavigationController.swift; sourceTree = "<group>"; };
+		E4CBD3712176975400233A8C /* BaseUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIViewController.swift; sourceTree = "<group>"; };
+		E4CBD373217697D300233A8C /* BaseCircularRevealAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCircularRevealAnimator.swift; sourceTree = "<group>"; };
+		E4CBD3752176980900233A8C /* BaseAnimatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAnimatorDelegate.swift; sourceTree = "<group>"; };
 		E4DCE37A215A20C200882D84 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		E4DCE37C215A211500882D84 /* CGFloatExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGFloatExtensions.swift; sourceTree = "<group>"; };
 		E4DCE37E215A221600882D84 /* CALayerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtensions.swift; sourceTree = "<group>"; };
@@ -179,6 +193,20 @@
 			path = CircularImageCell;
 			sourceTree = "<group>";
 		};
+		E4CBD368217695F100233A8C /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				E4CBD3692176960E00233A8C /* BaseUIButton.swift */,
+				E4CBD36B2176963C00233A8C /* BaseUILabel.swift */,
+				E4CBD36D2176968E00233A8C /* BaseUITextField.swift */,
+				E4CBD36F217696BF00233A8C /* BaseUINavigationController.swift */,
+				E4CBD3712176975400233A8C /* BaseUIViewController.swift */,
+				E4CBD373217697D300233A8C /* BaseCircularRevealAnimator.swift */,
+				E4CBD3752176980900233A8C /* BaseAnimatorDelegate.swift */,
+			);
+			path = Subclasses;
+			sourceTree = "<group>";
+		};
 		E4DCE379215A208B00882D84 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,6 +282,7 @@
 		E4F616982159EA2D00FF52FF /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E4CBD368217695F100233A8C /* Subclasses */,
 				E492A72E21746F6100F9023F /* Cells */,
 				E42A6FB82173F35100B2DB02 /* Protocols */,
 				E40B30D22172A4A7003185E9 /* Views */,
@@ -506,8 +535,10 @@
 			files = (
 				E4FE8763215D7C8D004CD7E9 /* AuthInfoContract.swift in Sources */,
 				E492A7312174D26200F9023F /* SampleImageUtility.swift in Sources */,
+				E4CBD36A2176960E00233A8C /* BaseUIButton.swift in Sources */,
 				E42A6FBA2173F37200B2DB02 /* AutoSizeProtocol.swift in Sources */,
 				E4DCE381215A229C00882D84 /* HeaderFactory.swift in Sources */,
+				E4CBD370217696BF00233A8C /* BaseUINavigationController.swift in Sources */,
 				E48E1E112162256300A4FF03 /* ApiController.swift in Sources */,
 				E48E1E0F2162255A00A4FF03 /* UserController.swift in Sources */,
 				E4F616782159E45400FF52FF /* HomeViewController.swift in Sources */,
@@ -515,6 +546,8 @@
 				E4F616A02159EE3700FF52FF /* UrlFactory.swift in Sources */,
 				E4F6169E2159ED4A00FF52FF /* ViewControllerFactory.swift in Sources */,
 				E40B30DB2172AB2E003185E9 /* ListView.swift in Sources */,
+				E4CBD36E2176968E00233A8C /* BaseUITextField.swift in Sources */,
+				E4CBD374217697D300233A8C /* BaseCircularRevealAnimator.swift in Sources */,
 				E4DDC66E217545DA00B5B0A2 /* NSObjectExtensions.swift in Sources */,
 				E492A72D21746DA100F9023F /* CircularImageCell.swift in Sources */,
 				E48460DC21759D7100975A70 /* LetterImageGenerator.swift in Sources */,
@@ -528,13 +561,16 @@
 				E48460D82175940900975A70 /* UICollectionViewExtension.swift in Sources */,
 				E48460DA2175950400975A70 /* UITableViewExtension.swift in Sources */,
 				E4DCE384215A230900882D84 /* CredentialStoreUtility.swift in Sources */,
+				E4CBD3762176980900233A8C /* BaseAnimatorDelegate.swift in Sources */,
 				E4F616762159E45400FF52FF /* AppDelegate.swift in Sources */,
 				E4DCE38A215A337B00882D84 /* UIImageExtension.swift in Sources */,
 				E4DCE38C215A341D00882D84 /* DateFormatterExtension.swift in Sources */,
 				E4F6167E2159E45400FF52FF /* PROJNAME.xcdatamodeld in Sources */,
 				E4DCE386215A246000882D84 /* KeychainUtility.swift in Sources */,
 				E4DCE37D215A211500882D84 /* CGFloatExtensions.swift in Sources */,
+				E4CBD3722176975400233A8C /* BaseUIViewController.swift in Sources */,
 				E4513A7C2171E95B001CBD04 /* EncodableExtension.swift in Sources */,
+				E4CBD36C2176963C00233A8C /* BaseUILabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@
 import UIKit
 
 class LetterImageGenerator: NSObject {
+    
     class func imageWith(name: String?, _ textColor: UIColor = .gray, _ backgroundColor: UIColor = .white) -> UIImage? {
         print(textColor.toHexString())
         print(backgroundColor.toHexString())
@@ -25,6 +26,7 @@ class LetterImageGenerator: NSObject {
         nameLabel.backgroundColor = backgroundC
         nameLabel.textColor = textC
         nameLabel.font = UIFont.boldSystemFont(ofSize: 60)
+        
         var initials = ""
         if let initialsArray = name?.components(separatedBy: " ") {
             if let firstWord = initialsArray.first {
@@ -40,6 +42,7 @@ class LetterImageGenerator: NSObject {
         } else {
             return nil
         }
+        
         nameLabel.text = initials
         UIGraphicsBeginImageContext(frame.size)
         if let currentContext = UIGraphicsGetCurrentContext() {
