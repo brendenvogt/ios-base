@@ -16,6 +16,8 @@
 		E4513A7E2171FC67001CBD04 /* JSONDecoderAdv.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4513A7D2171FC67001CBD04 /* JSONDecoderAdv.swift */; };
 		E45C5B16215DE05C001F1CD4 /* ErrorContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45C5B15215DE05C001F1CD4 /* ErrorContract.swift */; };
 		E45C5B18215DE078001F1CD4 /* BoolContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45C5B17215DE078001F1CD4 /* BoolContract.swift */; };
+		E48460D82175940900975A70 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48460D72175940900975A70 /* UICollectionViewExtension.swift */; };
+		E48460DA2175950400975A70 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48460D92175950400975A70 /* UITableViewExtension.swift */; };
 		E48E1E0F2162255A00A4FF03 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48E1E0E2162255A00A4FF03 /* UserController.swift */; };
 		E48E1E112162256300A4FF03 /* ApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48E1E102162256300A4FF03 /* ApiController.swift */; };
 		E4900DE82173CF6C00664159 /* ListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4900DE72173CF6B00664159 /* ListView.xib */; };
@@ -68,6 +70,8 @@
 		E4513A7D2171FC67001CBD04 /* JSONDecoderAdv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderAdv.swift; sourceTree = "<group>"; };
 		E45C5B15215DE05C001F1CD4 /* ErrorContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorContract.swift; sourceTree = "<group>"; };
 		E45C5B17215DE078001F1CD4 /* BoolContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolContract.swift; sourceTree = "<group>"; };
+		E48460D72175940900975A70 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
+		E48460D92175950400975A70 /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		E48E1E0E2162255A00A4FF03 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		E48E1E102162256300A4FF03 /* ApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiController.swift; sourceTree = "<group>"; };
 		E4900DE72173CF6B00664159 /* ListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListView.xib; sourceTree = "<group>"; };
@@ -184,6 +188,8 @@
 				E4DCE38B215A341D00882D84 /* DateFormatterExtension.swift */,
 				E4513A7B2171E95B001CBD04 /* EncodableExtension.swift */,
 				E4DDC66D217545DA00B5B0A2 /* NSObjectExtensions.swift */,
+				E48460D72175940900975A70 /* UICollectionViewExtension.swift */,
+				E48460D92175950400975A70 /* UITableViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -515,6 +521,8 @@
 				E45C5B16215DE05C001F1CD4 /* ErrorContract.swift in Sources */,
 				E4DCE37B215A20C200882D84 /* UIColorExtensions.swift in Sources */,
 				E4DCE388215A307900882D84 /* UIViewExtension.swift in Sources */,
+				E48460D82175940900975A70 /* UICollectionViewExtension.swift in Sources */,
+				E48460DA2175950400975A70 /* UITableViewExtension.swift in Sources */,
 				E4DCE384215A230900882D84 /* CredentialStoreUtility.swift in Sources */,
 				E4F616762159E45400FF52FF /* AppDelegate.swift in Sources */,
 				E4DCE38A215A337B00882D84 /* UIImageExtension.swift in Sources */,

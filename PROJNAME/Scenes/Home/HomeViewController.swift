@@ -34,7 +34,7 @@ class HomeViewController: UIViewController {
         layout.itemSize = .init(width: height, height: height)
         
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collection.register(UINib(nibName: CircularImageCell.className, bundle: .main), forCellWithReuseIdentifier: "cell")
+        collection.register(withNibClass: CircularImageCell.self)
         collection.showsVerticalScrollIndicator = false
         collection.showsHorizontalScrollIndicator = false
         collection.backgroundColor = .clear
@@ -122,7 +122,7 @@ extension HomeViewController : UICollectionViewDataSource, UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CircularImageCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: CircularImageCell.self), for: indexPath) as! CircularImageCell
         
         let imageUrl = SampleImageUtility.normal(size: .init(width: 100, height: 100))
 //        let imageUrl = SampleImageUtility.grayscale(size: .init(width: 300, height: 300))
