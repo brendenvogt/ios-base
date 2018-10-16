@@ -124,13 +124,13 @@ extension HomeViewController : UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: CircularImageCell.self), for: indexPath) as! CircularImageCell
         
-        let imageUrl = SampleImageUtility.normal(size: .init(width: 100, height: 100))
+//        let imageUrl = SampleImageUtility.normal(size: .init(width: 100, height: 100))
 //        let imageUrl = SampleImageUtility.grayscale(size: .init(width: 300, height: 300))
 //        let imageUrl = SampleImageUtility.blurred(size: .init(width: 300, height: 300))
 //        let imageUrl = SampleImageUtility.cropped(size: .init(width: 300, height: 300), gravity: .north)
 //        let imageUrl = SampleImageUtility.specific(size: .init(width: 300, height: 300), index: 1)
         
-        cell.common(imageUrl: imageUrl)
+        cell.common(imageUrl: "")
         return cell
     }
     

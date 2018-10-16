@@ -24,6 +24,7 @@ class CircularImageCell: UICollectionViewCell {
     func common(imageUrl:String){
         self.mainImage.layer.cornerRadius = self.bounds.width/2
         self.mainImage.layer.masksToBounds = true
-        self.mainImage.kf.setImage(with: URL(string: imageUrl))
+        self.mainImage.image = LetterImageGenerator.imageWith(name: "Brenden Vogt", "ffffff", "cccccc")
+//        self.mainImage.kf.setImage(with: URL(string: imageUrl))
     }
 }
