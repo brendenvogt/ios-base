@@ -17,10 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
 
-        let root = ViewControllerFactory.homeViewController(viewModel: nil)
+        let home = ViewControllerFactory.homeViewController(viewModel: nil)
+        let root = BaseUINavigationController(rootViewController: home)
+        
         window!.rootViewController = root
         window!.makeKeyAndVisible()
-
+        
         return true
     }
 

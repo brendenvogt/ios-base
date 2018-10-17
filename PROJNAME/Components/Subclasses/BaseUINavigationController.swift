@@ -13,19 +13,43 @@ class BaseUINavigationController : UINavigationController {
     private var _statusBarHidden: Bool = false
     @IBInspectable var statusBarHidden: Bool{
         get{ return self._statusBarHidden }
-        set{ self._statusBarHidden = newValue }
+        set{
+            self._statusBarHidden = newValue
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
     }
     
     private var _lightStatusBar: Bool = false
     @IBInspectable var lightStatusBar: Bool{
         get{ return self._lightStatusBar }
-        set{ self._lightStatusBar = newValue }
+        set{
+            self._lightStatusBar = newValue
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
+    }
+    
+    private var _navBarIsTranslucent: Bool = false
+    @IBInspectable var navBarIsTranslucent: Bool{
+        get{ return self._navBarIsTranslucent }
+        set{
+            self._navBarIsTranslucent = newValue
+            self.navigationBar.isTranslucent = self._navBarIsTranslucent
+        }
+    }
+    
+    private var _navBarTintColor: UIColor = UIColor.white
+    @IBInspectable var navBarTintColor: UIColor{
+        get{ return self._navBarTintColor }
+        set{
+            self._navBarTintColor = newValue
+            self.navigationBar.barTintColor = self._navBarTintColor
+        }
     }
     
     override open func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationBar.barTintColor = .white
-        self.navigationBar.isTranslucent = false
+        self.navigationBar.barTintColor = self._navBarTintColor
+        self.navigationBar.isTranslucent = self._navBarIsTranslucent
     }
     
     override open var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {return UIStatusBarAnimation.slide}

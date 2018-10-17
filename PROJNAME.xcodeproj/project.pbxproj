@@ -11,6 +11,7 @@
 		BB5788C0ED806E50126D963C /* Pods_PROJNAMETests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC903075F131892632A3E1E /* Pods_PROJNAMETests.framework */; };
 		E40B30DB2172AB2E003185E9 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40B30DA2172AB2E003185E9 /* ListView.swift */; };
 		E42A6FBA2173F37200B2DB02 /* AutoSizeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42A6FB92173F37200B2DB02 /* AutoSizeProtocol.swift */; };
+		E442A48B217720DD00A50F56 /* RandomExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E442A48A217720DD00A50F56 /* RandomExtensions.swift */; };
 		E4513A7A2171E832001CBD04 /* SignupRequestContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4513A792171E832001CBD04 /* SignupRequestContract.swift */; };
 		E4513A7C2171E95B001CBD04 /* EncodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4513A7B2171E95B001CBD04 /* EncodableExtension.swift */; };
 		E4513A7E2171FC67001CBD04 /* JSONDecoderAdv.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4513A7D2171FC67001CBD04 /* JSONDecoderAdv.swift */; };
@@ -75,6 +76,7 @@
 		B4DE7D3465583C68717D9D5B /* Pods_PROJNAME.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PROJNAME.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E40B30DA2172AB2E003185E9 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		E42A6FB92173F37200B2DB02 /* AutoSizeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoSizeProtocol.swift; sourceTree = "<group>"; };
+		E442A48A217720DD00A50F56 /* RandomExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomExtensions.swift; sourceTree = "<group>"; };
 		E4513A792171E832001CBD04 /* SignupRequestContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRequestContract.swift; sourceTree = "<group>"; };
 		E4513A7B2171E95B001CBD04 /* EncodableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableExtension.swift; sourceTree = "<group>"; };
 		E4513A7D2171FC67001CBD04 /* JSONDecoderAdv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderAdv.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				E48460D72175940900975A70 /* UICollectionViewExtension.swift */,
 				E48460D92175950400975A70 /* UITableViewExtension.swift */,
 				E465382B2176DF4F0018DB75 /* IntExtensions.swift */,
+				E442A48A217720DD00A50F56 /* RandomExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 				E40B30DB2172AB2E003185E9 /* ListView.swift in Sources */,
 				E4CBD36E2176968E00233A8C /* BaseUITextField.swift in Sources */,
 				E4CBD374217697D300233A8C /* BaseCircularRevealAnimator.swift in Sources */,
+				E442A48B217720DD00A50F56 /* RandomExtensions.swift in Sources */,
 				E4DDC66E217545DA00B5B0A2 /* NSObjectExtensions.swift in Sources */,
 				E492A72D21746DA100F9023F /* CircularImageCell.swift in Sources */,
 				E48460DC21759D7100975A70 /* LetterImageGenerator.swift in Sources */,

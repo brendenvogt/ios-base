@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseUIViewController {
     
     var viewModel : HomeViewModel?
     
@@ -28,6 +28,7 @@ class HomeViewController: UIViewController {
         b.gradientAngle = 90
         return b
     }()
+    
     var views = [UIView]()
     func colorsExample(){
         let listView: ListView = ListView.instantiateFromNib()
@@ -37,7 +38,7 @@ class HomeViewController: UIViewController {
         listView.heightAnchor.constraint(equalToConstant: CGFloat(height)).isActive = true
         for _ in 0...2 {
             let view = UIView(frame: .zero)
-            view.backgroundColor = .blue
+            view.backgroundColor = .lightGray
             listView.stackView.addArrangedSubview(view)
             views.append(view)
         }
@@ -135,6 +136,12 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
+        self.statusBarHidden = true
+        if let nav = self.navigationController as? BaseUINavigationController {
+            nav.lightStatusBar = false
+            nav.statusBarHidden = false
+        }
+        
         colorsExample()
         
 //        buttonExample()
@@ -147,6 +154,7 @@ class HomeViewController: UIViewController {
 //
 //        apiSimpleExample()
     }
+
 }
 
 extension HomeViewController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
@@ -172,7 +180,6 @@ extension HomeViewController : UICollectionViewDataSource, UICollectionViewDeleg
             views[1].backgroundColor = s
             views[2].backgroundColor = d
         }
-
     }
     
 }

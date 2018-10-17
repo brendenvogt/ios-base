@@ -153,10 +153,10 @@ extension UIColor {
     }
     
     public static func random(randomAlpha: Bool = false) -> UIColor {
-        let randomRed = CGFloat.random()
-        let randomGreen = CGFloat.random()
-        let randomBlue = CGFloat.random()
-        let alpha = randomAlpha ? CGFloat.random() : 1.0
+        let randomRed = CGFloat.random
+        let randomGreen = CGFloat.random
+        let randomBlue = CGFloat.random
+        let alpha = randomAlpha ? CGFloat.random : 1.0
         return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: alpha)
     }
     

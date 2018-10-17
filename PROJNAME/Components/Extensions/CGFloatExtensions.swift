@@ -43,18 +43,6 @@ extension CGFloat {
         return (180.0 * angleInDegrees) / .pi
     }
     
-    public static func random() -> CGFloat {
-        return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
-    }
-    
-    public static func random(within: Range<CGFloat>) -> CGFloat {
-        return CGFloat.random() * (within.upperBound - within.lowerBound) + within.lowerBound
-    }
-    
-    public static func random(within: ClosedRange<CGFloat>) -> CGFloat {
-        return CGFloat.random() * (within.upperBound - within.lowerBound) + within.lowerBound
-    }
-    
     public static func shortestAngleInRadians(from first: CGFloat, to second: CGFloat) -> CGFloat {
         let twoPi = CGFloat(.pi * 2.0)
         var angle = (second - first).truncatingRemainder(dividingBy: twoPi)

@@ -13,13 +13,19 @@ open class BaseUIViewController: UIViewController {
     private var _statusBarHidden: Bool = false
     @IBInspectable var statusBarHidden: Bool{
         get{ return self._statusBarHidden }
-        set{ self._statusBarHidden = newValue }
+        set{
+            self._statusBarHidden = newValue
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
     }
     
     private var _lightStatusBar: Bool = false
     @IBInspectable var lightStatusBar: Bool{
         get{ return self._lightStatusBar }
-        set{ self._lightStatusBar = newValue }
+        set{
+            self._lightStatusBar = newValue
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
     }
     
     override open func viewDidLoad() {
