@@ -12,9 +12,22 @@ import UIKit
     
     private let gradientLayer = CAGradientLayer()
     
-    @IBInspectable var topColor: UIColor = UIColor.clear
-    @IBInspectable var bottomColor: UIColor = UIColor.clear
+    @IBInspectable var topColor: UIColor = UIColor.clear{
+        didSet{
+            configureGradient()
+        }
+    }
+    @IBInspectable var bottomColor: UIColor = UIColor.clear{
+        didSet{
+            configureGradient()
+        }
+    }
     @IBInspectable var gradientAngle: CGFloat = 0.0{
+        didSet{
+            configureGradient()
+        }
+    }
+    @IBInspectable var gradientOpacity: CGFloat = 1.0{
         didSet{
             configureGradient()
         }
@@ -32,7 +45,6 @@ import UIKit
     
     override public func layoutSubviews() {
         super.layoutSubviews()
-        
         gradientLayer.frame = bounds
     }
     
@@ -44,6 +56,7 @@ import UIKit
         gradientLayer.startPoint = CGPoint(x: (1-minmaxx)*0.5, y: (1-minmaxy)*0.5)
         gradientLayer.endPoint = CGPoint(x: (1+minmaxx)*0.5, y: (1+minmaxy)*0.5)
         updateColors()
+        gradientLayer.opacity = Float(gradientOpacity)
         layer.insertSublayer(gradientLayer, at: 0)
     }
     

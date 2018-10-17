@@ -17,8 +17,8 @@ class LetterImageGenerator: NSObject {
     }
     
     class func imageWith(name: String?, _ textColor: String? = nil, _ backgroundColor: String? = nil) -> UIImage? {
-        let textC = UIColor(hexString: textColor ?? "222222")
-        let backgroundC = UIColor(hexString: backgroundColor ?? "ffffff")
+        let textC = UIColor(hex: textColor ?? "222222")
+        let backgroundC = UIColor(hex: backgroundColor ?? "ffffff")
         let frame = CGRect(x: 0, y: 0, width: 150, height: 150)
         let nameLabel = UILabel(frame: frame)
         nameLabel.textAlignment = .center

@@ -17,6 +17,7 @@
 		E45C5B16215DE05C001F1CD4 /* ErrorContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45C5B15215DE05C001F1CD4 /* ErrorContract.swift */; };
 		E45C5B18215DE078001F1CD4 /* BoolContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45C5B17215DE078001F1CD4 /* BoolContract.swift */; };
 		E465382A2176D7710018DB75 /* BaseUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46538292176D7710018DB75 /* BaseUIView.swift */; };
+		E465382C2176DF4F0018DB75 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E465382B2176DF4F0018DB75 /* IntExtensions.swift */; };
 		E48460D82175940900975A70 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48460D72175940900975A70 /* UICollectionViewExtension.swift */; };
 		E48460DA2175950400975A70 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48460D92175950400975A70 /* UITableViewExtension.swift */; };
 		E48460DC21759D7100975A70 /* LetterImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48460DB21759D7100975A70 /* LetterImageGenerator.swift */; };
@@ -80,6 +81,7 @@
 		E45C5B15215DE05C001F1CD4 /* ErrorContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorContract.swift; sourceTree = "<group>"; };
 		E45C5B17215DE078001F1CD4 /* BoolContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolContract.swift; sourceTree = "<group>"; };
 		E46538292176D7710018DB75 /* BaseUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIView.swift; sourceTree = "<group>"; };
+		E465382B2176DF4F0018DB75 /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
 		E48460D72175940900975A70 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
 		E48460D92175950400975A70 /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		E48460DB21759D7100975A70 /* LetterImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterImageGenerator.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				E4DDC66D217545DA00B5B0A2 /* NSObjectExtensions.swift */,
 				E48460D72175940900975A70 /* UICollectionViewExtension.swift */,
 				E48460D92175950400975A70 /* UITableViewExtension.swift */,
+				E465382B2176DF4F0018DB75 /* IntExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				E4DCE37F215A221600882D84 /* CALayerExtensions.swift in Sources */,
 				E45C5B16215DE05C001F1CD4 /* ErrorContract.swift in Sources */,
 				E4DCE37B215A20C200882D84 /* UIColorExtensions.swift in Sources */,
+				E465382C2176DF4F0018DB75 /* IntExtensions.swift in Sources */,
 				E4DCE388215A307900882D84 /* UIViewExtension.swift in Sources */,
 				E48460D82175940900975A70 /* UICollectionViewExtension.swift in Sources */,
 				E48460DA2175950400975A70 /* UITableViewExtension.swift in Sources */,

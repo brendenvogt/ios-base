@@ -17,25 +17,21 @@ import UIKit
             configureGradient()
         }
     }
-    
     @IBInspectable var bottomColor: UIColor = UIColor.clear{
         didSet{
             configureGradient()
         }
     }
-    
     @IBInspectable var gradientAngle: CGFloat = 0.0{
         didSet{
             configureGradient()
         }
     }
-    
     @IBInspectable var gradientOpacity: CGFloat = 1.0{
         didSet{
             configureGradient()
         }
     }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         layer.addSublayer(gradientLayer)
@@ -63,13 +59,12 @@ import UIKit
         gradientLayer.endPoint = CGPoint(x: (1+minmaxx)*0.5, y: (1+minmaxy)*0.5)
         updateColors()
         gradientLayer.opacity = Float(gradientOpacity)
-        //        layer.insertSublayer(gradientLayer, at: 0)
+        layer.insertSublayer(gradientLayer, at: 0)
     }
     
     private func updateColors() {
         gradientLayer.colors = [topColor.cgColor, bottomColor.cgColor]
     }
-    //===
     
     var _buttonPadding: CGFloat = 50
     @IBInspectable var buttonPadding: CGFloat {

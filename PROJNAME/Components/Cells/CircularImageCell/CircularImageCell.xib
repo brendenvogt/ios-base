@@ -16,20 +16,40 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="372"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uV9-m2-iQn">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o45-Ii-poJ" customClass="BaseUIView" customModule="PROJNAME" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="372"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="topColor">
+                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
+                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="gradientAngle">
+                            <real key="value" value="90"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uV9-m2-iQn">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="372"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="o45-Ii-poJ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Cqy-Ff-OVg"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="o45-Ii-poJ" secondAttribute="bottom" id="F3F-mj-ePZ"/>
                 <constraint firstItem="uV9-m2-iQn" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="SZM-t5-fpT"/>
+                <constraint firstItem="o45-Ii-poJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Vx3-5a-twV"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="uV9-m2-iQn" secondAttribute="bottom" id="YlI-Fk-9WZ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="o45-Ii-poJ" secondAttribute="trailing" id="ftL-QC-tWT"/>
                 <constraint firstItem="uV9-m2-iQn" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="l1g-k7-UIL"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uV9-m2-iQn" secondAttribute="trailing" id="qsu-zh-64l"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="gradientView" destination="o45-Ii-poJ" id="WUK-5D-Uyg"/>
                 <outlet property="mainImage" destination="uV9-m2-iQn" id="5Sn-jd-6Ap"/>
             </connections>
             <point key="canvasLocation" x="24.5" y="199"/>

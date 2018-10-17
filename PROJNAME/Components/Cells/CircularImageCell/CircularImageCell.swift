@@ -12,7 +12,8 @@ import Kingfisher
 class CircularImageCell: UICollectionViewCell {
 
     @IBOutlet var mainImage: UIImageView!
-    
+    @IBOutlet var gradientView: BaseUIView!
+
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -21,9 +22,13 @@ class CircularImageCell: UICollectionViewCell {
         super.init(coder: aDecoder)
     }
     
-    func common(imageUrl:String){
-        self.mainImage.layer.cornerRadius = self.bounds.width/2
-        self.mainImage.layer.masksToBounds = true
+    func common(imageUrl:String, colors : [UIColor]){
+        self.layer.cornerRadius = self.bounds.width/2
+        self.layer.masksToBounds = true
+        
+        //gradient view
+        self.gradientView.topColor = colors.first ?? .white
+        self.gradientView.bottomColor = colors.last ?? .white
         //letter image
         //self.mainImage.image = LetterImageGenerator.imageWith(name: "Brenden Vogt", "ffffff", "cccccc")
         

@@ -44,6 +44,22 @@ extension UIView {
         }
     }
     
+    
+    func snapToSuperTop(withInsets insets: UIEdgeInsets = .zero){
+        if let superView = self.superview {
+            self.translatesAutoresizingMaskIntoConstraints = false
+            self.bottomAnchor.constraint(lessThanOrEqualTo: superView.bottomAnchor, constant: -insets.top).isActive = true
+            self.leftAnchor.constraint(equalTo: superView.leftAnchor, constant: insets.left).isActive = true
+            self.rightAnchor.constraint(equalTo: superView.rightAnchor, constant: -insets.right).isActive = true
+            if #available(iOS 11, *) {
+                let guide = superView.safeAreaLayoutGuide
+                self.topAnchor.constraint(equalTo: guide.topAnchor, constant: insets.bottom).isActive = true
+            }else{
+                self.topAnchor.constraint(equalTo: superView.topAnchor, constant: insets.bottom).isActive = true
+            }
+        }
+    }
+    
     var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius

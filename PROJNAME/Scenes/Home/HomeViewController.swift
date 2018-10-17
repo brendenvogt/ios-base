@@ -21,6 +21,21 @@ class HomeViewController: UIViewController {
         return l
     }()
     
+    var button : BaseUIButton = {
+        let b = BaseUIButton(frame: .zero)
+        b.topColor = UIColor(hex:"00ddff") ?? .white
+        b.bottomColor = .blue
+        b.gradientAngle = 90
+        return b
+    }()
+    
+    func buttonExample(){
+        view.addSubview(button)
+        button.snapToSuperTop()
+        button.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        
+    }
+    
     func collectionExample(){
         let listView: ListView = ListView.instantiateFromNib()
         view.addSubview(listView)
@@ -105,6 +120,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
+        buttonExample()
+        
         collectionExample()
         
 //        nibExample()
@@ -124,15 +141,14 @@ extension HomeViewController : UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: CircularImageCell.self), for: indexPath) as! CircularImageCell
         
-        let imageUrl = SampleImageUtility.normal(size: .init(width: 100, height: 100))
-//        let imageUrl = SampleImageUtility.grayscale(size: .init(width: 300, height: 300))
-//        let imageUrl = SampleImageUtility.blurred(size: .init(width: 300, height: 300))
-//        let imageUrl = SampleImageUtility.cropped(size: .init(width: 300, height: 300), gravity: .north)
-//        let imageUrl = SampleImageUtility.specific(size: .init(width: 300, height: 300), index: 1)
+        let imageUrl = SampleImageUtility.normal(size: .init(width: .random(10)+100, height: .random(10)+100))
         
-        cell.common(imageUrl: imageUrl)
+        cell.common(imageUrl: imageUrl, colors: [.darkGray, .lightGray])
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.item)
+    }
     
 }
