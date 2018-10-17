@@ -28,12 +28,27 @@ class HomeViewController: UIViewController {
         b.gradientAngle = 90
         return b
     }()
+    var views = [UIView]()
+    func colorsExample(){
+        let listView: ListView = ListView.instantiateFromNib()
+        view.addSubview(listView)
+        let height = 400
+        listView.snapToSuperTop()
+        listView.heightAnchor.constraint(equalToConstant: CGFloat(height)).isActive = true
+        for _ in 0...2 {
+            let view = UIView(frame: .zero)
+            view.backgroundColor = .blue
+            listView.stackView.addArrangedSubview(view)
+            views.append(view)
+        }
+    }
     
     func buttonExample(){
         view.addSubview(button)
         button.snapToSuperTop()
         button.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        
+        button.cornerRadius = 50
+        button.addTarget(self, action: #selector(buttonClicked(button:)), for: .touchUpInside)
     }
     
     func collectionExample(){
@@ -120,7 +135,9 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        buttonExample()
+        colorsExample()
+        
+//        buttonExample()
         
         collectionExample()
         
@@ -149,6 +166,13 @@ extension HomeViewController : UICollectionViewDataSource, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.item)
+        if let cell = collectionView.cellForItem(at: indexPath) as? CircularImageCell {
+            let (p,s,d) = (cell.mainImage?.image?.colors())!
+            views[0].backgroundColor = p
+            views[1].backgroundColor = s
+            views[2].backgroundColor = d
+        }
+
     }
     
 }
