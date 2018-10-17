@@ -16,6 +16,7 @@
 		E4513A7E2171FC67001CBD04 /* JSONDecoderAdv.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4513A7D2171FC67001CBD04 /* JSONDecoderAdv.swift */; };
 		E45C5B16215DE05C001F1CD4 /* ErrorContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45C5B15215DE05C001F1CD4 /* ErrorContract.swift */; };
 		E45C5B18215DE078001F1CD4 /* BoolContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45C5B17215DE078001F1CD4 /* BoolContract.swift */; };
+		E465382A2176D7710018DB75 /* BaseUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46538292176D7710018DB75 /* BaseUIView.swift */; };
 		E48460D82175940900975A70 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48460D72175940900975A70 /* UICollectionViewExtension.swift */; };
 		E48460DA2175950400975A70 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48460D92175950400975A70 /* UITableViewExtension.swift */; };
 		E48460DC21759D7100975A70 /* LetterImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48460DB21759D7100975A70 /* LetterImageGenerator.swift */; };
@@ -78,6 +79,7 @@
 		E4513A7D2171FC67001CBD04 /* JSONDecoderAdv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderAdv.swift; sourceTree = "<group>"; };
 		E45C5B15215DE05C001F1CD4 /* ErrorContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorContract.swift; sourceTree = "<group>"; };
 		E45C5B17215DE078001F1CD4 /* BoolContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolContract.swift; sourceTree = "<group>"; };
+		E46538292176D7710018DB75 /* BaseUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIView.swift; sourceTree = "<group>"; };
 		E48460D72175940900975A70 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
 		E48460D92175950400975A70 /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		E48460DB21759D7100975A70 /* LetterImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterImageGenerator.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				E4CBD3712176975400233A8C /* BaseUIViewController.swift */,
 				E4CBD373217697D300233A8C /* BaseCircularRevealAnimator.swift */,
 				E4CBD3752176980900233A8C /* BaseAnimatorDelegate.swift */,
+				E46538292176D7710018DB75 /* BaseUIView.swift */,
 			);
 			path = Subclasses;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				E4CBD36A2176960E00233A8C /* BaseUIButton.swift in Sources */,
 				E42A6FBA2173F37200B2DB02 /* AutoSizeProtocol.swift in Sources */,
 				E4DCE381215A229C00882D84 /* HeaderFactory.swift in Sources */,
+				E465382A2176D7710018DB75 /* BaseUIView.swift in Sources */,
 				E4CBD370217696BF00233A8C /* BaseUINavigationController.swift in Sources */,
 				E48E1E112162256300A4FF03 /* ApiController.swift in Sources */,
 				E48E1E0F2162255A00A4FF03 /* UserController.swift in Sources */,
