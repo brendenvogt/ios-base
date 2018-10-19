@@ -18,5 +18,10 @@ class ViewControllerFactory: NSObject {
         viewController.viewModel = viewModel
         return viewController
     }
+    
+    static public func menuViewController() -> MenuViewController {
+        let layout = UICollectionViewFlowLayout()
+        return MenuViewController(collectionViewLayout: layout)
+    }
 
 }

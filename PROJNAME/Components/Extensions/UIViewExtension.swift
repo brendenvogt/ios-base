@@ -14,6 +14,16 @@ extension UIView {
         return UINib(nibName: "\(self)", bundle: nil).instantiate(withOwner: nil, options: nil).first as! T
     }
     
+    func addConstraintsWithFormat(format: String, views: UIView...) {
+        var viewsDictionary = [String: UIView]()
+        for (index, view) in views.enumerated() {
+            let key = "v\(index)"
+            view.translatesAutoresizingMaskIntoConstraints = false
+            viewsDictionary[key] = view
+        }
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: viewsDictionary))
+    }
+    
     func snapToSuper(withInsets insets: UIEdgeInsets = .zero){
         if let superView = self.superview {
             self.translatesAutoresizingMaskIntoConstraints = false
@@ -58,6 +68,10 @@ extension UIView {
                 self.topAnchor.constraint(equalTo: superView.topAnchor, constant: insets.bottom).isActive = true
             }
         }
+    }
+    
+    func setHeight(_ height:CGFloat){
+        self.heightAnchor.constraint(equalToConstant: height).isActive = true
     }
     
     var cornerRadius: CGFloat {

@@ -15,11 +15,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         window = UIWindow(frame: UIScreen.main.bounds)
 
-        let home = ViewControllerFactory.homeViewController(viewModel: nil)
-        let root = BaseUINavigationController(rootViewController: home)
+        ///set the base view contorller
+//        let vc = ViewControllerFactory.homeViewController(viewModel: nil)
+        let vc = ViewControllerFactory.menuViewController()
+        let root = BaseUINavigationController(rootViewController: vc)
         
+        ///turns the nav bar color
+        root.navBarTintColor = UIColor.rgb(230, 32, 31)
+        
+        ///sets the status bar light
+        vc.lightStatusBar = true
+        root.lightStatusBar = true
+        
+        ///set translucency
+        root.navBarIsTranslucent = false
+        
+        // get rid of black bar underneath navbar
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        
+        ///set the window root vc
         window!.rootViewController = root
         window!.makeKeyAndVisible()
         
