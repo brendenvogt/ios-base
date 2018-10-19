@@ -39,7 +39,6 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
         return cv
     }()
     
-    let cellId = "cellId"
     let cellHeight: CGFloat = 50
     
     let settings: [Setting] = {
@@ -52,16 +51,12 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     var menuViewController: MenuViewController?
     
     func showSettings() {
-        //show menu
         
         if let window = UIApplication.shared.keyWindow {
-            
             blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
-            
             blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismiss)))
             
             window.addSubview(blackView)
-            
             window.addSubview(collectionView)
             
             let height: CGFloat = CGFloat(settings.count) * cellHeight
@@ -102,11 +97,9 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! SettingCell
-        
+        let cell = collectionView.dequeue(withClass: SettingCell.self, forIndexPath: indexPath) as! SettingCell
         let setting = settings[indexPath.item]
         cell.setting = setting
-        
         return cell
     }
     
@@ -119,18 +112,15 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         let setting = self.settings[indexPath.item]
         handleDismiss(setting: setting)
     }
     
     override init() {
         super.init()
-        
         collectionView.dataSource = self
         collectionView.delegate = self
-        
-        collectionView.register(SettingCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(withClass: SettingCell.self)
     }
     
 }

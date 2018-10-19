@@ -47,11 +47,9 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
                                 Section(title: "Trending", imageName: "trending"),
                                 Section(title: "Subscriptions", imageName: "subscriptions"),
                                 Section(title: "Account", imageName: "account")]
-    
-    ///
+    ///End Section
     
     ///Nav Bar Title
-//    let titles = ["Home", "Trending", "Subscriptions", "Account"]
     func setupNavTitle(){
         let titleLabel = UILabel(frame: .init(x: 0, y: 0, width: view.frame.width - 32, height: view.frame.height))
         titleLabel.textColor = .white
