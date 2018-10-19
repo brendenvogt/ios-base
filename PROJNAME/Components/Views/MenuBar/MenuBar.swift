@@ -19,20 +19,22 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
         return cv
     }()
     
-    let imageNames = ["home", "trending", "subscriptions", "account"]
-    
     var menuViewController: MenuViewController?
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    convenience init(frame: CGRect, menu: MenuViewController) {
+        self.init(frame: frame)
+        menuViewController = menu
         
         collectionView.register(withClass: MenuCell.self)
         addSubview(collectionView)
         collectionView.snapToSuper()
-        
         collectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .centeredHorizontally)
         
         setupHorizontalBar()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
     }
     
     var horizontalBarLeftAnchorConstraint: NSLayoutConstraint?
@@ -48,7 +50,7 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
         horizontalBarLeftAnchorConstraint?.isActive = true
         
         horizontalBarView.bottomAnchor.constraint(equalTo:self.bottomAnchor).isActive = true
-        horizontalBarView.widthAnchor.constraint(equalTo:self.widthAnchor, multiplier: 1/4).isActive = true
+        horizontalBarView.widthAnchor.constraint(equalTo:self.widthAnchor, multiplier: 1/CGFloat(menuViewController?.sections.count ?? 1)).isActive = true
         horizontalBarView.heightAnchor.constraint(equalToConstant: 4).isActive = true
     }
     
@@ -57,18 +59,23 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return menuViewController?.sections.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeue(withClass: MenuCell.self, forIndexPath: indexPath) as! MenuCell
-        cell.imageView.image = UIImage(named: imageNames[indexPath.item])?.withRenderingMode(.alwaysTemplate)
+        if let imageName = menuViewController?.sections[indexPath.item].imageName {
+            cell.imageView.image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
+        }
         cell.tintColor = UIColor.rgb(91, 14, 13)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width:frame.width / 4, height:frame.height)
+        if let count = menuViewController?.sections.count{
+            return CGSize.init(width:frame.width / CGFloat(count), height:frame.height)
+        }
+        return CGSize.zero
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

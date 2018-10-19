@@ -9,18 +9,16 @@
 import UIKit
 
 class Section1: BaseCell {
-    
 }
-
 class Section2: BaseCell {
-    
 }
-
 class Section3: BaseCell {
-    
 }
 
-
+struct Section {
+    var title: String
+    var imageName: String
+}
 class MenuViewController: BaseCollectionViewController, UICollectionViewDelegateFlowLayout {
     
     ///Section Controller
@@ -42,23 +40,33 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
         
         collectionView?.isPagingEnabled = true
     }
+    ///End Section Controller
     
-    ///Nav Title
-    let titles = ["Home", "Trending", "Subscriptions", "Account"]
+    ///Sections
+    public var sections : [Section] = [Section(title: "Home", imageName: "home"),
+                                Section(title: "Trending", imageName: "trending"),
+                                Section(title: "Subscriptions", imageName: "subscriptions"),
+                                Section(title: "Account", imageName: "account")]
+    
+    ///
+    
+    ///Nav Bar Title
+//    let titles = ["Home", "Trending", "Subscriptions", "Account"]
     func setupNavTitle(){
         let titleLabel = UILabel(frame: .init(x: 0, y: 0, width: view.frame.width - 32, height: view.frame.height))
-        titleLabel.text = "  Home"
         titleLabel.textColor = .white
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         navigationItem.titleView = titleLabel
+        setTitleForIndex(0)
     }
     private func setTitleForIndex(_ index: Int) {
         if let titleLabel = navigationItem.titleView as? UILabel {
-            titleLabel.text = "  \(titles[index])"
+            titleLabel.text = "  \(sections[index].title)"
         }
     }
+    ///End Nav Bar Title
     
-    ///Navigation Bar
+    ///Nav Bar
     func setupNavBarButtons() {
         let searchImage = UIImage(named: "search_icon")?.withRenderingMode(.alwaysOriginal)
         let searchBarButtonItem = UIBarButtonItem(image: searchImage, style: .plain, target: self, action: #selector(handleSearch))
@@ -73,14 +81,13 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
     }
     @objc func handleMore(){
         print("more")
+        settingsLauncher.showSettings()
     }
-    ///end Navigation Bar
+    ///End Nav Bar
     
-    
-    ///Menu
+    ///Section Menu
     lazy var menuBar: MenuBar = {
-        let mb = MenuBar()
-        mb.menuViewController = self
+        let mb = MenuBar(frame: .zero, menu: self)
         return mb
     }()
     
@@ -105,7 +112,25 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
         
         menuBar.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
     }
-    ///end Menu
+    ///End Section Menu
+    
+    ///Settings Menu
+    func showControllerForSetting(setting: Setting) {
+        let dummySettingsViewController = UIViewController()
+        dummySettingsViewController.view.backgroundColor = UIColor.white
+        dummySettingsViewController.navigationItem.title = setting.name.rawValue
+        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.pushViewController(dummySettingsViewController, animated: true)
+    }
+    
+    lazy var settingsLauncher: SettingsLauncher = {
+        let launcher = SettingsLauncher()
+        launcher.menuViewController = self
+        return launcher
+    }()
+    ///End Settings Menu
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,7 +147,7 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
     }
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        menuBar.horizontalBarLeftAnchorConstraint?.constant = scrollView.contentOffset.x / 4
+        menuBar.horizontalBarLeftAnchorConstraint?.constant = scrollView.contentOffset.x / CGFloat(sections.count)
     }
 
     override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
@@ -135,7 +160,7 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return sections.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

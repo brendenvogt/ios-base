@@ -33,10 +33,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ///set translucency
         root.navBarIsTranslucent = false
         
-        // get rid of black bar underneath navbar
+        ///get rid of black bar underneath navbar
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         
+        ///status bar background
+        let statusBarBackgroundView = UIView()
+        statusBarBackgroundView.backgroundColor = UIColor.rgb(194, 31, 31)
+        window?.addSubview(statusBarBackgroundView)
+        window?.addConstraintsWithFormat(format: "H:|[v0]|", views: statusBarBackgroundView)
+        window?.addConstraintsWithFormat(format: "V:|[v0(20)]", views: statusBarBackgroundView)
+
         ///set the window root vc
         window!.rootViewController = root
         window!.makeKeyAndVisible()
