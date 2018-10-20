@@ -57,11 +57,17 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
             blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismiss)))
             
             window.addSubview(blackView)
+            blackView.snapToSuper()
             window.addSubview(collectionView)
+            collectionView.snapToSuperBottom()
             
             let height: CGFloat = CGFloat(settings.count) * cellHeight
             let y = window.frame.height - height
             collectionView.frame = CGRect(x:0, y:window.frame.height, width:window.frame.width, height:height)
+            collectionView.heightAnchor.constraint(equalToConstant: height).isActive = true
+            
+            let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
+            layout?.invalidateLayout()
             
             blackView.frame = window.frame
             blackView.alpha = 0
@@ -89,6 +95,8 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
             if setting.name != .Cancel {
                 self.menuViewController?.showControllerForSetting(setting: setting)
             }
+            self.collectionView.removeFromSuperview()
+            self.blackView.removeFromSuperview()
         }
     }
     

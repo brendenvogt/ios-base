@@ -19,6 +19,7 @@ struct Section {
     var title: String
     var imageName: String
 }
+
 class MenuViewController: BaseCollectionViewController, UICollectionViewDelegateFlowLayout {
     
     ///Section Controller
@@ -47,6 +48,7 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
                                 Section(title: "Trending", imageName: "trending"),
                                 Section(title: "Subscriptions", imageName: "subscriptions"),
                                 Section(title: "Account", imageName: "account")]
+    var currentSection: Int = 0
     ///End Section
     
     ///Nav Bar Title
@@ -54,11 +56,15 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
         let titleLabel = UILabel(frame: .init(x: 0, y: 0, width: view.frame.width - 32, height: view.frame.height))
         titleLabel.textColor = .white
         titleLabel.font = UIFont.systemFont(ofSize: 20)
-        navigationItem.titleView = titleLabel
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.textAlignment = .left
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: titleLabel)
+
         setTitleForIndex(0)
     }
     private func setTitleForIndex(_ index: Int) {
-        if let titleLabel = navigationItem.titleView as? UILabel {
+        if let titleLabel = navigationItem.leftBarButtonItem?.customView as? UILabel {
             titleLabel.text = "  \(sections[index].title)"
         }
     }
@@ -89,14 +95,14 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
         return mb
     }()
     
-    func scrollToMenuIndex(_ menuIndex: Int) {
+    func scrollToMenuIndex(_ menuIndex: Int, _ animate: Bool = true) {
         let indexPath = IndexPath(item: menuIndex, section: 0)
-        collectionView?.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        collectionView?.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: animate)
         setTitleForIndex(menuIndex)
     }
     
     private func setupMenuBar() {
-        navigationController?.hidesBarsOnSwipe = true
+        navigationController?.hidesBarsOnSwipe = false
         
         let menuView = UIView()
         menuView.backgroundColor = UIColor.rgb(230, 32, 31)
@@ -152,6 +158,7 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
         let index = targetContentOffset.pointee.x / view.frame.width
         
         let indexPath = IndexPath(item: Int(index), section: 0)
+        currentSection = Int(index)
         menuBar.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
         
         setTitleForIndex(Int(index))
@@ -163,18 +170,36 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let identifier: String
+        var color = UIColor.white
         if indexPath.item == 0 {
             identifier = Section1.className
+            color = UIColor.blue
         } else if indexPath.item == 1 {
             identifier = Section2.className
+            color = UIColor.black
+        } else if indexPath.item == 2 {
+            identifier = Section3.className
+            color = UIColor.purple
         } else {
             identifier = Section3.className
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
+        cell.backgroundColor = color
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: view.frame.height - 50)
     }
+    
+    //orientation change
+    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
+        let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
+        layout?.invalidateLayout()
+        let menuLayout = menuBar.collectionView.collectionViewLayout as? UICollectionViewFlowLayout
+        menuLayout?.invalidateLayout()
+        
+        scrollToMenuIndex(currentSection, false)
+    }
+    
 }
