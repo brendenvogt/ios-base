@@ -46,10 +46,10 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
     ///End Section Controller
     
     ///Sections
-    public var sections : [Section] = [Section(title: "Home", imageName: "home"),
-                                Section(title: "Trending", imageName: "trending"),
-                                Section(title: "Subscriptions", imageName: "subscriptions"),
-                                Section(title: "Account", imageName: "account")]
+    public var sections : [Section] = [Section(title: "Home", imageName: "ic_home_48pt"),
+                                Section(title: "Watching", imageName: "ic_star_48pt"),
+                                Section(title: "Inbox", imageName: "ic_inbox_48pt"),
+                                Section(title: "Account", imageName: "ic_person_48pt")]
     var currentSection: Int = 0
     ///End Section
     
@@ -74,10 +74,10 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
     
     ///Nav Bar
     func setupNavBarButtons() {
-        let searchImage = UIImage(named: "search_icon")?.withRenderingMode(.alwaysOriginal)
+        let searchImage = UIImage(named: "ic_search_white")?.withRenderingMode(.alwaysOriginal)
         let searchBarButtonItem = UIBarButtonItem(image: searchImage, style: .plain, target: self, action: #selector(handleSearch))
         
-        let moreImage = UIImage(named: "nav_more_icon")?.withRenderingMode(.alwaysOriginal)
+        let moreImage = UIImage(named: "ic_more_vert_white")?.withRenderingMode(.alwaysOriginal)
         let moreButton = UIBarButtonItem(image: moreImage, style: .plain, target: self, action: #selector(handleMore))
         
         navigationItem.rightBarButtonItems = [moreButton, searchBarButtonItem]
