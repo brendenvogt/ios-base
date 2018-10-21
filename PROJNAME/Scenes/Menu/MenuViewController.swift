@@ -29,7 +29,9 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
             flowLayout.minimumLineSpacing = 0
         }
         
-        collectionView?.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor.init(gray: 0.12)
+        collectionView?.backgroundColor = .clear
+        
         collectionView?.register(withClass: Section1.self)
         collectionView?.register(withClass: Section2.self)
         collectionView?.register(withClass: Section3.self)
@@ -196,9 +198,13 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
     override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
         let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
         layout?.invalidateLayout()
+
         let menuLayout = menuBar.collectionView.collectionViewLayout as? UICollectionViewFlowLayout
         menuLayout?.invalidateLayout()
         
+        let settingsLayout = settingsLauncher.collectionView.collectionViewLayout as? UICollectionViewFlowLayout
+        settingsLayout?.invalidateLayout()
+
         scrollToMenuIndex(currentSection, false)
     }
     
