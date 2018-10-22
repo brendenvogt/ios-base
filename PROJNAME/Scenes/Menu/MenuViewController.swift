@@ -22,6 +22,19 @@ struct Section {
 
 class MenuViewController: BaseCollectionViewController, UICollectionViewDelegateFlowLayout {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //title
+        setupNavTitle()
+        //collectionView
+        setupCollectionView()
+        //menu
+        setupMenuBar()
+        //nav
+        setupNavBarButtons()
+    }
+    
     ///Section Controller
     func setupCollectionView() {
         if let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
@@ -139,21 +152,6 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
     }()
     ///End Settings Menu
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        //title
-        setupNavTitle()
-        //collectionView
-        setupCollectionView()
-        //menu
-        setupMenuBar()
-        //nav
-        setupNavBarButtons()
-        
-    }
-
     //main view collection
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         menuBar.horizontalBarLeftAnchorConstraint?.constant = scrollView.contentOffset.x / CGFloat(sections.count)
