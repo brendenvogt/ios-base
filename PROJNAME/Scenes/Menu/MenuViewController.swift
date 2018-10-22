@@ -32,15 +32,18 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
         view.backgroundColor = UIColor.init(gray: 0.12)
         collectionView?.backgroundColor = .clear
         
+        ///Register Cells
         collectionView?.register(withClass: Section1.self)
         collectionView?.register(withClass: Section2.self)
         collectionView?.register(withClass: Section3.self)
         
+        ///menu bar insets
         collectionView?.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
         collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
+        
+        //menu defaults
         collectionView?.showsVerticalScrollIndicator = false
         collectionView?.showsHorizontalScrollIndicator = false
-        
         collectionView?.isPagingEnabled = true
     }
     ///End Section Controller
@@ -60,7 +63,6 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.textAlignment = .left
-        
         navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: titleLabel)
 
         setTitleForIndex(0)
@@ -152,6 +154,7 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
         
     }
 
+    //main view collection
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         menuBar.horizontalBarLeftAnchorConstraint?.constant = scrollView.contentOffset.x / CGFloat(sections.count)
     }
