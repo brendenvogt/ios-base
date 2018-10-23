@@ -8,8 +8,32 @@
 
 import UIKit
 
+public struct ShadowOptions {
+    var offset: CGFloat
+    var opacity: Float
+    var radius: CGFloat
+}
+
+public struct BorderOptions {
+    var color: UIColor
+    var width: CGFloat
+}
+
+public struct RoundingOptions {
+    var radius: CGFloat
+}
+
 extension CALayer {
-    func addShadow(offset:CGFloat, opacity:Float, radius:CGFloat) {
+    func shadow(_ options:ShadowOptions) {
+        self.shadowOffset = .init(width: 0, height: options.offset)
+        self.shadowOpacity = options.opacity
+        self.shadowRadius = options.radius
+        self.shadowPath = UIBezierPath(rect: bounds).cgPath;
+        self.shadowColor = UIColor.black.cgColor
+        self.masksToBounds = false
+    }
+    
+    func shadow(_ offset:CGFloat,_ opacity:Float,_ radius:CGFloat) {
         self.shadowOffset = .init(width: 0, height: offset)
         self.shadowOpacity = opacity
         self.shadowRadius = radius
@@ -18,7 +42,7 @@ extension CALayer {
         self.masksToBounds = false
     }
     
-    func roundCorners(radius: CGFloat) {
+    func cornerRadius(_ radius: CGFloat) {
         self.cornerRadius = radius
         self.masksToBounds = true
     }

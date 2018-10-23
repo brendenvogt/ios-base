@@ -24,7 +24,22 @@ extension UIView {
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: viewsDictionary))
     }
     
-    func snapToSuper(withInsets insets: UIEdgeInsets = .zero){
+    func snapToSuper(withOffset offset: CGFloat = 0){
+        if let superView = self.superview {
+            self.translatesAutoresizingMaskIntoConstraints = false
+            self.topAnchor.constraint(equalTo: superView.topAnchor, constant: offset).isActive = true
+            self.leftAnchor.constraint(equalTo: superView.leftAnchor, constant: offset).isActive = true
+            self.rightAnchor.constraint(equalTo: superView.rightAnchor, constant: -offset).isActive = true
+            if #available(iOS 11, *) {
+                let guide = superView.safeAreaLayoutGuide
+                self.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: -offset).isActive = true
+            }else{
+                self.bottomAnchor.constraint(equalTo: superView.bottomAnchor, constant: -offset).isActive = true
+            }
+        }
+    }
+    
+    func snapToSuper(withInsets insets: UIEdgeInsets){
         if let superView = self.superview {
             self.translatesAutoresizingMaskIntoConstraints = false
             self.topAnchor.constraint(equalTo: superView.topAnchor, constant: insets.top).isActive = true
@@ -108,7 +123,6 @@ extension UIView {
         set {
             layer.borderColor = newValue.cgColor
         }
-    }
-    
-    
+    }    
+
 }

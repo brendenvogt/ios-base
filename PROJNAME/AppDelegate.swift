@@ -19,20 +19,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
 
         ///set the base view contorller
+        ///home
 //        let vc = ViewControllerFactory.homeViewController(viewModel: nil)
-        let vc = ViewControllerFactory.menuViewController()
-        let root = BaseUINavigationController(rootViewController: vc)
         
+        ///menu
+//        let vc = ViewControllerFactory.menuViewController()
+//        let root = BaseUINavigationController(rootViewController: vc)
         ///turns the nav bar color
-        root.navBarTintColor = UIColor.rgb(230, 32, 31)
-        
+//        root.navBarTintColor = UIColor.rgb(230, 32, 31)
         ///sets the status bar light
-        vc.lightStatusBar = true
-        root.lightStatusBar = true
-        
+//        vc.lightStatusBar = true
+//        root.lightStatusBar = true
         ///set translucency
-        root.navBarIsTranslucent = false
+//        root.navBarIsTranslucent = false
         
+        
+        //auth
+        let root = AuthViewController()
+    
         ///get rid of black bar underneath navbar
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
