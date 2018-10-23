@@ -18,8 +18,9 @@ class AuthViewController: BaseUIViewController {
         print("login")
     }
     
-    static let buttonHeight: CGFloat = 50
-    
+    static let buttonHeight: CGFloat = 60
+    static let itemSpacing: CGFloat = 20
+
     let loginButton : BaseUIButton = {
         let b = BaseUIButton(frame: .zero)
         b.backgroundColor = UIColor(white: 0.95, alpha: 0.2)
@@ -55,13 +56,13 @@ class AuthViewController: BaseUIViewController {
         let s = UIStackView(frame: .zero)
         s.axis = .vertical
         s.distribution = .equalSpacing
-        s.spacing = 50
+        s.spacing = itemSpacing
         return s
     }()
     
     let backgroundImage: UIImageView = {
         let iv = UIImageView(frame: .zero)
-        iv.alpha = 0.1
+        iv.alpha = 0.3
         return iv
     }()
     
@@ -98,13 +99,14 @@ class AuthViewController: BaseUIViewController {
     
     func setupBackgroundImage(){
         
+        ///adding image
         self.view.insertSubview(backgroundImage, at: 0)
         backgroundImage.snapToSuper()
-        let image = SampleImageUtility.normal(size: self.view?.bounds.size ?? CGSize(width: 300, height: 600))
-        print(image)
+        let image = SampleImageUtility.grayscale(size: self.view?.bounds.size ?? CGSize(width: 300, height: 600))
         backgroundImage.kf.setImage(with: URL(string: image), placeholder: nil, options: [.transition(.fade(1))], progressBlock: nil, completionHandler: { (image, error, cacheType, URL) in
         })
         
+        ///adding gradient view
         self.view.insertSubview(gradientView, at: 0)
         gradientView.snapToSuper()
 
@@ -112,7 +114,7 @@ class AuthViewController: BaseUIViewController {
     func setupStackView(){
         ///add stack view
         self.view.addSubview(stackView)
-        stackView.snapToSuperTop(withInsets:.init(top: 40, left: 20, bottom: 80, right: 20))
+        stackView.snapToSuperTop(withInsets:.init(top: 40, left: 40, bottom: 80, right: 40))
 
         ///add subviews to stackview
         stackView.addArrangedSubview(titleLabel)
