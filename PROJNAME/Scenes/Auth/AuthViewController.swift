@@ -12,10 +12,18 @@ class AuthViewController: BaseUIViewController {
 
     @objc func signupPressed(_ sender: UIButton) {
         print("signup")
+        let vc = SignupViewController()
+        self.present(vc, animated: true) {
+            print("done")
+        }
     }
     
     @objc func loginPressed(_ sender: UIButton) {
         print("login")
+        let vc = LoginViewController()
+        self.present(vc, animated: true) {
+            print("done")
+        }
     }
     
     static let buttonHeight: CGFloat = 60

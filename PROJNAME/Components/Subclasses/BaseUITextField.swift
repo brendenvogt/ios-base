@@ -53,8 +53,8 @@ import UIKit
     }
     
     override public func layoutSubviews() {
-        let str = NSAttributedString(string: self.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor:UIColor.init(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)])
-        self.attributedPlaceholder = str
+//        let str = NSAttributedString(string: self.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor:UIColor.init(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)])
+//        self.attributedPlaceholder = str
         
         super.layoutSubviews()
         if self.underscoreHeight != 0 {

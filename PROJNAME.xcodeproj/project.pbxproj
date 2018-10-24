@@ -24,9 +24,7 @@
 		E465382C2176DF4F0018DB75 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E465382B2176DF4F0018DB75 /* IntExtensions.swift */; };
 		E4799A81217E7893002A09B2 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4799A7F217E7893002A09B2 /* AuthViewController.swift */; };
 		E4799A87217E7BC6002A09B2 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4799A85217E7BC6002A09B2 /* SignupViewController.swift */; };
-		E4799A88217E7BC6002A09B2 /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4799A86217E7BC6002A09B2 /* SignupViewController.xib */; };
 		E4799A8B217E7BD3002A09B2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4799A89217E7BD3002A09B2 /* LoginViewController.swift */; };
-		E4799A8C217E7BD3002A09B2 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4799A8A217E7BD3002A09B2 /* LoginViewController.xib */; };
 		E4799A8F217ED9DD002A09B2 /* RoundedShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4799A8E217ED9DD002A09B2 /* RoundedShadowView.swift */; };
 		E4799A91217EE0F5002A09B2 /* CGRectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4799A90217EE0F5002A09B2 /* CGRectExtensions.swift */; };
 		E48460D82175940900975A70 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48460D72175940900975A70 /* UICollectionViewExtension.swift */; };
@@ -101,9 +99,7 @@
 		E465382B2176DF4F0018DB75 /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
 		E4799A7F217E7893002A09B2 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		E4799A85217E7BC6002A09B2 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
-		E4799A86217E7BC6002A09B2 /* SignupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignupViewController.xib; sourceTree = "<group>"; };
 		E4799A89217E7BD3002A09B2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		E4799A8A217E7BD3002A09B2 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		E4799A8E217ED9DD002A09B2 /* RoundedShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadowView.swift; sourceTree = "<group>"; };
 		E4799A90217EE0F5002A09B2 /* CGRectExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRectExtensions.swift; sourceTree = "<group>"; };
 		E48460D72175940900975A70 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
@@ -231,7 +227,6 @@
 			isa = PBXGroup;
 			children = (
 				E4799A89217E7BD3002A09B2 /* LoginViewController.swift */,
-				E4799A8A217E7BD3002A09B2 /* LoginViewController.xib */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -240,7 +235,6 @@
 			isa = PBXGroup;
 			children = (
 				E4799A85217E7BC6002A09B2 /* SignupViewController.swift */,
-				E4799A86217E7BC6002A09B2 /* SignupViewController.xib */,
 			);
 			path = Signup;
 			sourceTree = "<group>";
@@ -554,11 +548,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4799A88217E7BC6002A09B2 /* SignupViewController.xib in Resources */,
 				E4F616832159E45400FF52FF /* LaunchScreen.storyboard in Resources */,
 				E4F616802159E45400FF52FF /* Assets.xcassets in Resources */,
 				E492A72B21746D9300F9023F /* CircularImageCell.xib in Resources */,
-				E4799A8C217E7BD3002A09B2 /* LoginViewController.xib in Resources */,
 				E4900DE82173CF6C00664159 /* ListView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
