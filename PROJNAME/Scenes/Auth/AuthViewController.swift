@@ -13,16 +13,16 @@ class AuthViewController: BaseUIViewController {
     @objc func signupPressed(_ sender: UIButton) {
         print("signup")
         let vc = SignupViewController()
-        self.present(vc, animated: true) {
-            print("done")
+        if let nav = self.navigationController{
+            nav.pushViewController(vc, animated: true)
         }
     }
     
     @objc func loginPressed(_ sender: UIButton) {
         print("login")
         let vc = LoginViewController()
-        self.present(vc, animated: true) {
-            print("done")
+        if let nav = self.navigationController{
+            nav.pushViewController(vc, animated: true)
         }
     }
     

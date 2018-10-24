@@ -34,19 +34,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        root.navBarIsTranslucent = false
         
         
-        //auth
-        let root = AuthViewController()
-    
+//        //auth
+//        let vc = AuthViewController()
+//        let root = BaseUINavigationController(rootViewController: vc)
+//        root.isNavigationBarHidden = true
+        
+        let root = BaseAuthViewController()
+        
         ///get rid of black bar underneath navbar
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         
         ///status bar background
-        let statusBarBackgroundView = UIView()
-        statusBarBackgroundView.backgroundColor = UIColor.rgb(194, 31, 31)
-        window?.addSubview(statusBarBackgroundView)
-        window?.addConstraintsWithFormat(format: "H:|[v0]|", views: statusBarBackgroundView)
-        window?.addConstraintsWithFormat(format: "V:|[v0(20)]", views: statusBarBackgroundView)
+//        let statusBarBackgroundView = UIView()
+//        statusBarBackgroundView.backgroundColor = UIColor.rgb(194, 31, 31)
+//        window?.addSubview(statusBarBackgroundView)
+//        window?.addConstraintsWithFormat(format: "H:|[v0]|", views: statusBarBackgroundView)
+//        window?.addConstraintsWithFormat(format: "V:|[v0(20)]", views: statusBarBackgroundView)
 
         ///set the window root vc
         window!.rootViewController = root
