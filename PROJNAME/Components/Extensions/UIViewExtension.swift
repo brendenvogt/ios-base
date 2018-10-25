@@ -24,13 +24,13 @@ extension UIView {
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: viewsDictionary))
     }
     
-    func snapToSuper(withOffset offset: CGFloat = 0){
+    func snapToSuper(withOffset offset: CGFloat = 0, override: Bool = false){
         if let superView = self.superview {
             self.translatesAutoresizingMaskIntoConstraints = false
             self.topAnchor.constraint(equalTo: superView.topAnchor, constant: offset).isActive = true
             self.leftAnchor.constraint(equalTo: superView.leftAnchor, constant: offset).isActive = true
             self.rightAnchor.constraint(equalTo: superView.rightAnchor, constant: -offset).isActive = true
-            if #available(iOS 11, *) {
+            if #available(iOS 11, *), !override {
                 let guide = superView.safeAreaLayoutGuide
                 self.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: -offset).isActive = true
             }else{
@@ -39,13 +39,13 @@ extension UIView {
         }
     }
     
-    func snapToSuper(withInsets insets: UIEdgeInsets){
+    func snapToSuper(withInsets insets: UIEdgeInsets, override:Bool = false){
         if let superView = self.superview {
             self.translatesAutoresizingMaskIntoConstraints = false
             self.topAnchor.constraint(equalTo: superView.topAnchor, constant: insets.top).isActive = true
             self.leftAnchor.constraint(equalTo: superView.leftAnchor, constant: insets.left).isActive = true
             self.rightAnchor.constraint(equalTo: superView.rightAnchor, constant: -insets.right).isActive = true
-            if #available(iOS 11, *) {
+            if #available(iOS 11, *), !override {
                 let guide = superView.safeAreaLayoutGuide
                 self.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: -insets.bottom).isActive = true
             }else{
@@ -69,6 +69,18 @@ extension UIView {
         }
     }
     
+    func snapToSuperCenter(override:Bool = false){
+        if let superView = self.superview {
+            self.translatesAutoresizingMaskIntoConstraints = false
+            self.centerXAnchor.constraint(lessThanOrEqualTo: superView.centerXAnchor, constant: 0).isActive = true
+            if #available(iOS 11, *), !override {
+                let guide = superView.safeAreaLayoutGuide
+                self.centerYAnchor.constraint(equalTo: guide.centerYAnchor, constant: 0).isActive = true
+            }else{
+                self.centerYAnchor.constraint(equalTo: superView.centerYAnchor, constant: 0).isActive = true
+            }
+        }
+    }
     
     func snapToSuperTop(withInsets insets: UIEdgeInsets = .zero){
         if let superView = self.superview {

@@ -10,7 +10,7 @@ import UIKit
 
 class SignupViewController: BaseUIViewController {
 
-    static let itemSpacing: CGFloat = 15
+    static let itemSpacing: CGFloat = 20
     static let itemHeight: CGFloat = 30
     static let buttonHeight: CGFloat = 50
 
@@ -41,6 +41,7 @@ class SignupViewController: BaseUIViewController {
         t.underscoreHeight = 0.5
         let placeholder = NSAttributedString(string: "Phone, email or username", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         t.attributedPlaceholder = placeholder
+        t.setEmailTextEntry()
         return t
     }()
     
@@ -50,6 +51,17 @@ class SignupViewController: BaseUIViewController {
         t.underscoreHeight = 0.5
         let placeholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         t.attributedPlaceholder = placeholder
+        t.setPasswordTextEntry()
+        return t
+    }()
+    
+    let passwordConfirmTextfield : BaseUITextField = {
+        let t = BaseUITextField(frame: .zero)
+        t.underscoreColor = .lightGray
+        t.underscoreHeight = 0.5
+        let placeholder = NSAttributedString(string: "Password Confirm", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        t.attributedPlaceholder = placeholder
+        t.setPasswordTextEntry()
         return t
     }()
     
@@ -64,15 +76,16 @@ class SignupViewController: BaseUIViewController {
     let titleImage : UIImageView = {
         let v = UIImageView(frame: .zero)
         v.tintColor = UIColor.init(hex: "84CCF6")
+        v.contentMode = .scaleAspectFit
         v.image = UIImage(named: "ic_home_48pt")?.withRenderingMode(.alwaysTemplate)
         return v
     }()
     
-    let spacerView : UIView = {
+    let spacerView = { () -> UIView in
         let v = UIView(frame:.zero)
         v.backgroundColor = .clear
         return v
-    }()
+    }
     
     let signupButton : BaseUIButton = {
         let b = BaseUIButton(frame: .zero)
@@ -88,6 +101,7 @@ class SignupViewController: BaseUIViewController {
         let s = UIStackView(frame: .zero)
         s.axis = .vertical
         s.distribution = .equalSpacing
+        s.alignment = .fill
         s.spacing = itemSpacing
         return s
     }()
@@ -115,6 +129,12 @@ class SignupViewController: BaseUIViewController {
         return b
     }()
     
+    let scrollView : UIScrollView = {
+        let s = UIScrollView(frame: .zero)
+        
+        return s
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
@@ -124,32 +144,76 @@ class SignupViewController: BaseUIViewController {
         
     }
 
+    private let navHeight : CGFloat = 70.0
+    private let inset : CGFloat = 15.0
+    
     func setupStackView(){
-        self.view.addSubview(stackNav)
-        stackNav.snapToSuperTop(withInsets:.init(top: 0, left: 15, bottom: 0, right: 15))
-        stackNav.setHeight(50)
+
+        //nav bar view
+        view.addSubview(stackNav)
+        stackNav.snapToSuperTop(withInsets:.init(top: 0, left: inset, bottom: 0, right: inset))
+        stackNav.setHeight(navHeight)
         stackNav.addArrangedSubview(cancelButton)
-        stackNav.addArrangedSubview(titleImage)
+        stackNav.addSubview(titleImage)
         stackNav.addArrangedSubview(moreButton)
+        titleImage.snapToSuperCenter()
+        titleImage.setHeight(navHeight - 20)
         
-        ///add stack view
-        self.view.addSubview(stackView)
-        stackView.snapToSuperTop(withInsets:.init(top: 15, left: 15, bottom: 80, right: 15))
+        ///MAIN
         
-        ///add subviews to stackview
+        //add stack view
+        view.addSubview(scrollView)
+        scrollView.snapToSuper(withInsets: .init(top: navHeight + 20, left: 0, bottom: 0, right: 0), override: true)
+
+        scrollView.addSubview(stackView)
+        stackView.snapToSuper(withInsets: .init(top: 0, left: inset, bottom: inset, right: inset), override: true)
+        stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -2.0 * inset).isActive = true
+
+        //spacer
+        let s1 = spacerView()
+        stackView.addArrangedSubview(s1)
+        s1.setHeight(15)
+
+        //title
         stackView.addArrangedSubview(titleLabel)
         
-        stackView.addArrangedSubview(spacerView)
-        spacerView.setHeight(20)
+        //spacer 2
+        let s2 = spacerView()
+        stackView.addArrangedSubview(s2)
+        s2.setHeight(40)
         
+        //username
         stackView.addArrangedSubview(usernameTextfield)
+        usernameTextfield.subscribeTo(view)
+        usernameTextfield.addToolbar()
+        usernameTextfield.subscribeTo(scrollView)
+        
+        //password
         stackView.addArrangedSubview(passwordTextfield)
+        passwordTextfield.subscribeTo(view)
+        passwordTextfield.addToolbar()
+        passwordTextfield.subscribeTo(scrollView)
+        
+        //password confirm
+        stackView.addArrangedSubview(passwordConfirmTextfield)
+        passwordConfirmTextfield.subscribeTo(view)
+        passwordConfirmTextfield.addToolbar()
+        passwordConfirmTextfield.subscribeTo(scrollView)
+        
+        //signup button
         stackView.addArrangedSubview(signupButton)
-        titleLabel.setHeight(SignupViewController.itemHeight)
-        usernameTextfield.setHeight(SignupViewController.itemHeight)
-        passwordTextfield.setHeight(SignupViewController.itemHeight)
         signupButton.setHeight(SignupViewController.buttonHeight)
         
+        //bottom spacer
+        let bs = spacerView()
+        stackView.addArrangedSubview(bs)
+        bs.setHeight(30)
+
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        scrollView.contentSize = CGSize(width: stackView.frame.width, height: max(stackView.frame.height, view.frame.height-navHeight))
     }
     
 }

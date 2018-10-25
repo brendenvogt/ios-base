@@ -64,6 +64,7 @@
 		E4F6168E2159E45500FF52FF /* PROJNAMETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6168D2159E45500FF52FF /* PROJNAMETests.swift */; };
 		E4F6169E2159ED4A00FF52FF /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6169D2159ED4A00FF52FF /* ViewControllerFactory.swift */; };
 		E4F616A02159EE3700FF52FF /* UrlFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6169F2159EE3700FF52FF /* UrlFactory.swift */; };
+		E4F882F02181F3250083E68F /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F882EF2181F3250083E68F /* UITextFieldExtensions.swift */; };
 		E4FE8763215D7C8D004CD7E9 /* AuthInfoContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FE8762215D7C8D004CD7E9 /* AuthInfoContract.swift */; };
 		E4FE8767215D7EDA004CD7E9 /* LoginRequestContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FE8766215D7EDA004CD7E9 /* LoginRequestContract.swift */; };
 /* End PBXBuildFile section */
@@ -144,6 +145,7 @@
 		E4F6168F2159E45500FF52FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4F6169D2159ED4A00FF52FF /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 		E4F6169F2159EE3700FF52FF /* UrlFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlFactory.swift; sourceTree = "<group>"; };
+		E4F882EF2181F3250083E68F /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtensions.swift; sourceTree = "<group>"; };
 		E4FE8762215D7C8D004CD7E9 /* AuthInfoContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInfoContract.swift; sourceTree = "<group>"; };
 		E4FE8766215D7EDA004CD7E9 /* LoginRequestContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestContract.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -308,6 +310,7 @@
 				E465382B2176DF4F0018DB75 /* IntExtensions.swift */,
 				E442A48A217720DD00A50F56 /* RandomExtensions.swift */,
 				E4799A90217EE0F5002A09B2 /* CGRectExtensions.swift */,
+				E4F882EF2181F3250083E68F /* UITextFieldExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -679,6 +682,7 @@
 				E4DCE386215A246000882D84 /* KeychainUtility.swift in Sources */,
 				E4799A87217E7BC6002A09B2 /* SignupViewController.swift in Sources */,
 				E4DCE37D215A211500882D84 /* CGFloatExtensions.swift in Sources */,
+				E4F882F02181F3250083E68F /* UITextFieldExtensions.swift in Sources */,
 				E43116F92179B2A500BC53F5 /* BaseCell.swift in Sources */,
 				E4CBD3722176975400233A8C /* BaseUIViewController.swift in Sources */,
 				E4513A7C2171E95B001CBD04 /* EncodableExtension.swift in Sources */,
