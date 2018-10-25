@@ -67,6 +67,15 @@ import UIKit
         self.scrollView = scrollView
     }
     
+    private func closeKeyboard(){
+        if let view = presenter {
+            view.endEditing(true)
+        }
+        if let scroll = self.scrollView {
+            scroll.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+        }
+    }
+    
     ///tap gesture
     public func subscribeTo(_ view:UIView){
         presenter = view
@@ -74,9 +83,7 @@ import UIKit
     }
     ///tap gesture action
     @objc func tapEndEditingAction(_ sender: UITextField) {
-        if let view = presenter {
-            view.endEditing(true)
-        }
+        closeKeyboard()
     }
     
     ///add toolbar with done button
@@ -92,12 +99,7 @@ import UIKit
     }
     ///done button toolbar action
     @objc func doneButtonAction(_ sender: UITextField) {
-        if let view = presenter {
-            view.endEditing(true)
-        }
-        if let scroll = self.scrollView {
-            scroll.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
-        }
+        closeKeyboard()
     }
     
     override public func layoutSubviews() {

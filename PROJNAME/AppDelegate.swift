@@ -18,11 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
 
-        ///set the base view contorller
+        ///Home Sample
         ///home
 //        let vc = ViewControllerFactory.homeViewController(viewModel: nil)
         
-        ///menu
+        ///Menu Sample
 //        let vc = ViewControllerFactory.menuViewController()
 //        let root = BaseUINavigationController(rootViewController: vc)
         ///turns the nav bar color
@@ -33,12 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ///set translucency
 //        root.navBarIsTranslucent = false
         
-        
-//        //auth
-//        let vc = AuthViewController()
-//        let root = BaseUINavigationController(rootViewController: vc)
-//        root.isNavigationBarHidden = true
-        
+        ///Auth Sample
         let root = BaseAuthViewController()
         
         ///get rid of black bar underneath navbar
