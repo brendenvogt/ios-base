@@ -14,6 +14,9 @@ class SignupViewController: BaseUIViewController {
     static let itemHeight: CGFloat = 30
     static let buttonHeight: CGFloat = 50
 
+    private let navHeight : CGFloat = 70.0
+    private let inset : CGFloat = 30.0
+    
     @objc func goPressed(_ sender: UIButton) {
         print("go")
         if let nav = self.navigationController{
@@ -144,9 +147,6 @@ class SignupViewController: BaseUIViewController {
         
     }
 
-    private let navHeight : CGFloat = 70.0
-    private let inset : CGFloat = 15.0
-    
     func setupStackView(){
 
         //nav bar view

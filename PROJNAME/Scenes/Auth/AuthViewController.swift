@@ -31,10 +31,9 @@ class AuthViewController: BaseUIViewController {
 
     let loginButton : BaseUIButton = {
         let b = BaseUIButton(frame: .zero)
-        b.backgroundColor = UIColor(white: 0.95, alpha: 0.2)
+        b.backgroundColor = UIColor(white: 0.8, alpha: 1.0)
+        b.setTitleColor( .white, for: .normal)
         b.cornerRadius = buttonHeight/2
-        b.borderWidth = 0.5
-        b.borderColor = .white
         b.setTitle("Log In", for: .normal)
         b.addTarget(self, action: #selector(loginPressed(_:)), for: .touchUpInside)
         return b
@@ -42,11 +41,9 @@ class AuthViewController: BaseUIViewController {
     
     let signupButton : BaseUIButton = {
         let b = BaseUIButton(frame: .zero)
-        b.backgroundColor = UIColor(white: 0.95, alpha: 0.2)
         b.cornerRadius = buttonHeight/2
-        b.borderWidth = 0.5
-        b.backgroundColor = .white
-        b.setTitleColor(.black, for: .normal)
+        b.backgroundColor =  UIColor.init(hex: "84CCF6")
+        b.setTitleColor(.white, for: .normal)
         b.setTitle("Sign Up", for: .normal)
         b.addTarget(self, action: #selector(signupPressed(_:)), for: .touchUpInside)
         return b
@@ -55,7 +52,7 @@ class AuthViewController: BaseUIViewController {
     let titleLabel : UILabel = {
         let l = UILabel(frame: .zero)
         l.font = .boldSystemFont(ofSize: 40)
-        l.textColor = .white
+        l.textColor = .black
         l.text = "Welcome"
         return l
     }()
@@ -85,10 +82,10 @@ class AuthViewController: BaseUIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .black
+        self.view.backgroundColor = .white
         
         ///setup background Image
-        setupBackgroundImage()
+//        setupBackgroundImage()
         
         ///setup stack view
         setupStackView()
