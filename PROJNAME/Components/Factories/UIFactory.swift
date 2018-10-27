@@ -10,6 +10,12 @@ import UIKit
 
 class UIFactory: NSObject {
     
+    //colors
+    static let accentColor : UIColor  = UIColor.init(hex: "0080D9") ?? UIFactory.defaultButtonColor
+    static let grayColor : UIColor = UIColor(white: 0.8, alpha: 1.0)
+    static let darkGrayColor : UIColor = UIColor(white: 0.3, alpha: 1.0)
+
+    
     //labels
     private static let h1Size : CGFloat = 32.0
     private static let h2Size : CGFloat = 28.0
@@ -36,9 +42,9 @@ class UIFactory: NSObject {
     static let h6Label = UIFactory.label(fontSize: UIFactory.h6Size)
     
     //buttons
-    static let buttonHeight : CGFloat = 50.0
-    static let defaultButtonColor : UIColor = UIColor(white: 0.8, alpha: 1.0)
-    static let accentButtonColor : UIColor = UIColor.init(hex: "84CCF6") ?? UIFactory.defaultButtonColor
+    static let buttonHeight : CGFloat = 40.0
+    static let defaultButtonColor : UIColor = UIFactory.grayColor
+    static let accentButtonColor : UIColor = UIFactory.accentColor
     
     private static func button(fontSize : CGFloat, backgroundColor : UIColor, titleColor: UIColor) -> ((String) -> BaseUIButton) {
         return { (text:String) -> BaseUIButton in

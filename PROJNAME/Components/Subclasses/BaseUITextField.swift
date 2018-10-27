@@ -13,6 +13,17 @@ import UIKit
     private var presenter : UIView?
     private var scrollView : UIScrollView?
     
+    public var toolbar = { () -> UIToolbar in
+        let toolbar:UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0,  width: 0, height: 30))
+        
+        let flexSpace = UIBarButtonItem(barButtonSystemItem:    .flexibleSpace, target: nil, action: nil)
+//        let doneBtn: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonAction(_:)))
+//        toolbar.setItems([flexSpace, doneBtn], animated: false)
+        toolbar.setItems([flexSpace], animated: false)
+        toolbar.sizeToFit()
+        return toolbar
+    }
+    
     private var _underscoreHeight: CGFloat = 0.0
     @IBInspectable public var underscoreHeight: CGFloat {
         get {
@@ -87,15 +98,18 @@ import UIKit
     }
     
     ///add toolbar with done button
-    public func addToolbar(){
-        let toolbar:UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0,  width: 0, height: 30))
-        
-        let flexSpace = UIBarButtonItem(barButtonSystemItem:    .flexibleSpace, target: nil, action: nil)
-        let doneBtn: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonAction(_:)))
-        toolbar.setItems([flexSpace, doneBtn], animated: false)
-        toolbar.sizeToFit()
-        
-        self.inputAccessoryView = toolbar
+    public func addToolbar(leftButton: UIBarButtonItem? = nil, rightButton: UIBarButtonItem? = nil){
+        let t = toolbar()
+        if let leftItem = leftButton {
+            t.items?.insert(leftItem, at: 0)
+            t.sizeToFit()
+        }
+        if let rightItem = rightButton {
+            t.items?.append(rightItem)
+            t.sizeToFit()
+        }
+
+        self.inputAccessoryView = t
     }
     ///done button toolbar action
     @objc func doneButtonAction(_ sender: UITextField) {

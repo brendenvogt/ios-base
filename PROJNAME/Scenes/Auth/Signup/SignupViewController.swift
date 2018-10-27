@@ -36,6 +36,11 @@ class SignupViewController: BaseUIViewController {
         print("more")
     }
     
+    @objc func doneAction(_ sender: UIBarButtonItem) {
+        print("done with keyboard")
+        self.view.endEditing(true)
+    }
+    
     let usernameTextfield = UIFactory.usernameTextfield("Phone, email or username")
     let passwordTextfield = UIFactory.passwordTextfield("Password")
     let passwordConfirmTextfield = UIFactory.passwordTextfield("Password Confirm")
@@ -44,7 +49,7 @@ class SignupViewController: BaseUIViewController {
     
     let titleImage : UIImageView = {
         let v = UIImageView(frame: .zero)
-        v.tintColor = UIColor.init(hex: "84CCF6")
+        v.tintColor = UIFactory.accentColor
         v.contentMode = .scaleAspectFit
         v.image = UIImage(named: "ic_home_48pt")?.withRenderingMode(.alwaysTemplate)
         return v
@@ -75,7 +80,7 @@ class SignupViewController: BaseUIViewController {
     let cancelButton : UIButton = {
         let b = UIButton(frame: .zero)
         b.setTitle("Back", for: .normal)
-        b.setTitleColor(.darkGray, for: .normal)
+        b.setTitleColor(UIFactory.darkGrayColor, for: .normal)
         b.addTarget(self, action: #selector(cancelPressed(_:)), for: .touchUpInside)
         return b
     }()
@@ -83,7 +88,7 @@ class SignupViewController: BaseUIViewController {
     let moreButton : UIButton = {
         let b = UIButton(frame: .zero)
         b.setTitle("More", for: .normal)
-        b.setTitleColor(.darkGray, for: .normal)
+        b.setTitleColor(UIFactory.darkGrayColor, for: .normal)
         b.addTarget(self, action: #selector(morePressed(_:)), for: .touchUpInside)
         return b
     }()
@@ -93,6 +98,12 @@ class SignupViewController: BaseUIViewController {
         
         return s
     }()
+    
+    let doneButton = { () -> UIBarButtonItem in
+        let b = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneAction(_:)))
+        b.tintColor = UIFactory.accentColor
+        return b
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -128,7 +139,7 @@ class SignupViewController: BaseUIViewController {
         //spacer
         let s1 = UIFactory.spacerView()
         stackView.addArrangedSubview(s1)
-        s1.setHeight(15)
+        s1.setHeight(10)
 
         //title
         stackView.addArrangedSubview(titleLabel)
@@ -136,25 +147,25 @@ class SignupViewController: BaseUIViewController {
         //spacer 2
         let s2 = UIFactory.spacerView()
         stackView.addArrangedSubview(s2)
-        s2.setHeight(40)
+        s2.setHeight(10)
         
         //username
         stackView.addArrangedSubview(usernameTextfield)
         usernameTextfield.subscribeTo(view)
-        usernameTextfield.addToolbar()
-        usernameTextfield.subscribeTo(scrollView)
+        usernameTextfield.addToolbar(rightButton: doneButton())
+        //usernameTextfield.subscribeTo(scrollView)
         
         //password
         stackView.addArrangedSubview(passwordTextfield)
         passwordTextfield.subscribeTo(view)
-        passwordTextfield.addToolbar()
-        passwordTextfield.subscribeTo(scrollView)
+        passwordTextfield.addToolbar(rightButton: doneButton())
+        //passwordTextfield.subscribeTo(scrollView)
         
         //password confirm
         stackView.addArrangedSubview(passwordConfirmTextfield)
         passwordConfirmTextfield.subscribeTo(view)
         passwordConfirmTextfield.addToolbar()
-        passwordConfirmTextfield.subscribeTo(scrollView)
+        //passwordConfirmTextfield.subscribeTo(scrollView)
         
         //signup button
         stackView.addArrangedSubview(signupButton)
@@ -163,7 +174,7 @@ class SignupViewController: BaseUIViewController {
         //bottom spacer
         let bs = UIFactory.spacerView()
         stackView.addArrangedSubview(bs)
-        bs.setHeight(30)
+        bs.setHeight(180)
 
     }
     

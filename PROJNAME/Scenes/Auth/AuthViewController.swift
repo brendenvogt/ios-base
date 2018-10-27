@@ -104,14 +104,19 @@ class AuthViewController: BaseUIViewController {
     func setupStackView(){
         ///add stack view
         self.view.addSubview(stackView)
-        stackView.snapToSuperTop(withInsets:.init(top: 40, left: 40, bottom: 80, right: 40))
+        stackView.snapToSuperTop(withInsets:.init(top: 0, left: 40, bottom: 40, right: 40))
 
         ///add subviews to stackview
         stackView.addArrangedSubview(titleLabel)
-        stackView.addArrangedSubview(loginButton)
-        loginButton.setHeight(UIFactory.buttonHeight)
+        
+        let s1 = UIFactory.spacerView()
+        stackView.addArrangedSubview(s1)
+        s1.setHeight(10)
+        
         stackView.addArrangedSubview(signupButton)
         signupButton.setHeight(UIFactory.buttonHeight)
+        stackView.addArrangedSubview(loginButton)
+        loginButton.setHeight(UIFactory.buttonHeight)
 
     }
     
