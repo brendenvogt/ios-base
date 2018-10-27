@@ -11,6 +11,7 @@
 		BB5788C0ED806E50126D963C /* Pods_PROJNAMETests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC903075F131892632A3E1E /* Pods_PROJNAMETests.framework */; };
 		E40B30DB2172AB2E003185E9 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40B30DA2172AB2E003185E9 /* ListView.swift */; };
 		E42A6FBA2173F37200B2DB02 /* AutoSizeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42A6FB92173F37200B2DB02 /* AutoSizeProtocol.swift */; };
+		E42F933F21846D22001F98CB /* UIFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F933E21846D22001F98CB /* UIFactory.swift */; };
 		E43116F721799AD700BC53F5 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43116F621799AD700BC53F5 /* MenuBar.swift */; };
 		E43116F92179B2A500BC53F5 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43116F82179B2A500BC53F5 /* BaseCell.swift */; };
 		E43116FB2179D12F00BC53F5 /* BaseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43116FA2179D12F00BC53F5 /* BaseCollectionViewController.swift */; };
@@ -88,6 +89,7 @@
 		B4DE7D3465583C68717D9D5B /* Pods_PROJNAME.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PROJNAME.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E40B30DA2172AB2E003185E9 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		E42A6FB92173F37200B2DB02 /* AutoSizeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoSizeProtocol.swift; sourceTree = "<group>"; };
+		E42F933E21846D22001F98CB /* UIFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFactory.swift; sourceTree = "<group>"; };
 		E43116F621799AD700BC53F5 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		E43116F82179B2A500BC53F5 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		E43116FA2179D12F00BC53F5 /* BaseCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewController.swift; sourceTree = "<group>"; };
@@ -417,6 +419,7 @@
 				E4F6169D2159ED4A00FF52FF /* ViewControllerFactory.swift */,
 				E4F6169F2159EE3700FF52FF /* UrlFactory.swift */,
 				E4DCE380215A229C00882D84 /* HeaderFactory.swift */,
+				E42F933E21846D22001F98CB /* UIFactory.swift */,
 			);
 			path = Factories;
 			sourceTree = "<group>";
@@ -666,6 +669,7 @@
 				E4DCE37F215A221600882D84 /* CALayerExtensions.swift in Sources */,
 				E45C5B16215DE05C001F1CD4 /* ErrorContract.swift in Sources */,
 				E4C1D5D72181367100CB345A /* BaseAuthViewController.swift in Sources */,
+				E42F933F21846D22001F98CB /* UIFactory.swift in Sources */,
 				E4DCE37B215A20C200882D84 /* UIColorExtensions.swift in Sources */,
 				E465382C2176DF4F0018DB75 /* IntExtensions.swift in Sources */,
 				E4DCE388215A307900882D84 /* UIViewExtension.swift in Sources */,

@@ -26,36 +26,21 @@ class AuthViewController: BaseUIViewController {
         }
     }
     
-    static let buttonHeight: CGFloat = 60
     static let itemSpacing: CGFloat = 20
 
     let loginButton : BaseUIButton = {
-        let b = BaseUIButton(frame: .zero)
-        b.backgroundColor = UIColor(white: 0.8, alpha: 1.0)
-        b.setTitleColor( .white, for: .normal)
-        b.cornerRadius = buttonHeight/2
-        b.setTitle("Log In", for: .normal)
+        let b = UIFactory.standardButton("Log In")
         b.addTarget(self, action: #selector(loginPressed(_:)), for: .touchUpInside)
         return b
     }()
     
     let signupButton : BaseUIButton = {
-        let b = BaseUIButton(frame: .zero)
-        b.cornerRadius = buttonHeight/2
-        b.backgroundColor =  UIColor.init(hex: "84CCF6")
-        b.setTitleColor(.white, for: .normal)
-        b.setTitle("Sign Up", for: .normal)
+        let b = UIFactory.accentButton("Sign Up")
         b.addTarget(self, action: #selector(signupPressed(_:)), for: .touchUpInside)
         return b
     }()
     
-    let titleLabel : UILabel = {
-        let l = UILabel(frame: .zero)
-        l.font = .boldSystemFont(ofSize: 40)
-        l.textColor = .black
-        l.text = "Welcome"
-        return l
-    }()
+    let titleLabel = UIFactory.h1Label("Welcome")
     
     let stackView : UIStackView = {
         let s = UIStackView(frame: .zero)
@@ -124,9 +109,9 @@ class AuthViewController: BaseUIViewController {
         ///add subviews to stackview
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(loginButton)
-        loginButton.setHeight(AuthViewController.buttonHeight)
+        loginButton.setHeight(UIFactory.buttonHeight)
         stackView.addArrangedSubview(signupButton)
-        signupButton.setHeight(AuthViewController.buttonHeight)
+        signupButton.setHeight(UIFactory.buttonHeight)
 
     }
     

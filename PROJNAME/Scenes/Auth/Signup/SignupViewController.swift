@@ -12,7 +12,6 @@ class SignupViewController: BaseUIViewController {
 
     static let itemSpacing: CGFloat = 20
     static let itemHeight: CGFloat = 30
-    static let buttonHeight: CGFloat = 50
 
     private let navHeight : CGFloat = 70.0
     private let inset : CGFloat = 30.0
@@ -35,46 +34,13 @@ class SignupViewController: BaseUIViewController {
     
     @objc func morePressed(_ sender: UIButton) {
         print("more")
-        
     }
     
-    let usernameTextfield : BaseUITextField = {
-        let t = BaseUITextField(frame: .zero)
-        t.underscoreColor = .lightGray
-        t.underscoreHeight = 0.5
-        let placeholder = NSAttributedString(string: "Phone, email or username", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
-        t.attributedPlaceholder = placeholder
-        t.setEmailTextEntry()
-        return t
-    }()
+    let usernameTextfield = UIFactory.usernameTextfield("Phone, email or username")
+    let passwordTextfield = UIFactory.passwordTextfield("Password")
+    let passwordConfirmTextfield = UIFactory.passwordTextfield("Password Confirm")
     
-    let passwordTextfield : BaseUITextField = {
-        let t = BaseUITextField(frame: .zero)
-        t.underscoreColor = .lightGray
-        t.underscoreHeight = 0.5
-        let placeholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
-        t.attributedPlaceholder = placeholder
-        t.setPasswordTextEntry()
-        return t
-    }()
-    
-    let passwordConfirmTextfield : BaseUITextField = {
-        let t = BaseUITextField(frame: .zero)
-        t.underscoreColor = .lightGray
-        t.underscoreHeight = 0.5
-        let placeholder = NSAttributedString(string: "Password Confirm", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
-        t.attributedPlaceholder = placeholder
-        t.setPasswordTextEntry()
-        return t
-    }()
-    
-    let titleLabel : UILabel = {
-        let l = UILabel(frame: .zero)
-        l.font = .systemFont(ofSize: 30, weight: .black)
-        l.textColor = .black
-        l.text = "Sign Up"
-        return l
-    }()
+    let titleLabel : UILabel = UIFactory.h1Label("Sign Up")
     
     let titleImage : UIImageView = {
         let v = UIImageView(frame: .zero)
@@ -83,19 +49,9 @@ class SignupViewController: BaseUIViewController {
         v.image = UIImage(named: "ic_home_48pt")?.withRenderingMode(.alwaysTemplate)
         return v
     }()
-    
-    let spacerView = { () -> UIView in
-        let v = UIView(frame:.zero)
-        v.backgroundColor = .clear
-        return v
-    }
-    
+
     let signupButton : BaseUIButton = {
-        let b = BaseUIButton(frame: .zero)
-        b.backgroundColor = UIColor.init(hex: "84CCF6")
-        b.cornerRadius = buttonHeight/2
-        b.setTitleColor(.white, for: .normal)
-        b.setTitle("Create Account  >", for: .normal)
+        let b = UIFactory.accentButton("Create Account  >")
         b.addTarget(self, action: #selector(goPressed(_:)), for: .touchUpInside)
         return b
     }()
@@ -170,15 +126,15 @@ class SignupViewController: BaseUIViewController {
         stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -2.0 * inset).isActive = true
 
         //spacer
-        let s1 = spacerView()
+        let s1 = UIFactory.spacerView()
         stackView.addArrangedSubview(s1)
         s1.setHeight(15)
 
         //title
         stackView.addArrangedSubview(titleLabel)
-        
+
         //spacer 2
-        let s2 = spacerView()
+        let s2 = UIFactory.spacerView()
         stackView.addArrangedSubview(s2)
         s2.setHeight(40)
         
@@ -202,10 +158,10 @@ class SignupViewController: BaseUIViewController {
         
         //signup button
         stackView.addArrangedSubview(signupButton)
-        signupButton.setHeight(SignupViewController.buttonHeight)
+        signupButton.setHeight(UIFactory.buttonHeight)
         
         //bottom spacer
-        let bs = spacerView()
+        let bs = UIFactory.spacerView()
         stackView.addArrangedSubview(bs)
         bs.setHeight(30)
 

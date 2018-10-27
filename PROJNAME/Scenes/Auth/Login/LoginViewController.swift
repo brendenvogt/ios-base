@@ -12,7 +12,6 @@ class LoginViewController: BaseUIViewController {
     
     static let itemSpacing: CGFloat = 20
     static let itemHeight: CGFloat = 30
-    static let buttonHeight: CGFloat = 50
     
     private let navHeight : CGFloat = 70.0
     private let inset : CGFloat = 30.0
@@ -39,22 +38,12 @@ class LoginViewController: BaseUIViewController {
     }
     
     let usernameTextfield : BaseUITextField = {
-        let t = BaseUITextField(frame: .zero)
-        t.underscoreColor = .lightGray
-        t.underscoreHeight = 0.5
-        let placeholder = NSAttributedString(string: "Phone, email or username", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
-        t.attributedPlaceholder = placeholder
-        t.setEmailTextEntry()
+        let t = UIFactory.usernameTextfield("Phone, email or username")
         return t
     }()
     
     let passwordTextfield : BaseUITextField = {
-        let t = BaseUITextField(frame: .zero)
-        t.underscoreColor = .lightGray
-        t.underscoreHeight = 0.5
-        let placeholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
-        t.attributedPlaceholder = placeholder
-        t.setPasswordTextEntry()
+        let t = UIFactory.passwordTextfield("Password")
         return t
     }()
     
@@ -74,18 +63,8 @@ class LoginViewController: BaseUIViewController {
         return v
     }()
     
-    let spacerView = { () -> UIView in
-        let v = UIView(frame:.zero)
-        v.backgroundColor = .clear
-        return v
-    }
-    
     let signupButton : BaseUIButton = {
-        let b = BaseUIButton(frame: .zero)
-        b.backgroundColor = UIColor.init(hex: "84CCF6")
-        b.cornerRadius = buttonHeight/2
-        b.setTitleColor(.white, for: .normal)
-        b.setTitle("Log In  >", for: .normal)
+        let b = UIFactory.accentButton("Log In  >")
         b.addTarget(self, action: #selector(goPressed(_:)), for: .touchUpInside)
         return b
     }()
@@ -160,7 +139,7 @@ class LoginViewController: BaseUIViewController {
         stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -2.0 * inset).isActive = true
         
         //spacer
-        let s1 = spacerView()
+        let s1 = UIFactory.spacerView()
         stackView.addArrangedSubview(s1)
         s1.setHeight(15)
         
@@ -168,7 +147,7 @@ class LoginViewController: BaseUIViewController {
         stackView.addArrangedSubview(titleLabel)
         
         //spacer 2
-        let s2 = spacerView()
+        let s2 = UIFactory.spacerView()
         stackView.addArrangedSubview(s2)
         s2.setHeight(40)
         
@@ -186,10 +165,10 @@ class LoginViewController: BaseUIViewController {
         
         //signup button
         stackView.addArrangedSubview(signupButton)
-        signupButton.setHeight(SignupViewController.buttonHeight)
+        signupButton.setHeight(UIFactory.buttonHeight)
         
         //bottom spacer
-        let bs = spacerView()
+        let bs = UIFactory.spacerView()
         stackView.addArrangedSubview(bs)
         bs.setHeight(30)
         
