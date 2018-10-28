@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: BaseUIViewController {
+class LoginViewController: BaseUIViewController, UIGestureRecognizerDelegate {
     
     static let itemSpacing: CGFloat = 20
     static let itemHeight: CGFloat = 30
@@ -77,23 +77,10 @@ class LoginViewController: BaseUIViewController {
         return b
     }()
     
-    let stackView : UIStackView = {
-        let s = UIStackView(frame: .zero)
-        s.axis = .vertical
-        s.distribution = .equalSpacing
-        s.alignment = .fill
-        s.spacing = itemSpacing
-        return s
-    }()
+    let stackView : UIStackView = UIFactory.stack(spacing: LoginViewController.itemSpacing, axis: .vertical, alignment: .fill, distribution: .equalSpacing)()
+    let stackNav : UIStackView = UIFactory.stack(spacing: 0, axis: .horizontal, alignment: .center, distribution: .equalSpacing)()
     
-    let stackNav : UIStackView = {
-        let s = UIStackView(frame: .zero)
-        s.axis = .horizontal
-        s.distribution = .equalSpacing
-        return s
-    }()
-    
-    let cancelButton : UIButton = {
+    let backButton : UIButton = {
         let b = UIButton(frame: .zero)
         b.setTitle("Back", for: .normal)
         b.setTitleColor(UIFactory.darkGrayColor, for: .normal)
@@ -142,7 +129,7 @@ class LoginViewController: BaseUIViewController {
         view.addSubview(stackNav)
         stackNav.snapToSuperTop(withInsets:.init(top: 0, left: inset, bottom: 0, right: inset))
         stackNav.setHeight(navHeight)
-        stackNav.addArrangedSubview(cancelButton)
+        stackNav.addArrangedSubview(backButton)
         stackNav.addSubview(titleImage)
         stackNav.addArrangedSubview(moreButton)
         titleImage.snapToSuperCenter()

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignupViewController: BaseUIViewController {
+class SignupViewController: BaseUIViewController, UIGestureRecognizerDelegate {
 
     static let itemSpacing: CGFloat = 20
     static let itemHeight: CGFloat = 30
@@ -61,21 +61,8 @@ class SignupViewController: BaseUIViewController {
         return b
     }()
     
-    let stackView : UIStackView = {
-        let s = UIStackView(frame: .zero)
-        s.axis = .vertical
-        s.distribution = .equalSpacing
-        s.alignment = .fill
-        s.spacing = itemSpacing
-        return s
-    }()
-    
-    let stackNav : UIStackView = {
-        let s = UIStackView(frame: .zero)
-        s.axis = .horizontal
-        s.distribution = .equalSpacing
-        return s
-    }()
+    let stackView : UIStackView = UIFactory.stack(spacing: SignupViewController.itemSpacing, axis: .vertical, alignment: .fill, distribution: .equalSpacing)()
+    let stackNav : UIStackView = UIFactory.stack(spacing: 0, axis: .horizontal, alignment: .center, distribution: .equalSpacing)()
     
     let cancelButton : UIButton = {
         let b = UIButton(frame: .zero)
@@ -164,7 +151,7 @@ class SignupViewController: BaseUIViewController {
         //password confirm
         stackView.addArrangedSubview(passwordConfirmTextfield)
         passwordConfirmTextfield.subscribeTo(view)
-        passwordConfirmTextfield.addToolbar()
+        passwordConfirmTextfield.addToolbar(rightButton: doneButton())
         //passwordConfirmTextfield.subscribeTo(scrollView)
         
         //signup button
