@@ -30,6 +30,7 @@ class UIFactory: NSObject {
             l.font = .systemFont(ofSize: fontSize, weight: .black)
             l.textColor = .black
             l.text = text
+            l.numberOfLines = 0
             return l
         }
     }
@@ -94,4 +95,31 @@ class UIFactory: NSObject {
         return v
     }
     
+    //stack view
+    public static func stack(spacing: CGFloat, axis : NSLayoutConstraint.Axis, alignment: UIStackView.Alignment, distribution: UIStackView.Distribution) -> (() -> UIStackView) {
+        return { () -> UIStackView in
+            let s = UIStackView(frame: .zero)
+            s.axis = axis
+            s.distribution = distribution
+            s.alignment = alignment
+            s.spacing = spacing
+            return s
+        }
+    }
+    
+    //gradient
+    public static func gradient(top: UIColor, bottom : UIColor, angle: CGFloat) -> (() -> BaseUIView) {
+        return { () -> BaseUIView in
+            let g = BaseUIView(frame: .zero)
+            g.topColor = top
+            g.bottomColor = bottom
+            g.gradientAngle = angle
+            g.alpha = 1.0
+            return g
+        }
+    }
+    
+    public static let accentGradient = gradient(top: .white, bottom: UIFactory.accentColor, angle: 90)
+    public static let grayGradient = gradient(top: .white, bottom: UIFactory.grayColor, angle: 90)
+
 }
