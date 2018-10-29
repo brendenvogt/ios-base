@@ -10,7 +10,7 @@ import UIKit
 
 class AuthViewController: BaseUIViewController {
     
-    static let itemSpacing: CGFloat = 20
+    static let itemSpacing: CGFloat = 5
     
     @objc func signupPressed(_ sender: UIButton) {
         print("signup")
@@ -131,11 +131,11 @@ class AuthViewController: BaseUIViewController {
     func setupBackgroundImage(){
         
         ///adding image
-        self.view.insertSubview(backgroundImage, at: 0)
-        backgroundImage.snapToSuper()
-        let image = SampleImageUtility.grayscale(size: self.view?.bounds.size ?? CGSize(width: 300, height: 600))
-        backgroundImage.kf.setImage(with: URL(string: image), placeholder: nil, options: [.transition(.fade(1))], progressBlock: nil, completionHandler: { (image, error, cacheType, URL) in
-        })
+//        self.view.insertSubview(backgroundImage, at: 0)
+//        backgroundImage.snapToSuper()
+//        let image = SampleImageUtility.grayscale(size: self.view?.bounds.size ?? CGSize(width: 300, height: 600))
+//        backgroundImage.kf.setImage(with: URL(string: image), placeholder: nil, options: [.transition(.fade(1))], progressBlock: nil, completionHandler: { (image, error, cacheType, URL) in
+//        })
         
         ///adding gradient view
         self.view.insertSubview(gradientView, at: 0)
@@ -144,9 +144,11 @@ class AuthViewController: BaseUIViewController {
     }
     func setupStackView(){
 
+        
+        
         ///add stack view
         self.view.addSubview(stackView)
-        stackView.snapToSuper(withInsets:.init(top: 40, left: 40, bottom: 40, right: 40))
+        stackView.snapToSuper(withInsets:.init(top: 20, left: 20, bottom: 20, right: 20))
         
         ///welcome label
         stackView.addArrangedSubview(titleLabel)

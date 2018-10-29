@@ -22,10 +22,10 @@ class OnboardingViewController: UIViewController {
         i.contentMode = .scaleAspectFit
         return i
     }()
-    let titleLabel = UIFactory.h3Label("")
+    let titleLabel = UIFactory.h4Label("")
     let subtitleLabel = UIFactory.h6Label("")
     
-    let stackView = UIFactory.stack(spacing: 0, axis: .vertical, alignment: .center, distribution: UIStackView.Distribution.fill)()
+    let stackView = UIFactory.stack(spacing: 10, axis: .vertical, alignment: .center, distribution: .fillProportionally)()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,32 +36,17 @@ class OnboardingViewController: UIViewController {
         self.view.addSubview(stackView)
         stackView.snapToSuper()
         
-        
-        let s0 = UIFactory.spacerView()
-        stackView.addArrangedSubview(s0)
-        s0.setHeight(40)
-        
         stackView.addArrangedSubview(imageView)
-        
-        let s1 = UIFactory.spacerView()
-        stackView.addArrangedSubview(s1)
-        s1.setHeight(20)
+        imageView.setContentHuggingPriority(.fittingSizeLevel, for: .vertical)
         
         stackView.addArrangedSubview(titleLabel)
         titleLabel.textColor = UIFactory.darkGrayColor
-        titleLabel.setContentCompressionResistancePriority(.required, for: .vertical)
-        
-        let s2 = UIFactory.spacerView()
-        stackView.addArrangedSubview(s2)
-        s2.setHeight(10)
+        titleLabel.setContentHuggingPriority(.required, for: .vertical)
         
         stackView.addArrangedSubview(subtitleLabel)
         subtitleLabel.textColor = UIFactory.grayColor
-        subtitleLabel.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
-        
-        let s3 = UIFactory.spacerView()
-        stackView.addArrangedSubview(s3)
-        s3.setHeight(30)
+        subtitleLabel.setContentHuggingPriority(.required, for: .vertical)
+
     }
     
 }

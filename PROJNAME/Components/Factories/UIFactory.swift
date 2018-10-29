@@ -12,6 +12,7 @@ class UIFactory: NSObject {
     
     //colors
     static let accentColor : UIColor  = UIColor.init(hex: "0080D9") ?? UIFactory.defaultButtonColor
+    static let accentColor2 : UIColor  = UIColor.init(hex: "00a2d9") ?? UIFactory.defaultButtonColor
     static let grayColor : UIColor = UIColor(white: 0.8, alpha: 1.0)
     static let darkGrayColor : UIColor = UIColor(white: 0.3, alpha: 1.0)
 
@@ -119,7 +120,7 @@ class UIFactory: NSObject {
         }
     }
     
-    public static let accentGradient = gradient(top: .white, bottom: UIFactory.accentColor, angle: 90)
+    public static let accentGradient = gradient(top: UIFactory.accentColor, bottom: UIFactory.accentColor2, angle: 135)
     public static let grayGradient = gradient(top: .white, bottom: UIFactory.grayColor, angle: 90)
 
 }
