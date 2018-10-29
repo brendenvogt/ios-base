@@ -23,9 +23,9 @@ class OnboardingViewController: UIViewController {
         return i
     }()
     let titleLabel = UIFactory.h4Label("")
-    let subtitleLabel = UIFactory.h6Label("")
+    let subtitleLabel = UIFactory.p5Label("")
     
-    let stackView = UIFactory.stack(spacing: 10, axis: .vertical, alignment: .center, distribution: .fillProportionally)()
+    let stackView = UIFactory.stack(spacing: 20, axis: .vertical, alignment: .center, distribution: .fillProportionally)()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,18 +34,22 @@ class OnboardingViewController: UIViewController {
     
     func setupViews(){
         self.view.addSubview(stackView)
-        stackView.snapToSuper()
-        
+        stackView.snapToSuperCenter()
+        stackView.snapToWidth()
         stackView.addArrangedSubview(imageView)
         imageView.setContentHuggingPriority(.fittingSizeLevel, for: .vertical)
         
+        let s = UIFactory.spacerView()
+        stackView.addArrangedSubview(s)
+        s.setHeight(50)
+        
         stackView.addArrangedSubview(titleLabel)
         titleLabel.textColor = UIFactory.darkGrayColor
-        titleLabel.setContentHuggingPriority(.required, for: .vertical)
+        titleLabel.setContentHuggingPriority(.defaultLow, for: .vertical)
         
         stackView.addArrangedSubview(subtitleLabel)
-        subtitleLabel.textColor = UIFactory.grayColor
-        subtitleLabel.setContentHuggingPriority(.required, for: .vertical)
+        subtitleLabel.textColor = UIFactory.darkGrayColor
+        subtitleLabel.setContentHuggingPriority(.defaultLow, for: .vertical)
 
     }
     

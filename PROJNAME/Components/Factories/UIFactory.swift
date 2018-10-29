@@ -25,7 +25,7 @@ class UIFactory: NSObject {
     private static let h5Size : CGFloat = 16.0
     private static let h6Size : CGFloat = 12.0
 
-    private static func label(fontSize : CGFloat) -> ((String) -> UILabel) {
+    private static func hLabel(fontSize : CGFloat) -> ((String) -> UILabel) {
         return { (text:String) -> UILabel in
             let l = UILabel(frame: .zero)
             l.font = .systemFont(ofSize: fontSize, weight: .black)
@@ -36,12 +36,31 @@ class UIFactory: NSObject {
         }
     }
     
-    static let h1Label = UIFactory.label(fontSize: UIFactory.h1Size)
-    static let h2Label = UIFactory.label(fontSize: UIFactory.h2Size)
-    static let h3Label = UIFactory.label(fontSize: UIFactory.h3Size)
-    static let h4Label = UIFactory.label(fontSize: UIFactory.h4Size)
-    static let h5Label = UIFactory.label(fontSize: UIFactory.h5Size)
-    static let h6Label = UIFactory.label(fontSize: UIFactory.h6Size)
+    private static func pLabel(fontSize : CGFloat) -> ((String) -> UILabel) {
+        return { (text:String) -> UILabel in
+            let l = UILabel(frame: .zero)
+            l.font = .systemFont(ofSize: fontSize, weight: .light)
+            l.textColor = .black
+            l.text = text
+            l.numberOfLines = 0
+            return l
+        }
+    }
+    
+    static let h1Label = UIFactory.hLabel(fontSize: UIFactory.h1Size)
+    static let h2Label = UIFactory.hLabel(fontSize: UIFactory.h2Size)
+    static let h3Label = UIFactory.hLabel(fontSize: UIFactory.h3Size)
+    static let h4Label = UIFactory.hLabel(fontSize: UIFactory.h4Size)
+    static let h5Label = UIFactory.hLabel(fontSize: UIFactory.h5Size)
+    static let h6Label = UIFactory.hLabel(fontSize: UIFactory.h6Size)
+    
+    static let p1Label = UIFactory.pLabel(fontSize: UIFactory.h1Size)
+    static let p2Label = UIFactory.pLabel(fontSize: UIFactory.h2Size)
+    static let p3Label = UIFactory.pLabel(fontSize: UIFactory.h3Size)
+    static let p4Label = UIFactory.pLabel(fontSize: UIFactory.h4Size)
+    static let p5Label = UIFactory.pLabel(fontSize: UIFactory.h5Size)
+    static let p6Label = UIFactory.pLabel(fontSize: UIFactory.h6Size)
+    
     
     //buttons
     static let buttonHeight : CGFloat = 40.0

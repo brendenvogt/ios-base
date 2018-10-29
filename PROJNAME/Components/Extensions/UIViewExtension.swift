@@ -82,6 +82,20 @@ extension UIView {
         }
     }
     
+    func snapToWidth(override:Bool = false){
+        if let superView = self.superview {
+            self.translatesAutoresizingMaskIntoConstraints = false
+            if #available(iOS 11, *), !override {
+                let guide = superView.safeAreaLayoutGuide
+                self.rightAnchor.constraint(equalTo: guide.rightAnchor, constant: 0).isActive = true
+                self.leftAnchor.constraint(equalTo: guide.leftAnchor, constant: 0).isActive = true
+            }else{
+                self.rightAnchor.constraint(equalTo: superView.rightAnchor, constant: 0).isActive = true
+                self.leftAnchor.constraint(equalTo: superView.leftAnchor, constant: 0).isActive = true
+            }
+        }
+    }
+    
     func snapToSuperTop(withInsets insets: UIEdgeInsets = .zero){
         if let superView = self.superview {
             self.translatesAutoresizingMaskIntoConstraints = false
