@@ -22,11 +22,7 @@ class BaseAuthViewController: UIViewController {
     }
     
     let loadButton : BaseUIButton = {
-        let b = BaseUIButton(frame: .zero)
-        b.backgroundColor = UIColor.init(hex: "84CCF6")
-        b.setTitleColor(.white, for: .normal)
-        b.cornerRadius = 10
-        b.setTitle("load auth", for: .normal)
+        let b = UIFactory.accentButton("Load auth")
         b.addTarget(self, action: #selector(goPressed(_:)), for: .touchUpInside)
         return b
     }()
@@ -35,8 +31,13 @@ class BaseAuthViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         
+        let height: CGFloat = 50.0
+        
+        
         self.view.addSubview(loadButton)
-        loadButton.snapToSuper(withInsets: UIEdgeInsets(top: 100, left: 50, bottom: 100, right: 50))
+        loadButton.snapToSuperBottom(withInsets: .init(top: 0, left: 40, bottom: 100, right: 40))
+        loadButton.cornerRadius = height / 2
+        loadButton.setHeight(height)
     }
 
     /*

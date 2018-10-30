@@ -14,10 +14,15 @@ class UIFactory: NSObject {
     //ff7b00
     //ffbb00
     //ff3700
-    static let accentColor : UIColor = UIColor.init(hex: "ff7b00") ?? UIFactory.defaultButtonColor
-    //UIColor.init(hex: "0080D9") ?? UIFactory.defaultButtonColor
+    
+    ///accent1
+    static let accentColor : UIColor = UIColor.init(hex: "ff3700") ?? UIFactory.defaultButtonColor
+//    static let accentColor : UIColor = UIColor.init(hex: "0080D9") ?? UIFactory.defaultButtonColor
+    
+    ///accent2
     static let accentColor2 : UIColor = UIColor.init(hex: "ffbb00") ?? UIFactory.defaultButtonColor
-    //UIColor.init(hex: "00a2d9") ?? UIFactory.defaultButtonColor
+//    static let accentColor2 : UIColor = UIColor.init(hex: "00a2d9") ?? UIFactory.defaultButtonColor
+    
     static let grayColor : UIColor = UIColor(white: 0.8, alpha: 1.0)
     static let darkGrayColor : UIColor = UIColor(white: 0.3, alpha: 1.0)
 
