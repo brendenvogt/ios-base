@@ -11,8 +11,13 @@ import UIKit
 class UIFactory: NSObject {
     
     //colors
-    static let accentColor : UIColor  = UIColor.init(hex: "0080D9") ?? UIFactory.defaultButtonColor
-    static let accentColor2 : UIColor  = UIColor.init(hex: "00a2d9") ?? UIFactory.defaultButtonColor
+    //ff7b00
+    //ffbb00
+    //ff3700
+    static let accentColor : UIColor = UIColor.init(hex: "ff7b00") ?? UIFactory.defaultButtonColor
+    //UIColor.init(hex: "0080D9") ?? UIFactory.defaultButtonColor
+    static let accentColor2 : UIColor = UIColor.init(hex: "ffbb00") ?? UIFactory.defaultButtonColor
+    //UIColor.init(hex: "00a2d9") ?? UIFactory.defaultButtonColor
     static let grayColor : UIColor = UIColor(white: 0.8, alpha: 1.0)
     static let darkGrayColor : UIColor = UIColor(white: 0.3, alpha: 1.0)
 
@@ -79,8 +84,22 @@ class UIFactory: NSObject {
         }
     }
     
+    private static func button(fontSize : CGFloat, topColor : UIColor, bottomColor : UIColor, titleColor: UIColor) -> ((String) -> BaseUIButton) {
+        return { (text:String) -> BaseUIButton in
+            let b = BaseUIButton(frame: .zero)
+            b.topColor = topColor
+            b.bottomColor = bottomColor
+            b.gradientAngle = -35
+            b.setTitleColor(titleColor, for: .normal)
+            b.cornerRadius = buttonHeight/2
+            b.setTitle(text, for: .normal)
+            b.titleLabel?.font = UIFont.boldSystemFont(ofSize: fontSize)
+            return b
+        }
+    }
+    
     static let standardButton = UIFactory.button(fontSize: UIFactory.h5Size, backgroundColor: defaultButtonColor, titleColor: .white)
-    static let accentButton = UIFactory.button(fontSize: UIFactory.h5Size, backgroundColor: accentButtonColor, titleColor: .white)
+    static let accentButton = UIFactory.button(fontSize: UIFactory.h5Size, topColor: UIFactory.accentColor, bottomColor: UIFactory.accentColor2, titleColor: .white)
     
     //text fields
     private enum TextFieldType {
