@@ -13,7 +13,7 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = UIColor.rgb(230, 32, 31)
+        cv.backgroundColor = UIFactory.accentColor
         cv.dataSource = self
         cv.delegate = self
         return cv
@@ -68,7 +68,7 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
         if let imageName = menuViewController?.sections[indexPath.item].imageName {
             cell.imageView.image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
         }
-        cell.tintColor = UIColor.rgb(91, 14, 13)
+        cell.tintColor = UIFactory.highlighted
         return cell
     }
     
@@ -95,19 +95,19 @@ class MenuCell: BaseCell {
     let imageView: UIImageView = {
         let iv = UIImageView()
         iv.image = UIImage(named: "home")?.withRenderingMode(.alwaysTemplate)
-        iv.tintColor = UIColor.rgb(91, 14, 13)
+        iv.tintColor = UIFactory.highlighted
         return iv
     }()
     
     override var isHighlighted: Bool {
         didSet {
-            imageView.tintColor = isHighlighted ? UIColor.white : UIColor.rgb(91, 14, 13)
+            imageView.tintColor = isHighlighted ? UIColor.white : UIFactory.highlighted
         }
     }
     
     override var isSelected: Bool {
         didSet {
-            imageView.tintColor = isSelected ? UIColor.white : UIColor.rgb(91, 14, 13)
+            imageView.tintColor = isSelected ? UIColor.white : UIFactory.highlighted
         }
     }
     

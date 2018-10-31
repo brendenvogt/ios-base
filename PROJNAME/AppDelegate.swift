@@ -23,18 +23,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let vc = ViewControllerFactory.homeViewController(viewModel: nil)
         
         ///Menu Sample
-//        let vc = ViewControllerFactory.menuViewController()
-//        let root = BaseUINavigationController(rootViewController: vc)
+        let vc = ViewControllerFactory.menuViewController()
+        let root = BaseUINavigationController(rootViewController: vc)
         ///turns the nav bar color
-//        root.navBarTintColor = UIColor.rgb(230, 32, 31)
+        root.navBarTintColor = UIFactory.accentColor
         ///sets the status bar light
-//        vc.lightStatusBar = true
-//        root.lightStatusBar = true
+        vc.lightStatusBar = true
+        root.lightStatusBar = true
         ///set translucency
-//        root.navBarIsTranslucent = false
+        root.navBarIsTranslucent = false
         
         ///Auth Sample
-        let root = BaseAuthViewController()
+//        let root = BaseAuthViewController()
         
         ///get rid of black bar underneath navbar
         UINavigationBar.appearance().shadowImage = UIImage()

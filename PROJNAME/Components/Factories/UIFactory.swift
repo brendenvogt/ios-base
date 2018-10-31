@@ -23,6 +23,9 @@ class UIFactory: NSObject {
     static let accentColor2 : UIColor = UIColor.init(hex: "ffbb00") ?? UIFactory.defaultButtonColor
 //    static let accentColor2 : UIColor = UIColor.init(hex: "00a2d9") ?? UIFactory.defaultButtonColor
     
+    static let highlighted : UIColor = UIColor.rgb(91, 14, 13)
+//    static let highlighted : UIColor = UIColor.init(hex: "005590") ?? UIFactory.darkGrayColor
+    
     static let grayColor : UIColor = UIColor(white: 0.8, alpha: 1.0)
     static let darkGrayColor : UIColor = UIColor(white: 0.3, alpha: 1.0)
 

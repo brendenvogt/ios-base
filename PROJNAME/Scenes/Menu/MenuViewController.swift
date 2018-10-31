@@ -99,6 +99,15 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
     }
     @objc func handleSearch(){
         print("search")
+
+        let vc = AuthViewController()
+        let root = BaseUINavigationController(rootViewController: vc)
+        root.isNavigationBarHidden = true
+        
+        self.present(root, animated: true) {
+            print("presented auth")
+        }
+
     }
     @objc func handleMore(){
         print("more")
@@ -122,7 +131,7 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
         navigationController?.hidesBarsOnSwipe = false
         
         let menuView = UIView()
-        menuView.backgroundColor = UIColor.rgb(230, 32, 31)
+        menuView.backgroundColor = UIFactory.accentColor
         view.addSubview(menuView)
         view.addConstraintsWithFormat(format: "H:|[v0]|", views: menuView)
         view.addConstraintsWithFormat(format: "V:[v0(50)]", views: menuView)
