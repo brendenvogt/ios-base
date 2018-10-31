@@ -114,7 +114,6 @@ class AuthViewController: BaseUIViewController {
     }()
     
     func setupPageViewController(){
-        
         pageViewController.delegate = self
         pageViewController.dataSource = self
         guard let vc = viewcontrollers.first else {
@@ -131,11 +130,11 @@ class AuthViewController: BaseUIViewController {
     func setupBackgroundImage(){
         
         ///adding image
-//        self.view.insertSubview(backgroundImage, at: 0)
-//        backgroundImage.snapToSuper()
-//        let image = SampleImageUtility.grayscale(size: self.view?.bounds.size ?? CGSize(width: 300, height: 600))
-//        backgroundImage.kf.setImage(with: URL(string: image), placeholder: nil, options: [.transition(.fade(1))], progressBlock: nil, completionHandler: { (image, error, cacheType, URL) in
-//        })
+        self.view.insertSubview(backgroundImage, at: 0)
+        backgroundImage.snapToSuper()
+        let image = SampleImageUtility.grayscale(size: self.view?.bounds.size ?? CGSize(width: 300, height: 600))
+        backgroundImage.kf.setImage(with: URL(string: image), placeholder: nil, options: [.transition(.fade(1))], progressBlock: nil, completionHandler: { (image, error, cacheType, URL) in
+        })
         
         ///adding gradient view
         self.view.insertSubview(gradientView, at: 0)
@@ -144,8 +143,6 @@ class AuthViewController: BaseUIViewController {
     }
     func setupStackView(){
 
-        
-        
         ///add stack view
         self.view.addSubview(stackView)
         stackView.snapToSuper(withInsets:.init(top: 20, left: 20, bottom: 20, right: 20))
@@ -208,6 +205,16 @@ class AuthViewController: BaseUIViewController {
 }
 
 extension AuthViewController : UIPageViewControllerDelegate, UIPageViewControllerDataSource {
+    
+    override func viewDidLayoutSubviews() {
+        if UIDevice.current.orientation == UIDeviceOrientation.landscapeLeft || UIDevice.current.orientation == UIDeviceOrientation.landscapeRight {
+            self.pageControl.isHidden = true
+            self.pageViewController.view.isHidden = true
+        }else{
+            self.pageControl.isHidden = false
+            self.pageViewController.view.isHidden = false
+        }
+    }
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if let first = pageViewController.viewControllers?.first{

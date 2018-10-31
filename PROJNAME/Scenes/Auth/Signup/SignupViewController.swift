@@ -12,7 +12,6 @@ class SignupViewController: BaseUIViewController, UIGestureRecognizerDelegate {
 
     static let itemSpacing: CGFloat = 20
     static let itemHeight: CGFloat = 30
-
     private let navHeight : CGFloat = 70.0
     private let inset : CGFloat = 30.0
     
@@ -82,7 +81,6 @@ class SignupViewController: BaseUIViewController, UIGestureRecognizerDelegate {
     
     let scrollView : UIScrollView = {
         let s = UIScrollView(frame: .zero)
-        
         return s
     }()
     
@@ -98,7 +96,6 @@ class SignupViewController: BaseUIViewController, UIGestureRecognizerDelegate {
         
         ///stackview
         setupStackView()
-        
     }
 
     func setupStackView(){
