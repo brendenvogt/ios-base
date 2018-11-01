@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         ///Home Sample
         ///home
-//        let vc = ViewControllerFactory.homeViewController(viewModel: nil)
+//        let root = ViewControllerFactory.homeViewController(viewModel: nil)
         
         ///Menu Sample
         let vc = ViewControllerFactory.menuViewController()
@@ -32,10 +32,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         root.lightStatusBar = true
         ///set translucency
         root.navBarIsTranslucent = false
-        
+
         ///Auth Sample
-//        let root = BaseAuthViewController()
+        //let root = BaseAuthViewController()
         
+        
+        ///CONFIG
+
         ///get rid of black bar underneath navbar
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
