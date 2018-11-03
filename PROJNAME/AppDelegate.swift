@@ -36,7 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ///Auth Sample
         //let root = BaseAuthViewController()
         
-        
         ///CONFIG
 
         ///get rid of black bar underneath navbar
