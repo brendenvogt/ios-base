@@ -38,6 +38,7 @@
 		E492A72B21746D9300F9023F /* CircularImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E492A72A21746D9300F9023F /* CircularImageCell.xib */; };
 		E492A72D21746DA100F9023F /* CircularImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E492A72C21746DA100F9023F /* CircularImageCell.swift */; };
 		E492A7312174D26200F9023F /* SampleImageUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E492A7302174D26200F9023F /* SampleImageUtility.swift */; };
+		E4B1DD48218FA10500575625 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B1DD47218FA10500575625 /* ChartViewController.swift */; };
 		E4BECDE42179DFEF0060942C /* SettingsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BECDE32179DFEF0060942C /* SettingsLauncher.swift */; };
 		E4C1D5D72181367100CB345A /* BaseAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C1D5D62181367100CB345A /* BaseAuthViewController.swift */; };
 		E4CBD36A2176960E00233A8C /* BaseUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CBD3692176960E00233A8C /* BaseUIButton.swift */; };
@@ -117,6 +118,7 @@
 		E492A72A21746D9300F9023F /* CircularImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CircularImageCell.xib; sourceTree = "<group>"; };
 		E492A72C21746DA100F9023F /* CircularImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularImageCell.swift; sourceTree = "<group>"; };
 		E492A7302174D26200F9023F /* SampleImageUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleImageUtility.swift; sourceTree = "<group>"; };
+		E4B1DD47218FA10500575625 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		E4BECDE32179DFEF0060942C /* SettingsLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLauncher.swift; sourceTree = "<group>"; };
 		E4C1D5D62181367100CB345A /* BaseAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAuthViewController.swift; sourceTree = "<group>"; };
 		E4CBD3692176960E00233A8C /* BaseUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIButton.swift; sourceTree = "<group>"; };
@@ -282,6 +284,14 @@
 			path = CircularImageCell;
 			sourceTree = "<group>";
 		};
+		E4B1DD46218FA0F200575625 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				E4B1DD47218FA10500575625 /* ChartViewController.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
 		E4BECDE22179DFCA0060942C /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -409,6 +419,7 @@
 		E4F616992159EA4E00FF52FF /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E4B1DD46218FA0F200575625 /* Chart */,
 				E4799A7E217E7862002A09B2 /* Auth */,
 				E4F190612178649A002EEFB5 /* Menu */,
 				E4F6169A2159EA8500FF52FF /* Home */,
@@ -629,11 +640,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PROJNAME/Pods-PROJNAME-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -677,6 +690,7 @@
 				E4FE8767215D7EDA004CD7E9 /* LoginRequestContract.swift in Sources */,
 				E4BECDE42179DFEF0060942C /* SettingsLauncher.swift in Sources */,
 				E4513A7E2171FC67001CBD04 /* JSONDecoderAdv.swift in Sources */,
+				E4B1DD48218FA10500575625 /* ChartViewController.swift in Sources */,
 				E4DCE37F215A221600882D84 /* CALayerExtensions.swift in Sources */,
 				E45C5B16215DE05C001F1CD4 /* ErrorContract.swift in Sources */,
 				E4C1D5D72181367100CB345A /* BaseAuthViewController.swift in Sources */,

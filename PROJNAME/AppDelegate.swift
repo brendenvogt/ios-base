@@ -23,18 +23,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let root = ViewControllerFactory.homeViewController(viewModel: nil)
         
         ///Menu Sample
-        let vc = ViewControllerFactory.menuViewController()
-        let root = BaseUINavigationController(rootViewController: vc)
-        ///turns the nav bar color
-        root.navBarTintColor = UIFactory.accentColor
-        ///sets the status bar light
-        vc.lightStatusBar = true
-        root.lightStatusBar = true
-        ///set translucency
-        root.navBarIsTranslucent = false
+//        let vc = ViewControllerFactory.menuViewController()
+//        let root = BaseUINavigationController(rootViewController: vc)
+//        ///turns the nav bar color
+//        root.navBarTintColor = UIFactory.accentColor
+//        ///sets the status bar light
+//        vc.lightStatusBar = true
+//        root.lightStatusBar = true
+//        ///set translucency
+//        root.navBarIsTranslucent = false
 
         ///Auth Sample
         //let root = BaseAuthViewController()
+
+        ///Chart Sample
+        let root = ChartViewController()
         
         ///CONFIG
 

@@ -185,13 +185,13 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
         var color = UIColor.white
         if indexPath.item == 0 {
             identifier = Section1.className
-            color = UIColor.blue
+            color = UIColor.init(white: 0.9, alpha: 1.0)
         } else if indexPath.item == 1 {
             identifier = Section2.className
-            color = UIColor.black
+            color = UIColor.init(white: 0.8, alpha: 1.0)
         } else if indexPath.item == 2 {
             identifier = Section3.className
-            color = UIColor.purple
+            color = UIColor.init(white: 0.7, alpha: 1.0)
         } else {
             identifier = Section3.className
         }

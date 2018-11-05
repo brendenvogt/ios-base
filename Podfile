@@ -8,7 +8,8 @@ target 'PROJNAME' do
   use_frameworks!
   pod 'Alamofire', '~> 4.7.3'
   pod 'Kingfisher', '~> 4.10'
-
+  pod 'Charts', '~> 3.2.1'
+  
   # Pods for PROJNAME
 
   target 'PROJNAMETests' do
