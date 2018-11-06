@@ -95,7 +95,7 @@ class ChartViewController: BaseUIViewController {
         set1.highlightLineWidth = 1.0
         set1.drawHorizontalHighlightIndicatorEnabled = false
 //        set1.highlightLineDashLengths = [5.0]
-
+        
         //legend
         self.chartView.legend.enabled = false
         
@@ -124,9 +124,10 @@ class ChartViewController: BaseUIViewController {
         
         let data = BarChartData(dataSet: set1)
         data.setValueFont(UIFont(name: "HelveticaNeue-Light", size: 10)!)
-        data.barWidth = 0.9
+        data.barWidth = 0.8
+        
         barChartView.data = data
-
+        
         //legend
         barChartView.legend.enabled = false
         barChartView.rightAxis.enabled = false
