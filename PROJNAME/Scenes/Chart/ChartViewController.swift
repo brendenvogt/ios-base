@@ -20,6 +20,12 @@ class ChartViewController: BaseUIViewController {
         return c
     }()
     
+    let barChartView : BarChartView = {
+        let c = BarChartView(frame: .zero)
+        
+        return c
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.init(hex: "050D13")
@@ -30,10 +36,15 @@ class ChartViewController: BaseUIViewController {
         stackView.addArrangedSubview(chartView)
         chartView.snapToSuperTop()
         chartView.setHeight(250)
-        addChartView(1000, range: 10)
+        addChartView()
+        
+        stackView.addArrangedSubview(barChartView)
+        barChartView.snapToSuperBottom()
+        barChartView.setHeight(250)
+        addBarChartView()
     }
     
-    func addChartView(_ count: Int, range: UInt32){
+    func addChartView(){
         
         let yVals1 = (0..<self.stockData2.count).map { (i) -> ChartDataEntry in
             return ChartDataEntry(x: Double(i), y: self.stockData2[i])
@@ -95,8 +106,33 @@ class ChartViewController: BaseUIViewController {
         
         chartView.data = data
     }
-    func addSlider(){
+
+    func addBarChartView(){
         
+        let yVals1 = (0..<self.stockData3.count).map { (i) -> BarChartDataEntry in
+            return BarChartDataEntry(x: Double(i), y: self.stockData3[i])
+        }
+        
+        let color = UIColor.lightGray
+        
+        let set1 = BarChartDataSet(values: yVals1, label: "Volume")// LineChartDataSet(values: yVals1, label: "DataSet 1")
+        set1.colors = [color]
+        set1.drawValuesEnabled = false
+        
+        let data = BarChartData(dataSet: set1)
+        data.setValueFont(UIFont(name: "HelveticaNeue-Light", size: 10)!)
+        data.barWidth = 0.9
+        barChartView.data = data
+
+        //legend
+        barChartView.legend.enabled = false
+        barChartView.rightAxis.enabled = false
+        barChartView.leftAxis.enabled = false
+        
+        //animate
+        barChartView.animate(xAxisDuration: TimeInterval.init(exactly: 1.5)!, easingOption: .easeInOutCubic)
+        
+        barChartView.data = data
     }
     
 
@@ -1223,6 +1259,122 @@ class ChartViewController: BaseUIViewController {
         187.492432,
         187.920944,
         187.243317,
+        186.844711,
+        186.216904,
+        189.57515,
+        191.159576,
+        192.634399,
+        193.302063,
+        192.78389,
+        191.030029,
+        190.561676,
+        191.608002,
+        190.033524,
+        190.133179,
+        188.180023,
+        188.080383,
+        185.041046,
+        185.848206,
+        184.811844,
+        184.273727,
+        181.53334,
+        183.785431,
+        183.516388,
+        184.8517,
+        184.463074,
+        186.525818,
+        183.277222,
+        184.752045,
+        187.31308,
+        189.913956,
+        189.684753,
+        187.223389,
+        190.362381,
+        190.661331,
+        190.242798,
+        190.780899,
+        189.734573,
+        191.209412,
+        190.77095,
+        190.940353,
+        192.325485,
+        194.139145,
+        193.531265,
+        190.312546,
+        189.246292,
+        189.624954,
+        200.795792,
+        206.665207,
+        207.263107,
+        208.33934,
+        206.386185,
+        206.525696,
+        208.149994,
+        207.529999,
+        208.869995,
+        209.75,
+        210.240005,
+        213.320007,
+        217.580002,
+        215.460007,
+        215.039993,
+        215.050003,
+        215.490005,
+        216.160004,
+        217.940002,
+        219.699997,
+        222.979996,
+        225.029999,
+        227.630005,
+        228.360001,
+        226.869995,
+        223.100006,
+        221.300003,
+        218.330002,
+        223.850006,
+        221.070007,
+        226.410004,
+        223.839996,
+        217.880005,
+        218.240005,
+        218.369995,
+        220.029999,
+        217.660004,
+        220.789993,
+        222.190002,
+        220.419998,
+        224.949997,
+        225.740005,
+        227.259995,
+        229.279999,
+        232.070007,
+        227.990005,
+        224.289993,
+        223.770004,
+        226.869995,
+        216.360001,
+        214.449997,
+        222.110001,
+        217.360001,
+        222.149994,
+        221.190002,
+        216.020004,
+        219.309998,
+        220.649994,
+        222.729996,
+        215.089996,
+        219.800003,
+        216.300003,
+        212.240005,
+        213.300003,
+        218.860001,
+        222.220001,
+        207.479996,
+        201.589996
+    ]
+    
+    let stockData3 : [Double] = [
+    
         186.844711,
         186.216904,
         189.57515,
