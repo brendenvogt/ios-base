@@ -28,37 +28,40 @@ class ChartViewController: BaseUIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.init(hex: "050D13")
+        self.view.backgroundColor = UIColor.init(hex: "1E1E1E")
         
         self.view.addSubview(stackView)
         stackView.snapToSuperTop()
         
         stackView.addArrangedSubview(chartView)
         chartView.snapToSuperTop()
-        chartView.setHeight(250)
+        chartView.setHeight(200)
         addChartView()
         
         stackView.addArrangedSubview(barChartView)
         barChartView.snapToSuperBottom()
-        barChartView.setHeight(250)
+        barChartView.setHeight(200)
         addBarChartView()
     }
     
     func addChartView(){
         
-        let yVals1 = (0..<self.stockData2.count).map { (i) -> ChartDataEntry in
-            return ChartDataEntry(x: Double(i), y: self.stockData2[i])
+        let yVals1 = (0..<self.stockData3.count).map { (i) -> ChartDataEntry in
+            return ChartDataEntry(x: Double(i), y: self.stockData3[i])
         }
+        let blue = UIColor.init(hex: "00CCFF")!
+        let green = UIColor.init(hex: "00FF00")!
+        let red = UIColor.init(hex: "FF0000")!
         
-        let color = UIColor.init(hex: "61CA9D")!
-        let color1 = UIColor.init(hex: "61CA9D", alpha:0.4)!
-        let color2 = UIColor.init(hex: "61CA9D", alpha:0.05)!
-
+        let color = red
+        let color1 = color.withAlphaComponent(0.3)
+        let color2 = color.withAlphaComponent(0.05)
+        
         let set1 = LineChartDataSet(values: yVals1, label: "DataSet 1")
         
         set1.axisDependency = .left
         set1.setColor(color)
-        set1.lineWidth = 2.0
+        set1.lineWidth = 1.5
         
         //bezier curve
         set1.mode = .cubicBezier
@@ -74,7 +77,7 @@ class ChartViewController: BaseUIViewController {
         set1.fillAlpha = 1.0
         set1.drawFilledEnabled = true
         let gradientColors = [color1.cgColor, color2.cgColor] as CFArray
-        let colorLocations:[CGFloat] = [0.5, 0.05]
+        let colorLocations:[CGFloat] = [0.4, 0.0]
         let gradient = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors, locations: colorLocations)
         set1.fill = Fill.fillWithLinearGradient(gradient!, angle: 90.0)
         set1.fillFormatter = DefaultFillFormatter { _,_  -> CGFloat in
@@ -113,7 +116,7 @@ class ChartViewController: BaseUIViewController {
             return BarChartDataEntry(x: Double(i), y: self.stockData3[i])
         }
         
-        let color = UIColor.lightGray
+        let color = UIColor.gray
         
         let set1 = BarChartDataSet(values: yVals1, label: "Volume")// LineChartDataSet(values: yVals1, label: "DataSet 1")
         set1.colors = [color]
