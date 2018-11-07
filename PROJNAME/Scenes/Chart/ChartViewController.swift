@@ -12,48 +12,83 @@ import Charts
 
 class ChartViewController: BaseUIViewController {
     
-    private let stackView = UIFactory.stack(spacing: 5, axis: .vertical, alignment: .center, distribution: UIStackView.Distribution.fillProportionally)()
+    static let itemSpacing: CGFloat = 20
+    static let itemHeight: CGFloat = 30
+    private let navHeight : CGFloat = 70.0
+    private let inset : CGFloat = 30.0
     
-    let chartView : LineChartView = {
+    let stackView : UIStackView = UIFactory.stack(spacing: LoginViewController.itemSpacing, axis: .vertical, alignment: .fill, distribution: .equalSpacing)()
+    let stackNav : UIStackView = UIFactory.stack(spacing: 0, axis: .horizontal, alignment: .center, distribution: .equalSpacing)()
+    
+    let scrollView : UIScrollView = {
+        let s = UIScrollView(frame: .zero)
+        return s
+    }()
+    
+    let chartView : () -> LineChartView = {
         let c = LineChartView(frame: .zero)
-        
         return c
-    }()
-    
-    let barChartView : BarChartView = {
+    }
+
+    let barChartView : () -> BarChartView = {
         let c = BarChartView(frame: .zero)
-        
         return c
-    }()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.init(hex: "1E1E1E")
+        self.view.backgroundColor = .white
         
-        self.view.addSubview(stackView)
-        stackView.snapToSuperTop()
-        
-        stackView.addArrangedSubview(chartView)
-        chartView.snapToSuperTop()
-        chartView.setHeight(200)
-        addChartView()
-        
-        stackView.addArrangedSubview(barChartView)
-        barChartView.snapToSuperBottom()
-        barChartView.setHeight(200)
-        addBarChartView()
-    }
-    
-    func addChartView(){
-        
-        let yVals1 = (0..<self.stockData3.count).map { (i) -> ChartDataEntry in
-            return ChartDataEntry(x: Double(i), y: self.stockData3[i])
-        }
         let blue = UIColor.init(hex: "00CCFF")!
         let green = UIColor.init(hex: "00FF00")!
         let red = UIColor.init(hex: "FF0000")!
         
-        let color = red
+        setupNav()
+        setupScrollingStackView()
+        
+        let colors : [UIColor] = [blue, green, red]
+        
+        for _ in 0...10 {
+            let color = colors.randomElement()!
+            let lChart = addChartView(color: color)
+            self.stackView.addArrangedSubview(lChart)
+            lChart.setHeight(150)
+            
+            let bChart = addBarChartView()
+            self.stackView.addArrangedSubview(bChart)
+            bChart.setHeight(50)
+        }
+    }
+    
+    func setupNav(){
+        ///nav bar view
+        view.addSubview(stackNav)
+        stackNav.snapToSuperTop(withInsets:.init(top: 0, left: inset, bottom: 0, right: inset))
+        stackNav.setHeight(navHeight)
+    }
+    func setupScrollingStackView(){
+        ///add stack view
+        view.addSubview(scrollView)
+        scrollView.snapToSuper(withInsets: .init(top: navHeight + 20, left: 0, bottom: 0, right: 0), override: true)
+        
+        scrollView.addSubview(stackView)
+        stackView.snapToSuper(withInsets: .init(top: 0, left: inset, bottom: inset, right: inset), override: true)
+        stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -2.0 * inset).isActive = true
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        scrollView.contentSize = CGSize(width: stackView.frame.width, height: max(stackView.frame.height, view.frame.height-navHeight))
+    }
+    
+    func addChartView(color : UIColor) -> LineChartView{
+        let lineChart = self.chartView()
+        let yVals1 = (0..<self.stockData3.count).map { (i) -> ChartDataEntry in
+            return ChartDataEntry(x: Double(i), y: self.stockData3[i])
+        }
+
         let color1 = color.withAlphaComponent(0.3)
         let color2 = color.withAlphaComponent(0.05)
         
@@ -63,17 +98,17 @@ class ChartViewController: BaseUIViewController {
         set1.setColor(color)
         set1.lineWidth = 1.5
         
-        //bezier curve
+        ///bezier curve
         set1.mode = .cubicBezier
         set1.cubicIntensity = 0.055
         
-        //remove circles
+        ///remove circles
         set1.circleRadius = 3
         set1.drawCirclesEnabled = false
         set1.drawCircleHoleEnabled = false
         set1.setCircleColor(color)
         
-        //fill color
+        ///fill color
         set1.fillAlpha = 1.0
         set1.drawFilledEnabled = true
         let gradientColors = [color1.cgColor, color2.cgColor] as CFArray
@@ -81,62 +116,68 @@ class ChartViewController: BaseUIViewController {
         let gradient = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors, locations: colorLocations)
         set1.fill = Fill.fillWithLinearGradient(gradient!, angle: 90.0)
         set1.fillFormatter = DefaultFillFormatter { _,_  -> CGFloat in
-            return CGFloat(self.chartView.leftAxis.axisMinimum)
+            return CGFloat(lineChart.leftAxis.axisMinimum)
         }
         
-        //data
+        ///data
         let data = LineChartData(dataSets: [set1])
         data.setDrawValues(false)
         
-        //indicator
+        ///indicator
         set1.setDrawHighlightIndicators(true)
-//        set1.highlightColor = .init(white: 0.75, alpha: 1.0)//gray
-        set1.highlightColor = color
         set1.highlightLineWidth = 1.0
         set1.drawHorizontalHighlightIndicatorEnabled = false
-//        set1.highlightLineDashLengths = [5.0]
+        //set1.highlightLineDashLengths = [5.0]
+    
+        ///indicator color
+        //set1.highlightColor = .init(white: 0.75, alpha: 1.0)//gray
+        set1.highlightColor = color
         
-        //legend
-        self.chartView.legend.enabled = false
+        ///legend
+        lineChart.legend.enabled = false
+        lineChart.rightAxis.enabled = false
+        lineChart.leftAxis.enabled = false
         
-        chartView.rightAxis.enabled = false
-        chartView.leftAxis.enabled = false
+        ///animate
+        lineChart.animate(xAxisDuration: TimeInterval.init(exactly: 1.5)!, easingOption: .easeInOutCubic)
         
-        //animate
-        chartView.animate(xAxisDuration: TimeInterval.init(exactly: 1.5)!, easingOption: .easeInOutCubic
-        )
-
+        ///set data
+        lineChart.data = data
         
-        chartView.data = data
+        return lineChart
     }
 
-    func addBarChartView(){
+    func addBarChartView() -> BarChartView{
+        
+        let chart = self.barChartView()
         
         let yVals1 = (0..<self.stockData3.count).map { (i) -> BarChartDataEntry in
             return BarChartDataEntry(x: Double(i), y: self.stockData3[i])
         }
         
-        let color = UIColor.gray
+        let color = UIColor.init(white: 0.4, alpha: 1.0)
         
-        let set1 = BarChartDataSet(values: yVals1, label: "Volume")// LineChartDataSet(values: yVals1, label: "DataSet 1")
+        let set1 = BarChartDataSet(values: yVals1, label: "Volume")
         set1.colors = [color]
         set1.drawValuesEnabled = false
+        set1.drawIconsEnabled = false
         
         let data = BarChartData(dataSet: set1)
         data.setValueFont(UIFont(name: "HelveticaNeue-Light", size: 10)!)
         data.barWidth = 0.8
+        chart.data = data
         
-        barChartView.data = data
+        ///legend
+        chart.legend.enabled = false
+        chart.rightAxis.enabled = false
+        chart.leftAxis.enabled = false
+        chart.xAxis.enabled = false
         
-        //legend
-        barChartView.legend.enabled = false
-        barChartView.rightAxis.enabled = false
-        barChartView.leftAxis.enabled = false
+        ///animate
+        //chart.animate(xAxisDuration: TimeInterval.init(exactly: 1.5)!, easingOption: .easeInOutCubic)
         
-        //animate
-        barChartView.animate(xAxisDuration: TimeInterval.init(exactly: 1.5)!, easingOption: .easeInOutCubic)
-        
-        barChartView.data = data
+        chart.data = data
+        return chart
     }
     
 
