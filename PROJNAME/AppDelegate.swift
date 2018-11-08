@@ -34,10 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        root.navBarIsTranslucent = false
 
         ///Auth Sample
-        //let root = BaseAuthViewController()
+//        let root = BaseAuthViewController()
 
         ///Chart Sample
-        //let root = ChartViewController()
+//        let root = ChartViewController()
         
         ///DailyChartView
         let root = DailyHeatMapViewController()
