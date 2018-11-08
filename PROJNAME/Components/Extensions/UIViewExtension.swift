@@ -115,6 +115,10 @@ extension UIView {
         self.heightAnchor.constraint(equalToConstant: height).isActive = true
     }
     
+    func setWidth(_ width:CGFloat){
+        self.widthAnchor.constraint(equalToConstant: width).isActive = true
+    }
+    
     var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius

@@ -38,7 +38,7 @@ class ChartViewController: BaseUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.init(hex: "1E1E1E")
-        self.view.backgroundColor = .white
+//        self.view.backgroundColor = .white
         
         let blue = UIColor.init(hex: "00CCFF")!
         let green = UIColor.init(hex: "00FF00")!

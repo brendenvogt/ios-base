@@ -37,7 +37,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //let root = BaseAuthViewController()
 
         ///Chart Sample
-        let root = ChartViewController()
+        //let root = ChartViewController()
+        
+        ///DailyChartView
+        let root = DailyHeatMapViewController()
         
         ///CONFIG
 

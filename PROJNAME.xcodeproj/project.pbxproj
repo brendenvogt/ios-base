@@ -22,6 +22,7 @@
 		E4513A7E2171FC67001CBD04 /* JSONDecoderAdv.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4513A7D2171FC67001CBD04 /* JSONDecoderAdv.swift */; };
 		E45C5B16215DE05C001F1CD4 /* ErrorContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45C5B15215DE05C001F1CD4 /* ErrorContract.swift */; };
 		E45C5B18215DE078001F1CD4 /* BoolContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45C5B17215DE078001F1CD4 /* BoolContract.swift */; };
+		E460C07921941DDF006A6E05 /* DailyHeatMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E460C07821941DDF006A6E05 /* DailyHeatMapViewController.swift */; };
 		E465382A2176D7710018DB75 /* BaseUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46538292176D7710018DB75 /* BaseUIView.swift */; };
 		E465382C2176DF4F0018DB75 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E465382B2176DF4F0018DB75 /* IntExtensions.swift */; };
 		E4799A81217E7893002A09B2 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4799A7F217E7893002A09B2 /* AuthViewController.swift */; };
@@ -102,6 +103,7 @@
 		E4513A7D2171FC67001CBD04 /* JSONDecoderAdv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderAdv.swift; sourceTree = "<group>"; };
 		E45C5B15215DE05C001F1CD4 /* ErrorContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorContract.swift; sourceTree = "<group>"; };
 		E45C5B17215DE078001F1CD4 /* BoolContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolContract.swift; sourceTree = "<group>"; };
+		E460C07821941DDF006A6E05 /* DailyHeatMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHeatMapViewController.swift; sourceTree = "<group>"; };
 		E46538292176D7710018DB75 /* BaseUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIView.swift; sourceTree = "<group>"; };
 		E465382B2176DF4F0018DB75 /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
 		E4799A7F217E7893002A09B2 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				E4B1DD47218FA10500575625 /* ChartViewController.swift */,
+				E460C07821941DDF006A6E05 /* DailyHeatMapViewController.swift */,
 			);
 			path = Chart;
 			sourceTree = "<group>";
@@ -667,6 +670,7 @@
 				E4799A81217E7893002A09B2 /* AuthViewController.swift in Sources */,
 				E42A6FBA2173F37200B2DB02 /* AutoSizeProtocol.swift in Sources */,
 				E4DCE381215A229C00882D84 /* HeaderFactory.swift in Sources */,
+				E460C07921941DDF006A6E05 /* DailyHeatMapViewController.swift in Sources */,
 				E465382A2176D7710018DB75 /* BaseUIView.swift in Sources */,
 				E4CBD370217696BF00233A8C /* BaseUINavigationController.swift in Sources */,
 				E48E1E112162256300A4FF03 /* ApiController.swift in Sources */,
