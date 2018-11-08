@@ -17,6 +17,7 @@
 		E43116FB2179D12F00BC53F5 /* BaseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43116FA2179D12F00BC53F5 /* BaseCollectionViewController.swift */; };
 		E4424A082185A733005A0465 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4424A072185A733005A0465 /* OnboardingViewController.swift */; };
 		E442A48B217720DD00A50F56 /* RandomExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E442A48A217720DD00A50F56 /* RandomExtensions.swift */; };
+		E4497893219454C5002D5A5F /* DailyHeatmapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4497892219454C5002D5A5F /* DailyHeatmapView.swift */; };
 		E4513A7A2171E832001CBD04 /* SignupRequestContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4513A792171E832001CBD04 /* SignupRequestContract.swift */; };
 		E4513A7C2171E95B001CBD04 /* EncodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4513A7B2171E95B001CBD04 /* EncodableExtension.swift */; };
 		E4513A7E2171FC67001CBD04 /* JSONDecoderAdv.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4513A7D2171FC67001CBD04 /* JSONDecoderAdv.swift */; };
@@ -98,6 +99,7 @@
 		E43116FA2179D12F00BC53F5 /* BaseCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewController.swift; sourceTree = "<group>"; };
 		E4424A072185A733005A0465 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		E442A48A217720DD00A50F56 /* RandomExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomExtensions.swift; sourceTree = "<group>"; };
+		E4497892219454C5002D5A5F /* DailyHeatmapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHeatmapView.swift; sourceTree = "<group>"; };
 		E4513A792171E832001CBD04 /* SignupRequestContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRequestContract.swift; sourceTree = "<group>"; };
 		E4513A7B2171E95B001CBD04 /* EncodableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableExtension.swift; sourceTree = "<group>"; };
 		E4513A7D2171FC67001CBD04 /* JSONDecoderAdv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderAdv.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 		E40B30D22172A4A7003185E9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E449788F219453CC002D5A5F /* DailyHeatmapView */,
 				E4424A062185A70D005A0465 /* OnboardingViewController */,
 				E4799A8D217ED9C7002A09B2 /* RoundedShadowView */,
 				E4BECDE22179DFCA0060942C /* Settings */,
@@ -232,6 +235,14 @@
 				E4424A072185A733005A0465 /* OnboardingViewController.swift */,
 			);
 			path = OnboardingViewController;
+			sourceTree = "<group>";
+		};
+		E449788F219453CC002D5A5F /* DailyHeatmapView */ = {
+			isa = PBXGroup;
+			children = (
+				E4497892219454C5002D5A5F /* DailyHeatmapView.swift */,
+			);
+			path = DailyHeatmapView;
 			sourceTree = "<group>";
 		};
 		E4799A7E217E7862002A09B2 /* Auth */ = {
@@ -703,6 +714,7 @@
 				E465382C2176DF4F0018DB75 /* IntExtensions.swift in Sources */,
 				E4DCE388215A307900882D84 /* UIViewExtension.swift in Sources */,
 				E48460D82175940900975A70 /* UICollectionViewExtension.swift in Sources */,
+				E4497893219454C5002D5A5F /* DailyHeatmapView.swift in Sources */,
 				E48460DA2175950400975A70 /* UITableViewExtension.swift in Sources */,
 				E4DCE384215A230900882D84 /* CredentialStoreUtility.swift in Sources */,
 				E4799A91217EE0F5002A09B2 /* CGRectExtensions.swift in Sources */,
