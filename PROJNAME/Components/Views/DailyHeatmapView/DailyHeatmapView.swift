@@ -60,6 +60,7 @@ public class DailyHeatmapView : UIView {
     private var colors : [UIColor] = []
     private var data : [Int] = []
     private var view : UIView?
+    private var indicator : UIView?
     
     private let defaultGray = UIColor.init(white: 0.9, alpha: 1.0)
     
@@ -127,8 +128,89 @@ public class DailyHeatmapView : UIView {
         return mainStack
     }
     
+    private func makeIndicator() -> UIView {
+        let view = UIView(frame:.init(x: 0, y: 0, width: 100, height: 50))
+        view.backgroundColor = .lightGray
+        view.cornerRadius = 10
+        view.layer.masksToBounds = true
+        
+        let label = UIFactory.h4Label("hello")
+        label.textColor = .white
+        view.addSubview(label)
+        label.snapToSuper()
+        
+        self.addSubview(view)
+        return view
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    private func getLocation(_ touch:UITouch) -> CGPoint {
+        var location = touch.location(in: self)
+        
+        location.y = location.y - 60
+        return location
+    }
+    
+//    private func getCell(_ touch:UITouch) -> (CGFloat, CGFloat) {
+//        let location = touch.location(in: self)
+//        
+//        let y = location.y
+//        let x = location.x
+//        
+//        let width = self.frame.width
+//        let height = self.frame.height
+//        let spacing = self.spacing
+//        
+//        let cols : CGFloat = 52.0
+//        let rows : CGFloat = 7.0
+//        
+//        let cell = ((width + spacing) / cols) - spacing
+//        
+//        let currentX = x*(cols/(width-(cols-1)*spacing))
+//        let currentY = y*(rows/(height-(rows-1)*spacing))
+//
+//        let finalX = max(min(ceil(currentX), cols),0)
+//        let finalY = max(min(ceil(currentY), rows), 0)
+//        
+//        return (finalX,finalY)
+//    }
+    
+    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches {
+            print(getCell(touch))
+            print(touch.location(in: self))
+            if let indicator = self.indicator {
+                indicator.center = getLocation(touch)
+            }else{
+                let i = makeIndicator()
+                i.center = getLocation(touch)
+                indicator = i
+            }
+        }
+    }
+    
+    public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches {
+            print(touch.location(in: self))
+            if let indicator = self.indicator {
+                indicator.center = getLocation(touch)
+                print(getCell(touch))
+            }
+        }
+    }
+    
+    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches {
+            print(touch.location(in: self))
+            if let indicator = self.indicator {
+                indicator.removeFromSuperview()
+                self.indicator = nil
+            }
+        }
     }
     
 }
