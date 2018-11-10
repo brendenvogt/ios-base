@@ -67,6 +67,8 @@ public class DailyHeatmapView : UIView {
     
     public var delegate : DailyHeatmapDataDelegate?
     private var view : UIView?
+    
+    public var hideIndicator: Bool = false
     private var indicator : UIView?
     private var indicatorLabel : UILabel?
     
@@ -138,7 +140,11 @@ public class DailyHeatmapView : UIView {
         return mainStack
     }
     
-    private func makeIndicator() -> UIView {
+    private func makeIndicator() -> UIView? {
+        if (hideIndicator == false) {
+            return nil
+        }
+        
         let view = UIView(frame:.init(x: 0, y: 0, width: 100, height: 50))
         view.backgroundColor = .lightGray
         view.cornerRadius = 10
@@ -191,7 +197,7 @@ public class DailyHeatmapView : UIView {
                 indicator.center = getLocation(touch)
             }else{
                 let i = makeIndicator()
-                i.center = getLocation(touch)
+                i?.center = getLocation(touch)
                 indicator = i
             }
         }

@@ -19,6 +19,9 @@ class DailyHeatMapViewController: BaseUIViewController, DailyHeatmapDataDelegate
         setupChart()
         
         setupButton()
+        
+        setupLabel()
+        
     }
 
     @objc func didTap(_ sender : UIButton) {
@@ -27,6 +30,7 @@ class DailyHeatMapViewController: BaseUIViewController, DailyHeatmapDataDelegate
     }
     
     let button = UIButton(frame: .zero)
+    let label = UIFactory.h4Label("")
     
     var data : [Int] = []
     
@@ -54,13 +58,23 @@ class DailyHeatMapViewController: BaseUIViewController, DailyHeatmapDataDelegate
         button.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
     }
     
+    func setupLabel(){
+        self.view.addSubview(label)
+        label.snapToSuperCenter()
+        label.setHeight(100)
+        label.setWidth(300)
+        label.textColor = DailyHeatmapView.Colors.normal.last
+        label.textAlignment = .center
+    }
+    
     func didSelectItem(atIndex index: CGPoint) {
         print("did select \(index)")
         let i = Int(index.x * index.y)
-        print(data[i])
+        label.text = "\(data[i])"
     }
     
     func didEndSelectItem(atIndex index: CGPoint) {
         print("did end select \(index)")
+        label.text = ""
     }
 }
