@@ -9,8 +9,7 @@
 import UIKit
 import Charts
 
-
-class ChartViewController: BaseUIViewController {
+class ChartViewController: BaseUIViewController{
     
     static let itemSpacing: CGFloat = 20
     static let itemHeight: CGFloat = 30

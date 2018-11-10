@@ -8,6 +8,11 @@
 
 import UIKit
 
+@objc public protocol DailyHeatmapDataDelegate {
+    @objc optional func didSelectItem(atIndex index:CGPoint)
+    @objc optional func didEndSelectItem(atIndex index:CGPoint)
+}
+
 public class DailyHeatmapView : UIView {
     
     class Colors {
@@ -59,8 +64,13 @@ public class DailyHeatmapView : UIView {
     
     private var colors : [UIColor] = []
     private var data : [Int] = []
+    
+    public var delegate : DailyHeatmapDataDelegate?
     private var view : UIView?
     private var indicator : UIView?
+    private var indicatorLabel : UILabel?
+    
+    private var selectedIndex : CGPoint?
     
     private let defaultGray = UIColor.init(white: 0.9, alpha: 1.0)
     
@@ -134,11 +144,13 @@ public class DailyHeatmapView : UIView {
         view.cornerRadius = 10
         view.layer.masksToBounds = true
         
-        let label = UIFactory.h4Label("hello")
+        let label = UIFactory.h4Label("")
+        label.textAlignment = .center
         label.textColor = .white
         view.addSubview(label)
         label.snapToSuper()
         
+        indicatorLabel = label
         self.addSubview(view)
         return view
     }
@@ -155,34 +167,26 @@ public class DailyHeatmapView : UIView {
         return location
     }
     
-//    private func getCell(_ touch:UITouch) -> (CGFloat, CGFloat) {
-//        let location = touch.location(in: self)
-//        
-//        let y = location.y
-//        let x = location.x
-//        
-//        let width = self.frame.width
-//        let height = self.frame.height
-//        let spacing = self.spacing
-//        
-//        let cols : CGFloat = 52.0
-//        let rows : CGFloat = 7.0
-//        
-//        let cell = ((width + spacing) / cols) - spacing
-//        
-//        let currentX = x*(cols/(width-(cols-1)*spacing))
-//        let currentY = y*(rows/(height-(rows-1)*spacing))
-//
-//        let finalX = max(min(ceil(currentX), cols),0)
-//        let finalY = max(min(ceil(currentY), rows), 0)
-//        
-//        return (finalX,finalY)
-//    }
+    private func getCell(_ touch:UITouch) -> CGPoint {
+        let location = touch.location(in: self)
+        
+        let cols : CGFloat = 52.0
+        let rows : CGFloat = 7.0
+        
+        let currentX = location.x * (cols/self.frame.width)
+        let currentY = location.y * (rows/self.frame.height)
+        
+        let finalX = max(min(ceil(currentX), cols),0)
+        let finalY = max(min(ceil(currentY), rows), 0)
+        
+        return CGPoint(x: finalX, y: finalY)
+    }
     
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
-            print(getCell(touch))
-            print(touch.location(in: self))
+            let point = getCell(touch)
+            delegate?.didSelectItem?(atIndex: point)
+
             if let indicator = self.indicator {
                 indicator.center = getLocation(touch)
             }else{
@@ -195,21 +199,28 @@ public class DailyHeatmapView : UIView {
     
     public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
-            print(touch.location(in: self))
+            let point = getCell(touch)
+            let index = Int(point.x * point.y)
+            delegate?.didSelectItem?(atIndex: point)
+
+            if let indicatorLabel = self.indicatorLabel {
+                indicatorLabel.text = "\(self.data[index])"
+            }
+            
             if let indicator = self.indicator {
                 indicator.center = getLocation(touch)
-                print(getCell(touch))
             }
         }
     }
     
     public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
-            print(touch.location(in: self))
-            if let indicator = self.indicator {
-                indicator.removeFromSuperview()
-                self.indicator = nil
-            }
+            let point = getCell(touch)
+            delegate?.didEndSelectItem?(atIndex: point)
+        }
+        if let indicator = self.indicator {
+            indicator.removeFromSuperview()
+            self.indicator = nil
         }
     }
     

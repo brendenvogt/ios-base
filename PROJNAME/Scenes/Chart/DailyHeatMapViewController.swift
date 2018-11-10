@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DailyHeatMapViewController: BaseUIViewController {
+class DailyHeatMapViewController: BaseUIViewController, DailyHeatmapDataDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +38,10 @@ class DailyHeatMapViewController: BaseUIViewController {
     }
     
     func setupChart(){
-        let mainStack = DailyHeatmapView(data: data, colors: DailyHeatmapView.Colors.normal, spacing: 2)
-        self.view.addSubview(mainStack)
-        mainStack.snapToSuperTop(withInsets: UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10))
+        let chart = DailyHeatmapView(data: data, colors: DailyHeatmapView.Colors.normal, spacing: 2)
+        self.view.addSubview(chart)
+        chart.snapToSuperTop(withInsets: UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10))
+        chart.delegate = self
     }
     
     func setupButton(){
@@ -53,4 +54,13 @@ class DailyHeatMapViewController: BaseUIViewController {
         button.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
     }
     
+    func didSelectItem(atIndex index: CGPoint) {
+        print("did select \(index)")
+        let i = Int(index.x * index.y)
+        print(data[i])
+    }
+    
+    func didEndSelectItem(atIndex index: CGPoint) {
+        print("did end select \(index)")
+    }
 }
