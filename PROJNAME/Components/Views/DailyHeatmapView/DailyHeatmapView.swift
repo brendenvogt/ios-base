@@ -45,6 +45,15 @@ public class DailyHeatmapView : UIView {
             UIColor.init(hex: "2F5E2E")!
         ]
         
+        ///red
+        static let red = [
+            UIColor.init(hex: "FFAAAA")!,
+            UIColor.init(hex: "D46A6A")!,
+            UIColor.init(hex: "AA3939")!,
+            UIColor.init(hex: "801515")!,
+            UIColor.init(hex: "550000")!
+        ]
+        
         //generator
         static func fromColor(_ color:UIColor, range:Int) -> [UIColor] {
             var colors : [UIColor] = []
@@ -207,15 +216,20 @@ public class DailyHeatmapView : UIView {
         for touch in touches {
             let point = getCell(touch)
             let index = Int(point.x * point.y)
-            delegate?.didSelectItem?(atIndex: point)
+            if point != selectedIndex {
+                
+                if let indicatorLabel = self.indicatorLabel {
+                    indicatorLabel.text = "\(self.data[index])"
+                }
+                
+                if let indicator = self.indicator {
+                    indicator.center = getLocation(touch)
+                }
+                
+                delegate?.didSelectItem?(atIndex: point)
+                selectedIndex = point
+            }
 
-            if let indicatorLabel = self.indicatorLabel {
-                indicatorLabel.text = "\(self.data[index])"
-            }
-            
-            if let indicator = self.indicator {
-                indicator.center = getLocation(touch)
-            }
         }
     }
     
