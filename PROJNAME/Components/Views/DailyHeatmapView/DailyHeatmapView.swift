@@ -241,7 +241,10 @@ public class DailyHeatmapView : UIView {
             labelsViewWidth = labelsView.frame.size.width + spacing
         }
         
-        if (location.x < labelsViewWidth) {
+        if (location.x < labelsViewWidth || location.x > view.frame.size.width) {
+            return nil
+        }
+        if (location.y < 0 || location.y > view.frame.size.height){
             return nil
         }
         
