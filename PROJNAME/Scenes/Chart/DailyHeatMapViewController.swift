@@ -21,7 +21,6 @@ class DailyHeatMapViewController: BaseUIViewController, DailyHeatmapDataDelegate
         setupButton()
         
         setupLabel()
-        
     }
 
     @objc func didTap(_ sender : UIButton) {
