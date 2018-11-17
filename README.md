@@ -6,6 +6,10 @@
 * Keychain and CredentialStore Utility
 * JWT Authentication
 * Login and Signup Sample
+* Sample Youtube Style Swipable Menu
+* Sample Github Style Daily Activity View
+* Sample Authentication Sequence
+* UIFactory for creating a set of ui components already styled 
 
 ## Upcoming Features
 * Global navigation
