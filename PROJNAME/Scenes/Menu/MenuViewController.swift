@@ -8,11 +8,7 @@
 
 import UIKit
 
-class Section1: BaseCell {
-}
-class Section2: BaseCell {
-}
-class Section3: BaseCell {
+class BasicCell: BaseCell {
 }
 
 struct Section {
@@ -21,6 +17,8 @@ struct Section {
 }
 
 class MenuViewController: BaseCollectionViewController, UICollectionViewDelegateFlowLayout {
+    
+    static let MenuHeight: CGFloat = 45.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,17 +40,15 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
             flowLayout.minimumLineSpacing = 0
         }
         
-        view.backgroundColor = UIColor.init(gray: 0.12)
+        view.backgroundColor = .white
         collectionView?.backgroundColor = .clear
         
         ///Register Cells
-        collectionView?.register(withClass: Section1.self)
-        collectionView?.register(withClass: Section2.self)
-        collectionView?.register(withClass: Section3.self)
+        collectionView?.register(withClass: BasicCell.self)
         
         ///menu bar insets
-        collectionView?.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
-        collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
+        collectionView?.contentInset = UIEdgeInsets(top: MenuViewController.MenuHeight, left: 0, bottom: 0, right: 0)
+        collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: MenuViewController.MenuHeight, left: 0, bottom: 0, right: 0)
         
         //menu defaults
         collectionView?.showsVerticalScrollIndicator = false
@@ -63,9 +59,9 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
     
     ///Sections
     public var sections : [Section] = [Section(title: "Home", imageName: "ic_home_48pt"),
-                                Section(title: "Watching", imageName: "ic_star_48pt"),
-                                Section(title: "Inbox", imageName: "ic_inbox_48pt"),
-                                Section(title: "Account", imageName: "ic_person_48pt")]
+                                       Section(title: "Watching", imageName: "ic_star_48pt"),
+                                       Section(title: "Inbox", imageName: "ic_inbox_48pt"),
+                                       Section(title: "Account", imageName: "ic_person_48pt")]
     var currentSection: Int = 0
     ///End Section
     
@@ -77,7 +73,7 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.textAlignment = .left
         navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: titleLabel)
-
+        
         setTitleForIndex(0)
     }
     private func setTitleForIndex(_ index: Int) {
@@ -99,7 +95,7 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
     }
     @objc func handleSearch(){
         print("search")
-
+        
         let vc = AuthViewController()
         let root = BaseUINavigationController(rootViewController: vc)
         root.isNavigationBarHidden = true
@@ -107,7 +103,7 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
         self.present(root, animated: true) {
             print("presented auth")
         }
-
+        
     }
     @objc func handleMore(){
         print("more")
@@ -134,11 +130,11 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
         menuView.backgroundColor = UIFactory.accentColor
         view.addSubview(menuView)
         view.addConstraintsWithFormat(format: "H:|[v0]|", views: menuView)
-        view.addConstraintsWithFormat(format: "V:[v0(50)]", views: menuView)
+        view.addConstraintsWithFormat(format: "V:[v0(\(MenuViewController.MenuHeight))]", views: menuView)
         
         view.addSubview(menuBar)
         view.addConstraintsWithFormat(format: "H:|[v0]|", views: menuBar)
-        view.addConstraintsWithFormat(format: "V:[v0(50)]", views: menuBar)
+        view.addConstraintsWithFormat(format: "V:[v0(\(MenuViewController.MenuHeight))]", views: menuBar)
         
         menuBar.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
     }
@@ -165,7 +161,7 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         menuBar.horizontalBarLeftAnchorConstraint?.constant = scrollView.contentOffset.x / CGFloat(sections.count)
     }
-
+    
     override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let index = targetContentOffset.pointee.x / view.frame.width
         
@@ -181,40 +177,52 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let identifier: String
-        var color = UIColor.white
-        if indexPath.item == 0 {
-            identifier = Section1.className
-            color = UIColor.init(white: 0.9, alpha: 1.0)
-        } else if indexPath.item == 1 {
-            identifier = Section2.className
-            color = UIColor.init(white: 0.8, alpha: 1.0)
-        } else if indexPath.item == 2 {
-            identifier = Section3.className
-            color = UIColor.init(white: 0.7, alpha: 1.0)
-        } else {
-            identifier = Section3.className
-        }
+        let identifier: String = BasicCell.className
+        let color = UIColor.white
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
+        var vc : BaseUIViewController?
+        
+        if indexPath.item == 0 {
+            vc = HomeViewController()
+        } else if indexPath.item == 1 {
+            vc = ChartViewController()
+        } else if indexPath.item == 2 {
+            vc = DailyHeatMapViewController()
+        } else {
+            vc = HomeViewController()
+        }
+        
+        if let vc = vc {
+            self.addChild(vc)
+            cell.contentView.addSubview(vc.view)
+            vc.view.backgroundColor = .white
+            vc.view.snapToSuper()
+        }
+        
         cell.backgroundColor = color
         return cell
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: view.frame.height - 50)
+        var offset: CGFloat = 0.0
+        if let tab = self.tabBarController {
+            offset = tab.tabBar.isTranslucent ? 50 : 0
+        }
+        return CGSize(width: view.frame.width, height: view.frame.height - MenuViewController.MenuHeight-offset)
     }
     
     //orientation change
     override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
         let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
         layout?.invalidateLayout()
-
+        
         let menuLayout = menuBar.collectionView.collectionViewLayout as? UICollectionViewFlowLayout
         menuLayout?.invalidateLayout()
         
         let settingsLayout = settingsLauncher.collectionView.collectionViewLayout as? UICollectionViewFlowLayout
         settingsLayout?.invalidateLayout()
-
+        
         scrollToMenuIndex(currentSection, false)
     }
     
