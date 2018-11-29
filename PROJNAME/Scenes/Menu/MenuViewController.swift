@@ -181,7 +181,7 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
         let color = UIColor.white
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
-        var vc : BaseUIViewController?
+        var vc : UIViewController?
         
         if indexPath.item == 0 {
             vc = HomeViewController()
@@ -190,7 +190,7 @@ class MenuViewController: BaseCollectionViewController, UICollectionViewDelegate
         } else if indexPath.item == 2 {
             vc = DailyHeatMapViewController()
         } else {
-            vc = HomeViewController()
+            vc = BaseAuthViewController()
         }
         
         if let vc = vc {
