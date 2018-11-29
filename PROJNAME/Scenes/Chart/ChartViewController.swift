@@ -37,7 +37,6 @@ class ChartViewController: BaseUIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.init(hex: "1E1E1E")
-//        self.view.backgroundColor = .white
         
         let blue = UIColor.init(hex: "00CCFF")!
         let green = UIColor.init(hex: "00FF00")!
@@ -126,10 +125,8 @@ class ChartViewController: BaseUIViewController{
         set1.setDrawHighlightIndicators(true)
         set1.highlightLineWidth = 1.0
         set1.drawHorizontalHighlightIndicatorEnabled = false
-        //set1.highlightLineDashLengths = [5.0]
     
         ///indicator color
-        //set1.highlightColor = .init(white: 0.75, alpha: 1.0)//gray
         set1.highlightColor = color
         
         ///legend
