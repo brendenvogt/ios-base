@@ -16,6 +16,8 @@ struct Section {
     var imageName: String
 }
 
+
+
 class MenuViewController: BaseCollectionViewController, UICollectionViewDelegateFlowLayout {
     
     static let MenuHeight: CGFloat = 45.0

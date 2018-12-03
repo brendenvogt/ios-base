@@ -31,7 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ///Home Sample
         ///home
 //        let root = ViewControllerFactory.homeViewController(viewModel: nil)
-
         
         ///Auth Sample
 //        let root = BaseAuthViewController()
@@ -49,11 +48,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         
         ///status bar background
-//        let statusBarBackgroundView = UIView()
-//        statusBarBackgroundView.backgroundColor = UIColor.rgb(194, 31, 31)
-//        window?.addSubview(statusBarBackgroundView)
-//        window?.addConstraintsWithFormat(format: "H:|[v0]|", views: statusBarBackgroundView)
-//        window?.addConstraintsWithFormat(format: "V:|[v0(20)]", views: statusBarBackgroundView)
+        let statusBarBackgroundView = UIView()
+        statusBarBackgroundView.backgroundColor = UIColor.rgb(194, 31, 31)
+        window?.addSubview(statusBarBackgroundView)
+        window?.addConstraintsWithFormat(format: "H:|[v0]|", views: statusBarBackgroundView)
+        window?.addConstraintsWithFormat(format: "V:|[v0(20)]", views: statusBarBackgroundView)
 
         ///set the window root vc
         window!.rootViewController = root
