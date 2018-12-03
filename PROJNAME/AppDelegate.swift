@@ -17,10 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
 
-        ///Home Sample
-        ///home
-//        let root = ViewControllerFactory.homeViewController(viewModel: nil)
-        
         ///Menu Sample
         let vc = ViewControllerFactory.menuViewController()
         let root = BaseUINavigationController(rootViewController: vc)
@@ -32,6 +28,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ///set translucency
         root.navBarIsTranslucent = false
 
+        ///Home Sample
+        ///home
+//        let root = ViewControllerFactory.homeViewController(viewModel: nil)
+
+        
         ///Auth Sample
 //        let root = BaseAuthViewController()
 
