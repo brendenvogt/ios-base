@@ -48,9 +48,7 @@ class PinterestCollectionViewController: UICollectionViewController {
 
         collectionView?.backgroundColor = UIColor.clear
         collectionView?.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
-
     }
-    
 }
 
 extension PinterestCollectionViewController {
@@ -76,6 +74,7 @@ extension PinterestCollectionViewController : PinterestLayoutDelegate {
         let item = photos[indexPath.item]
         if let layout = collectionView.collectionViewLayout as? PinterestLayout {
             let aspect: CGFloat = item.height/item.width
+            print(layout.collectionViewCellWidth)
             return layout.collectionViewCellWidth*aspect+80
         }
         return 100

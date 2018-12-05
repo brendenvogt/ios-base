@@ -18,15 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
 
         ///Menu Sample
-        let vc = ViewControllerFactory.menuViewController()
-        let root = BaseUINavigationController(rootViewController: vc)
-        ///turns the nav bar color
-        root.navBarTintColor = UIFactory.accentColor
-        ///sets the status bar light
-        vc.lightStatusBar = true
-        root.lightStatusBar = true
-        ///set translucency
-        root.navBarIsTranslucent = false
+//        let vc = ViewControllerFactory.menuViewController()
+//        let root = BaseUINavigationController(rootViewController: vc)
+//        ///turns the nav bar color
+//        root.navBarTintColor = UIFactory.accentColor
+//        ///sets the status bar light
+//        vc.lightStatusBar = true
+//        root.lightStatusBar = true
+//        ///set translucency
+//        root.navBarIsTranslucent = false
 
         ///Home Sample
         ///home
@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let root = DailyHeatMapViewController()
         
         ///PinterestCollectionViewController
-//        let root = PinterestViewController()
+        let root = PinterestViewController()
         
         ///CONFIG
 

@@ -1,9 +1,9 @@
 //
 //  SplitCollectionViewCell.swift
-//  BioWavesQue
+//  PROJNAME
 //
 //  Created by Brenden Vogt on 12/1/18.
-//  Copyright © 2018 BioWavesQue. All rights reserved.
+//  Copyright © 2018 ORGNAME. All rights reserved.
 //
 
 import UIKit
