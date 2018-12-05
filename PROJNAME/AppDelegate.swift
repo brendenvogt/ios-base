@@ -41,6 +41,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ///DailyChartView
 //        let root = DailyHeatMapViewController()
         
+        ///PinterestCollectionViewController
+//        let root = PinterestViewController()
+        
         ///CONFIG
 
         ///get rid of black bar underneath navbar
