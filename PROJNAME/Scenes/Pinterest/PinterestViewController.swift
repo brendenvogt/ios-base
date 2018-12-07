@@ -6,6 +6,8 @@
 //  Copyright © 2018 ORGNAME. All rights reserved.
 //
 
+//this is currently not working as the height calculation is not predictable
+
 import UIKit
 import Kingfisher
 
@@ -69,7 +71,6 @@ class SplitCollectionView : UICollectionView, UICollectionViewDataSource, UIColl
         self.showsVerticalScrollIndicator = false
         self.showsHorizontalScrollIndicator = false
         self.backgroundColor = .clear
-        //        self.register(withClass: SplitCellView.self)
         self.register(withNibClass: PinterestCollectionViewCell.self)
         self.shouldAutoLoad = true
         self.autoLoadAmount = 10
