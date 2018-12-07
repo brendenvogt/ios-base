@@ -11,7 +11,7 @@ import AVFoundation
 
 class PinterestCollectionViewController: UICollectionViewController {
     
-    var photos : [PinterestItem] = []
+    var items : [PinterestItem] = []
     
     init() {
         let layout = PinterestLayout()
@@ -43,7 +43,7 @@ class PinterestCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(withNibClass: PinterestCollectionViewCell.self)
-        photos = generateMore(30)
+        items = generateMore(30)
 
         collectionView?.backgroundColor = UIColor.clear
         collectionView?.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
@@ -53,14 +53,14 @@ class PinterestCollectionViewController: UICollectionViewController {
 extension PinterestCollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photos.count
+        return items.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeue(withNibClass: PinterestCollectionViewCell.self, forIndexPath: indexPath)
         if let annotateCell = cell as? PinterestCollectionViewCell {
-            annotateCell.item = photos[indexPath.item]
+            annotateCell.item = items[indexPath.item]
         }
         return cell
     }
@@ -70,10 +70,9 @@ extension PinterestCollectionViewController {
 extension PinterestCollectionViewController : PinterestLayoutDelegate {
 
     func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat {
-        let item = photos[indexPath.item]
+        let item = items[indexPath.item]
         if let layout = collectionView.collectionViewLayout as? PinterestLayout {
             let aspect: CGFloat = item.height/item.width
-            print(layout.collectionViewCellWidth)
             return layout.collectionViewCellWidth*aspect+80
         }
         return 100
