@@ -9,6 +9,15 @@
 import UIKit
 import AVFoundation
 
+struct PinterestItem {
+    public var title : String
+    public var subtitle : String
+    public var width : CGFloat
+    public var height : CGFloat
+    public var color : UIColor
+    public var imageUrl : String
+}
+
 class PinterestCollectionViewController: UICollectionViewController {
     
     var items : [PinterestItem] = []
