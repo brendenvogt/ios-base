@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let root = DailyHeatMapViewController()
         
         ///PinterestCollectionViewController
-        let root = PinterestViewController()
+        let root = PinterestCollectionViewController()
         
         ///CONFIG
 
