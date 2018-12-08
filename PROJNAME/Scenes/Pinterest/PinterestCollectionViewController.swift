@@ -18,6 +18,7 @@ struct PinterestItem {
     public var imageUrl : String
 }
 
+
 class PinterestCollectionViewController: UICollectionViewController {
     
     var items : [PinterestItem] = []
