@@ -152,21 +152,6 @@ class PinterestViewController: BaseUIViewController, UICollectionViewDelegate, U
         return s
     }()
     
-    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    //        let width = (self.view.frame.width-(2*padding)-(CGFloat(columns-1)*insets))/CGFloat(columns)
-    //
-    //        if let collectionView = collectionView as? SplitCollectionView {
-    //            if let vm = collectionView.viewModel {
-    //                let item = vm.items[indexPath.item]
-    //                let aspect = item.height / item.width
-    //                let newHeight = aspect * width
-    //                return CGSize.init(width: width, height: newHeight)
-    //            }
-    //        }
-    //
-    //        return CGSize.init(width: width, height: 250)
-    //    }
-    
     func genCollectionView() -> SplitCollectionView {
         
         //layout
