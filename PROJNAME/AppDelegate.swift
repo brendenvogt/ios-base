@@ -42,7 +42,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let root = DailyHeatMapViewController()
         
         ///PinterestCollectionViewController
-        let root = PinterestCollectionViewController()
+//        let root = PinterestCollectionViewController()
+        
+        ///SurveyViewController
+        let root = createSurveySection()
         
         ///CONFIG
 
@@ -64,6 +67,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    
+    func createSurveySection()-> SurveyViewController{
+        let survey = SurveyViewController()
+        let v1 = SurveyItem(name:"Item 1", color:UIColor.blue, imageURL: SampleImageUtility.normal(size: CGSize(width: CGFloat.random(min:400, max:500), height: CGFloat.random(min:400, max:500))) )
+        let v2 = SurveyItem(name:"Item 2", color:UIColor.red, imageURL: SampleImageUtility.normal(size: CGSize(width: CGFloat.random(min:400, max:500), height: CGFloat.random(min:400, max:500))) )
+        let v3 = SurveyItem(name:"Item 3", color:UIColor.orange, imageURL: SampleImageUtility.normal(size: CGSize(width: CGFloat.random(min:400, max:500), height: CGFloat.random(min:400, max:500))) )
+        survey.items = [v1, v2, v3]
+        return survey
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
