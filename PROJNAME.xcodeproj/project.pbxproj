@@ -18,6 +18,8 @@
 		E4424A082185A733005A0465 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4424A072185A733005A0465 /* OnboardingViewController.swift */; };
 		E442A48B217720DD00A50F56 /* RandomExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E442A48A217720DD00A50F56 /* RandomExtensions.swift */; };
 		E4497893219454C5002D5A5F /* DailyHeatmapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4497892219454C5002D5A5F /* DailyHeatmapView.swift */; };
+		E44AA83921C169B300E69F72 /* SurveyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E44AA83721C169B300E69F72 /* SurveyViewController.xib */; };
+		E44AA83A21C169B300E69F72 /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44AA83821C169B300E69F72 /* SurveyViewController.swift */; };
 		E4513A7A2171E832001CBD04 /* SignupRequestContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4513A792171E832001CBD04 /* SignupRequestContract.swift */; };
 		E4513A7C2171E95B001CBD04 /* EncodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4513A7B2171E95B001CBD04 /* EncodableExtension.swift */; };
 		E4513A7E2171FC67001CBD04 /* JSONDecoderAdv.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4513A7D2171FC67001CBD04 /* JSONDecoderAdv.swift */; };
@@ -105,6 +107,8 @@
 		E4424A072185A733005A0465 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		E442A48A217720DD00A50F56 /* RandomExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomExtensions.swift; sourceTree = "<group>"; };
 		E4497892219454C5002D5A5F /* DailyHeatmapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHeatmapView.swift; sourceTree = "<group>"; };
+		E44AA83721C169B300E69F72 /* SurveyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SurveyViewController.xib; sourceTree = "<group>"; };
+		E44AA83821C169B300E69F72 /* SurveyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
 		E4513A792171E832001CBD04 /* SignupRequestContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRequestContract.swift; sourceTree = "<group>"; };
 		E4513A7B2171E95B001CBD04 /* EncodableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableExtension.swift; sourceTree = "<group>"; };
 		E4513A7D2171FC67001CBD04 /* JSONDecoderAdv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderAdv.swift; sourceTree = "<group>"; };
@@ -204,6 +208,7 @@
 		E40B30D22172A4A7003185E9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E44AA83621C169B300E69F72 /* SurveyView */,
 				E449788F219453CC002D5A5F /* DailyHeatmapView */,
 				E4424A062185A70D005A0465 /* OnboardingViewController */,
 				E4799A8D217ED9C7002A09B2 /* RoundedShadowView */,
@@ -253,6 +258,15 @@
 				E4497892219454C5002D5A5F /* DailyHeatmapView.swift */,
 			);
 			path = DailyHeatmapView;
+			sourceTree = "<group>";
+		};
+		E44AA83621C169B300E69F72 /* SurveyView */ = {
+			isa = PBXGroup;
+			children = (
+				E44AA83721C169B300E69F72 /* SurveyViewController.xib */,
+				E44AA83821C169B300E69F72 /* SurveyViewController.swift */,
+			);
+			path = SurveyView;
 			sourceTree = "<group>";
 		};
 		E4799A7E217E7862002A09B2 /* Auth */ = {
@@ -620,6 +634,7 @@
 				E4BDA56021B7B5FE0049B6A4 /* PinterestCollectionViewCell.xib in Resources */,
 				E4F616802159E45400FF52FF /* Assets.xcassets in Resources */,
 				E492A72B21746D9300F9023F /* CircularImageCell.xib in Resources */,
+				E44AA83921C169B300E69F72 /* SurveyViewController.xib in Resources */,
 				E4900DE82173CF6C00664159 /* ListView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -742,6 +757,7 @@
 				E465382C2176DF4F0018DB75 /* IntExtensions.swift in Sources */,
 				E4DCE388215A307900882D84 /* UIViewExtension.swift in Sources */,
 				E48460D82175940900975A70 /* UICollectionViewExtension.swift in Sources */,
+				E44AA83A21C169B300E69F72 /* SurveyViewController.swift in Sources */,
 				E4497893219454C5002D5A5F /* DailyHeatmapView.swift in Sources */,
 				E48460DA2175950400975A70 /* UITableViewExtension.swift in Sources */,
 				E4DCE384215A230900882D84 /* CredentialStoreUtility.swift in Sources */,
