@@ -36,11 +36,6 @@ class SurveyCell : UICollectionViewCell {
     }
 }
 
-
-
-
-
-
 class SurveyViewController: BaseUIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet var pageControl: UIPageControl!
@@ -57,8 +52,6 @@ class SurveyViewController: BaseUIViewController, UICollectionViewDataSource, UI
         }
     }
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupButtons()
@@ -66,7 +59,6 @@ class SurveyViewController: BaseUIViewController, UICollectionViewDataSource, UI
         setupUI()
         self.pageControl.numberOfPages = items.count
     }
-    
     
     func setupUI(){
         let titleStyle = UIFactory.h4Label("")
@@ -89,14 +81,9 @@ class SurveyViewController: BaseUIViewController, UICollectionViewDataSource, UI
         }
     }
 
-    
-    
     @objc func selectedItem(_ sender: UIButton){
         print("selected \(sender.tag)")
     }
-    
-    
-    
     
     func createButton(item : SurveyItem, _ index : Int) -> UIButton{
         let b = UIButton(frame: .zero)
@@ -120,10 +107,6 @@ class SurveyViewController: BaseUIViewController, UICollectionViewDataSource, UI
         cell.setupView(item: items[indexPath.item])
         return cell
     }
-    
-    
-    
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
